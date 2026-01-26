@@ -1,0 +1,32 @@
+name: Publish API Types Package
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'server.d.ts'
+      - 'package.json'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v1
+
+      - name: Configure npm for GitHub Packages
+        run: |
+          echo "@archeusllc:registry=https://npm.pkg.github.com" >> .npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
+
+      - name: Bump version
+        run: npm version patch -m 'Auto-bump: API types update'
+
+      - name: Publish to GitHub Packages
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Push version tag
+        run: git push --follow-tags
