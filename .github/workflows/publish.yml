@@ -3,9 +3,6 @@ name: Publish API Types Package
 on:
   push:
     branches: [main]
-    paths:
-      - "server.d.ts"
-      - "package.json"
 
 jobs:
   publish:
