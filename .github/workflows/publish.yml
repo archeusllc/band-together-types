@@ -21,7 +21,7 @@ jobs:
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
 
       - name: Bump version
-        run: npm version patch -m 'Auto-bump: API types update'
+        run: 'npm version patch -m "Auto-bump: API types update"'
 
       - name: Publish to GitHub Packages
         run: npm publish
