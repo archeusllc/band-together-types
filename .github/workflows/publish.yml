@@ -17,11 +17,12 @@ jobs:
 
       - name: Configure npm for GitHub Packages
         run: |
-          cat > ~/.npmrc << EOF
+          cat > .npmrc << EOF
           @archeusllc:registry=https://npm.pkg.github.com
           //npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}
           registry=https://registry.npmjs.org/
           EOF
+          cat .npmrc
 
       - name: Configure git
         run: |
