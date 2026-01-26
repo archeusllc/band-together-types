@@ -17,8 +17,8 @@ jobs:
 
       - name: Configure npm for GitHub Packages
         run: |
-          echo "@archeusllc:registry=https://npm.pkg.github.com" >> .npmrc
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
+          npm config set "@archeusllc:registry" "https://npm.pkg.github.com"
+          npm config set "//npm.pkg.github.com/:_authToken" "${{ secrets.NPM_TOKEN }}"
 
       - name: Configure git
         run: |
@@ -30,8 +30,6 @@ jobs:
 
       - name: Publish to GitHub Packages
         run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Push version tag
         run: git push --follow-tags
