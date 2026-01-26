@@ -4,12 +4,15 @@ on:
   push:
     branches: [main]
     paths:
-      - 'server.d.ts'
-      - 'package.json'
+      - "server.d.ts"
+      - "package.json"
 
 jobs:
   publish:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
     steps:
       - uses: actions/checkout@v4
 
@@ -19,6 +22,11 @@ jobs:
         run: |
           echo "@archeusllc:registry=https://npm.pkg.github.com" >> .npmrc
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Bump version
         run: 'npm version patch -m "Auto-bump: API types update"'

@@ -16,6 +16,7 @@ bun start                    # Start the API server
 bun run generate            # Generate types to ../types/server.d.ts
 ```
 
+
 ## Usage
 
 In your client application:
