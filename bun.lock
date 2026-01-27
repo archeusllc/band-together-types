@@ -1,0 +1,15 @@
+{
+  "lockfileVersion": 1,
+  "configVersion": 1,
+  "workspaces": {
+    "": {
+      "name": "@archeusllc/types",
+      "dependencies": {
+        "@archeusllc/types": "^0.1.4",
+      },
+    },
+  },
+  "packages": {
+    "@archeusllc/types": ["@archeusllc/types@0.1.4", "https://npm.pkg.github.com/download/@archeusllc/types/0.1.4/bff5e0a94836a6ac55f442821de98194cf598614", {}, "sha512-ycXGfLdExnUbBiTVk3IivNdzSOmk7US/KF4tAQscx4rmoOw6ydqUy546mdiLv5MT1y1ETivjSDB9E0hoe1RfOA=="],
+  }
+}
