@@ -4,7 +4,9 @@
   "description": "API client types (Eden Treaty) for Band Together",
   "main": "server.d.ts",
   "types": "server.d.ts",
-  "scripts": {},
+  "scripts": {
+    "generate": "curl -o server.d.ts http://localhost:3000/server.d.ts"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/archeusllc/band-together-types.git"
