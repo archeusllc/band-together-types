@@ -1,6 +1,6 @@
 {
   "name": "@archeusllc/types",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "API client types (Eden Treaty) for Band Together",
   "main": "server.d.ts",
   "types": "server.d.ts",
