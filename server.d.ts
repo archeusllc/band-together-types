@@ -2127,69 +2127,67 @@ declare const app: Elysia<"", {
             query: unknown;
             headers: unknown;
             response: {
-                200: {
-                    data: ({
-                        guild: {
+                200: ({
+                    guild: {
+                        createdAt: Date;
+                        name: string;
+                        slug: string;
+                        guildId: string;
+                        venueId: string | null;
+                        guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
+                        isActive: boolean;
+                        createdById: string | null;
+                        currentOwnerId: string;
+                        actId: string | null;
+                        clubId: string | null;
+                    } | null;
+                    setItems: ({
+                        track: {
+                            type: import("@archeusllc/schema/prisma-client/client").$Enums.TrackType;
                             createdAt: Date;
-                            name: string;
-                            slug: string;
-                            guildId: string;
-                            venueId: string | null;
-                            guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
+                            updatedAt: Date;
+                            title: string;
                             isActive: boolean;
-                            createdById: string | null;
-                            currentOwnerId: string;
-                            actId: string | null;
-                            clubId: string | null;
-                        } | null;
-                        setItems: ({
-                            track: {
-                                type: import("@archeusllc/schema/prisma-client/client").$Enums.TrackType;
-                                createdAt: Date;
-                                updatedAt: Date;
-                                title: string;
-                                isActive: boolean;
-                                createdBy: string;
-                                trackId: string;
-                                artist: string;
-                                defaultDuration: number | null;
-                                defaultTuning: string | null;
-                            };
-                        } & {
-                            createdAt: Date;
-                            updatedAt: Date;
+                            createdBy: string;
                             trackId: string;
-                            setListId: string;
-                            setItemId: string;
-                            position: number;
-                            customTuning: string | null;
-                            customNotes: string | null;
-                            customDuration: number | null;
-                            sectionId: string | null;
-                        })[];
-                        setSections: {
-                            createdAt: Date;
-                            updatedAt: Date;
-                            name: string;
-                            setListId: string;
-                            position: number;
-                            sectionId: string;
-                            breakDuration: number | null;
-                        }[];
+                            artist: string;
+                            defaultDuration: number | null;
+                            defaultTuning: string | null;
+                        };
                     } & {
-                        description: string | null;
+                        createdAt: Date;
+                        updatedAt: Date;
+                        trackId: string;
+                        setListId: string;
+                        setItemId: string;
+                        position: number;
+                        customTuning: string | null;
+                        customNotes: string | null;
+                        customDuration: number | null;
+                        sectionId: string | null;
+                    })[];
+                    setSections: {
                         createdAt: Date;
                         updatedAt: Date;
                         name: string;
-                        slug: string | null;
-                        guildId: string | null;
                         setListId: string;
-                        isPrivate: boolean;
-                        viewToken: string;
-                        editToken: string;
-                        ownerId: string;
-                    })[];
-                } | {
+                        position: number;
+                        sectionId: string;
+                        breakDuration: number | null;
+                    }[];
+                } & {
+                    description: string | null;
+                    createdAt: Date;
+                    updatedAt: Date;
+                    name: string;
+                    slug: string | null;
+                    guildId: string | null;
+                    setListId: string;
+                    isPrivate: boolean;
+                    viewToken: string;
+                    editToken: string;
+                    ownerId: string;
+                })[] | {
                     error: string;
                 };
                 422: {
