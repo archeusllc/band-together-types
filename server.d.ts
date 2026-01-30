@@ -84,6 +84,12 @@ declare const app: Elysia<"", {
                     schemaMissing?: string[] | undefined;
                     status: string;
                     timestamp: string;
+                    versions: {
+                        api: any;
+                        database: string;
+                        models: string;
+                        schema: string;
+                    };
                     checks: {
                         database: string;
                         schema: string;
