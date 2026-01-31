@@ -159,6 +159,7 @@ declare const app: Elysia<"", {
                             displayName: string | null;
                             firebaseUid: string | null;
                             userId: string;
+                            tag: string | null;
                             avatar: string | null;
                             createdAt: Date;
                             updatedAt: Date;
@@ -208,6 +209,7 @@ declare const app: Elysia<"", {
                             displayName: string | null;
                             firebaseUid: string | null;
                             userId: string;
+                            tag: string | null;
                             avatar: string | null;
                             createdAt: Date;
                             updatedAt: Date;
@@ -302,6 +304,7 @@ declare const app: Elysia<"", {
                         displayName: string | null;
                         firebaseUid: string | null;
                         userId: string;
+                        tag: string | null;
                         avatar: string | null;
                         createdAt: Date;
                         updatedAt: Date;
@@ -946,6 +949,11 @@ declare const app: Elysia<"", {
             response: {
                 200: {
                     follows: ({
+                        tag: {
+                            value: string;
+                            tagId: string;
+                            category: string;
+                        } | null;
                         guild: ({
                             act: {
                                 name: string;
@@ -987,16 +995,12 @@ declare const app: Elysia<"", {
                             venueId: string | null;
                             clubId: string | null;
                         }) | null;
-                        tag: {
-                            value: string;
-                            tagId: string;
-                            category: string;
-                        } | null;
                         followedUser: {
                             email: string;
                             displayName: string | null;
                             firebaseUid: string | null;
                             userId: string;
+                            tag: string | null;
                             avatar: string | null;
                             createdAt: Date;
                             updatedAt: Date;
@@ -1038,6 +1042,11 @@ declare const app: Elysia<"", {
             headers: unknown;
             response: {
                 200: ({
+                    tag: {
+                        value: string;
+                        tagId: string;
+                        category: string;
+                    } | null;
                     guild: ({
                         act: {
                             name: string;
@@ -1079,16 +1088,12 @@ declare const app: Elysia<"", {
                         venueId: string | null;
                         clubId: string | null;
                     }) | null;
-                    tag: {
-                        value: string;
-                        tagId: string;
-                        category: string;
-                    } | null;
                     followedUser: {
                         email: string;
                         displayName: string | null;
                         firebaseUid: string | null;
                         userId: string;
+                        tag: string | null;
                         avatar: string | null;
                         createdAt: Date;
                         updatedAt: Date;
@@ -2076,6 +2081,211 @@ declare const app: Elysia<"", {
                         found?: unknown;
                         property?: string;
                         expected?: string;
+                    };
+                };
+            };
+        };
+    };
+} & {
+    me: {
+        notifications: {
+            get: {
+                body: unknown;
+                params: {};
+                query: {
+                    status?: "PENDING" | "SENT" | "DELIVERED" | "FAILED" | "READ" | undefined;
+                    page?: number | undefined;
+                    limit?: number | undefined;
+                };
+                headers: unknown;
+                response: {
+                    200: {
+                        notifications: {
+                            body: string;
+                            status: import("@archeusllc/schema/prisma-client/client").$Enums.NotificationStatus;
+                            type: import("@archeusllc/schema/prisma-client/client").$Enums.NotificationType;
+                            userId: string;
+                            createdAt: Date;
+                            data: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue;
+                            notificationId: string;
+                            title: string;
+                            readAt: Date | null;
+                            relatedType: string | null;
+                            relatedId: string | null;
+                        }[];
+                        total: number;
+                        page: number;
+                        limit: number;
+                    } | {
+                        error: string;
+                    };
+                    422: {
+                        type: "validation";
+                        on: string;
+                        summary?: string;
+                        message?: string;
+                        found?: unknown;
+                        property?: string;
+                        expected?: string;
+                    };
+                };
+            };
+        };
+    };
+} & {
+    me: {
+        notifications: {
+            "unread-count": {
+                get: {
+                    body: unknown;
+                    params: {};
+                    query: unknown;
+                    headers: unknown;
+                    response: {
+                        200: {
+                            count: number;
+                        } | {
+                            error: string;
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    me: {
+        notifications: {
+            ":notificationId": {
+                patch: {
+                    body: unknown;
+                    params: {
+                        notificationId: string;
+                    };
+                    query: unknown;
+                    headers: unknown;
+                    response: {
+                        200: {
+                            body: string;
+                            status: import("@archeusllc/schema/prisma-client/client").$Enums.NotificationStatus;
+                            type: import("@archeusllc/schema/prisma-client/client").$Enums.NotificationType;
+                            userId: string;
+                            createdAt: Date;
+                            data: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue;
+                            notificationId: string;
+                            title: string;
+                            readAt: Date | null;
+                            relatedType: string | null;
+                            relatedId: string | null;
+                        } | {
+                            error: string;
+                        };
+                        422: {
+                            type: "validation";
+                            on: string;
+                            summary?: string;
+                            message?: string;
+                            found?: unknown;
+                            property?: string;
+                            expected?: string;
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    me: {
+        notifications: {
+            ":notificationId": {
+                action: {
+                    post: {
+                        body: {
+                            data?: any;
+                            action: string;
+                        };
+                        params: {
+                            notificationId: string;
+                        };
+                        query: unknown;
+                        headers: unknown;
+                        response: {
+                            200: {
+                                body: string;
+                                status: import("@archeusllc/schema/prisma-client/client").$Enums.NotificationStatus;
+                                type: import("@archeusllc/schema/prisma-client/client").$Enums.NotificationType;
+                                userId: string;
+                                createdAt: Date;
+                                data: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue;
+                                notificationId: string;
+                                title: string;
+                                readAt: Date | null;
+                                relatedType: string | null;
+                                relatedId: string | null;
+                            } | {
+                                error: string;
+                            };
+                            422: {
+                                type: "validation";
+                                on: string;
+                                summary?: string;
+                                message?: string;
+                                found?: unknown;
+                                property?: string;
+                                expected?: string;
+                            };
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    me: {
+        notifications: {
+            ":notificationId": {
+                delete: {
+                    body: unknown;
+                    params: {
+                        notificationId: string;
+                    };
+                    query: unknown;
+                    headers: unknown;
+                    response: {
+                        422: {
+                            type: "validation";
+                            on: string;
+                            summary?: string;
+                            message?: string;
+                            found?: unknown;
+                            property?: string;
+                            expected?: string;
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    me: {
+        notifications: {
+            ws: {
+                subscribe: {
+                    body: {};
+                    params: {};
+                    query: {
+                        token: string;
+                    };
+                    headers: {};
+                    response: {
+                        422: {
+                            type: "validation";
+                            on: string;
+                            summary?: string;
+                            message?: string;
+                            found?: unknown;
+                            property?: string;
+                            expected?: string;
+                        };
                     };
                 };
             };
@@ -3316,13 +3526,11 @@ declare const app: Elysia<"", {
                 headers: unknown;
                 response: {
                     200: {
-                        email: string;
                         displayName: string | null;
-                        firebaseUid: string | null;
                         userId: string;
+                        tag: string | null;
                         avatar: string | null;
                         createdAt: Date;
-                        updatedAt: Date;
                     } | {
                         error: string;
                     };
