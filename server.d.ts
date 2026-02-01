@@ -75,6 +75,21 @@ declare const app: Elysia<"", {
         };
     };
 } & {
+    ping: {
+        get: {
+            body: unknown;
+            params: {};
+            query: unknown;
+            headers: unknown;
+            response: {
+                200: {
+                    status: string;
+                    version: any;
+                };
+            };
+        };
+    };
+} & {
     health: {
         get: {
             body: unknown;
@@ -938,6 +953,146 @@ declare const app: Elysia<"", {
         };
     };
 } & {
+    events: {
+        post: {
+            body: {
+                description?: string | undefined;
+                venueId?: string | undefined;
+                poster?: string | undefined;
+                confirmed?: boolean | undefined;
+                actIds?: string[] | undefined;
+                title: string;
+                startTime: string;
+                duration: number;
+                visibility: "INTERNAL" | "EXTERNAL";
+            };
+            params: {};
+            query: unknown;
+            headers: unknown;
+            response: {
+                200: {
+                    error: string;
+                };
+                422: {
+                    type: "validation";
+                    on: string;
+                    summary?: string;
+                    message?: string;
+                    found?: unknown;
+                    property?: string;
+                    expected?: string;
+                };
+            };
+        };
+    };
+} & {
+    events: {
+        ":eventId": {
+            invitations: {};
+        };
+    };
+} & {
+    events: {
+        ":eventId": {
+            invitations: {
+                post: {
+                    body: {
+                        message?: string | undefined;
+                        guildId: string;
+                        role: "ACT" | "VENUE";
+                    };
+                    params: {
+                        eventId: string;
+                    };
+                    query: unknown;
+                    headers: unknown;
+                    response: {
+                        200: {
+                            error: string;
+                        };
+                        422: {
+                            type: "validation";
+                            on: string;
+                            summary?: string;
+                            message?: string;
+                            found?: unknown;
+                            property?: string;
+                            expected?: string;
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    events: {
+        ":eventId": {
+            invitations: {
+                ":invitationId": {
+                    accept: {
+                        post: {
+                            body: unknown;
+                            params: {
+                                invitationId: string;
+                                eventId: string;
+                            };
+                            query: unknown;
+                            headers: unknown;
+                            response: {
+                                200: {
+                                    error: string;
+                                };
+                                422: {
+                                    type: "validation";
+                                    on: string;
+                                    summary?: string;
+                                    message?: string;
+                                    found?: unknown;
+                                    property?: string;
+                                    expected?: string;
+                                };
+                            };
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    events: {
+        ":eventId": {
+            invitations: {
+                ":invitationId": {
+                    reject: {
+                        post: {
+                            body: unknown;
+                            params: {
+                                invitationId: string;
+                                eventId: string;
+                            };
+                            query: unknown;
+                            headers: unknown;
+                            response: {
+                                200: {
+                                    error: string;
+                                };
+                                422: {
+                                    type: "validation";
+                                    on: string;
+                                    summary?: string;
+                                    message?: string;
+                                    found?: unknown;
+                                    property?: string;
+                                    expected?: string;
+                                };
+                            };
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
     follows: {};
 } & {
     follows: {
@@ -1641,6 +1796,70 @@ declare const app: Elysia<"", {
         };
     };
 } & {
+    venues: {
+        ":venueId": {
+            interest: {
+                post: {
+                    body: {
+                        message?: string | undefined;
+                        actGuildId: string;
+                    };
+                    params: {
+                        venueId: string;
+                    };
+                    query: unknown;
+                    headers: unknown;
+                    response: {
+                        200: {
+                            error: string;
+                        };
+                        422: {
+                            type: "validation";
+                            on: string;
+                            summary?: string;
+                            message?: string;
+                            found?: unknown;
+                            property?: string;
+                            expected?: string;
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    venues: {
+        ":venueId": {
+            interest: {
+                get: {
+                    body: unknown;
+                    params: {
+                        venueId: string;
+                    };
+                    query: {
+                        page?: number | undefined;
+                        limit?: number | undefined;
+                    };
+                    headers: unknown;
+                    response: {
+                        200: {
+                            error: string;
+                        };
+                        422: {
+                            type: "validation";
+                            on: string;
+                            summary?: string;
+                            message?: string;
+                            found?: unknown;
+                            property?: string;
+                            expected?: string;
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
     guilds: {
         slug: {
             ":slug": {
@@ -1653,6 +1872,42 @@ declare const app: Elysia<"", {
                     headers: unknown;
                     response: {
                         200: import("./types").GuildResponse | {
+                            error: string;
+                        };
+                        422: {
+                            type: "validation";
+                            on: string;
+                            summary?: string;
+                            message?: string;
+                            found?: unknown;
+                            property?: string;
+                            expected?: string;
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    guilds: {
+        ":guildId": {};
+    };
+} & {
+    guilds: {
+        ":guildId": {
+            availability: {
+                get: {
+                    body: unknown;
+                    params: {
+                        guildId: string;
+                    };
+                    query: {
+                        startDate?: string | undefined;
+                        endDate?: string | undefined;
+                    };
+                    headers: unknown;
+                    response: {
+                        200: {
                             error: string;
                         };
                         422: {
@@ -1978,6 +2233,35 @@ declare const app: Elysia<"", {
         ":guildId": {
             invitations: {
                 ":invitationId": {
+                    delete: {
+                        body: unknown;
+                        params: {
+                            guildId: string;
+                            invitationId: string;
+                        };
+                        query: unknown;
+                        headers: unknown;
+                        response: {
+                            422: {
+                                type: "validation";
+                                on: string;
+                                summary?: string;
+                                message?: string;
+                                found?: unknown;
+                                property?: string;
+                                expected?: string;
+                            };
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    guilds: {
+        ":guildId": {
+            invitations: {
+                ":invitationId": {
                     patch: {
                         body: {
                             status: "ACCEPTED" | "REJECTED";
@@ -2066,6 +2350,7 @@ declare const app: Elysia<"", {
                             email: string;
                             displayName: string | null;
                             userId: string;
+                            tag: string | null;
                             avatar: string | null;
                         }[];
                         error?: undefined;
@@ -2081,6 +2366,32 @@ declare const app: Elysia<"", {
                         found?: unknown;
                         property?: string;
                         expected?: string;
+                    };
+                };
+            };
+        };
+    };
+} & {
+    me: {
+        notifications: {
+            ws: {
+                subscribe: {
+                    body: {};
+                    params: {};
+                    query: {
+                        token: string;
+                    };
+                    headers: {};
+                    response: {
+                        422: {
+                            type: "validation";
+                            on: string;
+                            summary?: string;
+                            message?: string;
+                            found?: unknown;
+                            property?: string;
+                            expected?: string;
+                        };
                     };
                 };
             };
@@ -2266,26 +2577,36 @@ declare const app: Elysia<"", {
         };
     };
 } & {
-    me: {
-        notifications: {
-            ws: {
-                subscribe: {
-                    body: {};
-                    params: {};
-                    query: {
-                        token: string;
+    admin: {
+        broadcast: {
+            post: {
+                body: {
+                    data?: {} | undefined;
+                    body: string;
+                    title: string;
+                    passphrase: string;
+                };
+                params: {};
+                query: unknown;
+                headers: unknown;
+                response: {
+                    200: {
+                        error: string;
+                        success?: undefined;
+                        message?: undefined;
+                    } | {
+                        success: boolean;
+                        message: string;
+                        error?: undefined;
                     };
-                    headers: {};
-                    response: {
-                        422: {
-                            type: "validation";
-                            on: string;
-                            summary?: string;
-                            message?: string;
-                            found?: unknown;
-                            property?: string;
-                            expected?: string;
-                        };
+                    422: {
+                        type: "validation";
+                        on: string;
+                        summary?: string;
+                        message?: string;
+                        found?: unknown;
+                        property?: string;
+                        expected?: string;
                     };
                 };
             };
