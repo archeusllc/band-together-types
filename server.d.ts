@@ -390,7 +390,50 @@ declare const app: Elysia<"", {
             headers: unknown;
             response: {
                 200: {
-                    events: {
+                    events: ({
+                        guild: {
+                            name: string;
+                            createdAt: Date;
+                            guildId: string;
+                            slug: string;
+                            guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
+                            isActive: boolean;
+                            createdById: string | null;
+                            currentOwnerId: string;
+                            actId: string | null;
+                            venueId: string | null;
+                            clubId: string | null;
+                        } | null;
+                        venue: {
+                            name: string;
+                            avatar: string | null;
+                            createdAt: Date;
+                            updatedAt: Date;
+                            venueId: string;
+                            address: string | null;
+                            city: string | null;
+                            state: string | null;
+                            zipCode: string | null;
+                        } | null;
+                        owner: {
+                            email: string;
+                            displayName: string | null;
+                            firebaseUid: string | null;
+                            userId: string;
+                            tag: string | null;
+                            avatar: string | null;
+                            createdAt: Date;
+                            updatedAt: Date;
+                        } | null;
+                        acts: {
+                            name: string;
+                            avatar: string | null;
+                            createdAt: Date;
+                            updatedAt: Date;
+                            actId: string;
+                            bio: string | null;
+                        }[];
+                    } & {
                         description: string | null;
                         userId: string | null;
                         createdAt: Date;
@@ -405,7 +448,7 @@ declare const app: Elysia<"", {
                         duration: number;
                         visibility: import("@archeusllc/schema/prisma-client/client").$Enums.CalendarEventVisibility;
                         confirmed: boolean;
-                    }[];
+                    })[];
                     total: number;
                     page: number;
                     limit: number;
@@ -542,6 +585,7 @@ declare const app: Elysia<"", {
                 limit?: number | undefined;
                 startDate?: string | undefined;
                 endDate?: string | undefined;
+                ownedByMe?: boolean | undefined;
             };
             headers: unknown;
             response: {
