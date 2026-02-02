@@ -1078,6 +1078,59 @@ declare const app: Elysia<"", {
                                 actId: string;
                                 bio: string | null;
                             })[];
+                            associationInvitations: ({
+                                guild: {
+                                    act: {
+                                        name: string;
+                                        avatar: string | null;
+                                        createdAt: Date;
+                                        updatedAt: Date;
+                                        actId: string;
+                                        bio: string | null;
+                                    } | null;
+                                    venue: {
+                                        name: string;
+                                        avatar: string | null;
+                                        createdAt: Date;
+                                        updatedAt: Date;
+                                        venueId: string;
+                                        address: string | null;
+                                        city: string | null;
+                                        state: string | null;
+                                        zipCode: string | null;
+                                    } | null;
+                                    club: {
+                                        name: string;
+                                        description: string | null;
+                                        avatar: string | null;
+                                        createdAt: Date;
+                                        updatedAt: Date;
+                                        clubId: string;
+                                    } | null;
+                                } & {
+                                    name: string;
+                                    createdAt: Date;
+                                    guildId: string;
+                                    slug: string;
+                                    guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
+                                    isActive: boolean;
+                                    createdById: string | null;
+                                    currentOwnerId: string;
+                                    actId: string | null;
+                                    venueId: string | null;
+                                    clubId: string | null;
+                                };
+                            } & {
+                                status: import("@archeusllc/schema/prisma-client/client").$Enums.GuildInvitationStatus;
+                                message: string | null;
+                                createdAt: Date;
+                                guildId: string;
+                                eventId: string;
+                                invitationId: string;
+                                invitedById: string;
+                                respondedAt: Date | null;
+                                associationType: import("@archeusllc/schema/prisma-client/client").$Enums.EventAssociationType;
+                            })[];
                         } & {
                             description: string | null;
                             userId: string | null;
@@ -3338,6 +3391,40 @@ declare const app: Elysia<"", {
                     query: unknown;
                     headers: unknown;
                     response: {
+                        422: {
+                            type: "validation";
+                            on: string;
+                            summary?: string;
+                            message?: string;
+                            found?: unknown;
+                            property?: string;
+                            expected?: string;
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    me: {
+        notifications: {
+            preferences: {
+                patch: {
+                    body: {
+                        expoPushToken?: string | null | undefined;
+                        pushEnabled?: boolean | undefined;
+                    };
+                    params: {};
+                    query: unknown;
+                    headers: unknown;
+                    response: {
+                        200: {
+                            error: string;
+                            success?: undefined;
+                        } | {
+                            success: boolean;
+                            error?: undefined;
+                        };
                         422: {
                             type: "validation";
                             on: string;
