@@ -3445,6 +3445,7 @@ declare const app: Elysia<"", {
             post: {
                 body: {
                     data?: {} | undefined;
+                    sendPush?: boolean | undefined;
                     body: string;
                     title: string;
                     passphrase: string;
@@ -3457,10 +3458,17 @@ declare const app: Elysia<"", {
                         error: string;
                         success?: undefined;
                         message?: undefined;
+                        pushCount?: undefined;
+                    } | {
+                        success: boolean;
+                        message: string;
+                        pushCount: number;
+                        error?: undefined;
                     } | {
                         success: boolean;
                         message: string;
                         error?: undefined;
+                        pushCount?: undefined;
                     };
                     422: {
                         type: "validation";
