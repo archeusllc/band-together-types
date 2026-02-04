@@ -2325,7 +2325,24 @@ declare const app: Elysia<"", {
                     response: {
                         200: ({
                             event: {
-                                venue: {
+                                venue: ({
+                                    guild: {
+                                        name: string;
+                                        createdAt: Date;
+                                        guildId: string;
+                                        slug: string;
+                                        guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
+                                        isActive: boolean;
+                                        createdById: string | null;
+                                        currentOwnerId: string;
+                                        actId: string | null;
+                                        venueId: string | null;
+                                        clubId: string | null;
+                                        weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
+                                        showBookedDates: boolean;
+                                        holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
+                                    } | null;
+                                } & {
                                     name: string;
                                     avatar: string | null;
                                     createdAt: Date;
@@ -2337,7 +2354,7 @@ declare const app: Elysia<"", {
                                     zipCode: string | null;
                                     banner: string | null;
                                     verified: boolean;
-                                } | null;
+                                }) | null;
                                 owner: {
                                     email: string;
                                     displayName: string | null;
@@ -2348,6 +2365,32 @@ declare const app: Elysia<"", {
                                     createdAt: Date;
                                     updatedAt: Date;
                                 } | null;
+                                acts: ({
+                                    guild: {
+                                        name: string;
+                                        createdAt: Date;
+                                        guildId: string;
+                                        slug: string;
+                                        guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
+                                        isActive: boolean;
+                                        createdById: string | null;
+                                        currentOwnerId: string;
+                                        actId: string | null;
+                                        venueId: string | null;
+                                        clubId: string | null;
+                                        weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
+                                        showBookedDates: boolean;
+                                        holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
+                                    } | null;
+                                } & {
+                                    name: string;
+                                    avatar: string | null;
+                                    createdAt: Date;
+                                    updatedAt: Date;
+                                    actId: string;
+                                    banner: string | null;
+                                    bio: string | null;
+                                })[];
                             } & {
                                 description: string | null;
                                 userId: string | null;
@@ -2831,6 +2874,32 @@ declare const app: Elysia<"", {
                 response: {
                     200: import("./types").GuildResponse | {
                         error: string;
+                        venue?: undefined;
+                        guildId?: undefined;
+                        name?: undefined;
+                        guildType?: undefined;
+                        currentOwner?: undefined;
+                        guildMembers?: undefined;
+                    } | {
+                        venue: {
+                            name: string;
+                            avatar: string | null;
+                            createdAt: Date;
+                            updatedAt: Date;
+                            venueId: string;
+                            address: string | null;
+                            city: string | null;
+                            state: string | null;
+                            zipCode: string | null;
+                            banner: string | null;
+                            verified: boolean;
+                        };
+                        guildId: null;
+                        name: string;
+                        guildType: string;
+                        currentOwner: null;
+                        guildMembers: never[];
+                        error?: undefined;
                     };
                     422: {
                         type: "validation";
@@ -3111,7 +3180,24 @@ declare const app: Elysia<"", {
                     response: {
                         200: ({
                             event: {
-                                venue: {
+                                venue: ({
+                                    guild: {
+                                        name: string;
+                                        createdAt: Date;
+                                        guildId: string;
+                                        slug: string;
+                                        guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
+                                        isActive: boolean;
+                                        createdById: string | null;
+                                        currentOwnerId: string;
+                                        actId: string | null;
+                                        venueId: string | null;
+                                        clubId: string | null;
+                                        weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
+                                        showBookedDates: boolean;
+                                        holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
+                                    } | null;
+                                } & {
                                     name: string;
                                     avatar: string | null;
                                     createdAt: Date;
@@ -3123,7 +3209,7 @@ declare const app: Elysia<"", {
                                     zipCode: string | null;
                                     banner: string | null;
                                     verified: boolean;
-                                } | null;
+                                }) | null;
                                 owner: {
                                     email: string;
                                     displayName: string | null;
@@ -3134,6 +3220,32 @@ declare const app: Elysia<"", {
                                     createdAt: Date;
                                     updatedAt: Date;
                                 } | null;
+                                acts: ({
+                                    guild: {
+                                        name: string;
+                                        createdAt: Date;
+                                        guildId: string;
+                                        slug: string;
+                                        guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
+                                        isActive: boolean;
+                                        createdById: string | null;
+                                        currentOwnerId: string;
+                                        actId: string | null;
+                                        venueId: string | null;
+                                        clubId: string | null;
+                                        weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
+                                        showBookedDates: boolean;
+                                        holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
+                                    } | null;
+                                } & {
+                                    name: string;
+                                    avatar: string | null;
+                                    createdAt: Date;
+                                    updatedAt: Date;
+                                    actId: string;
+                                    banner: string | null;
+                                    bio: string | null;
+                                })[];
                             } & {
                                 description: string | null;
                                 userId: string | null;
@@ -3253,6 +3365,37 @@ declare const app: Elysia<"", {
                             found?: unknown;
                             property?: string;
                             expected?: string;
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    guilds: {
+        ":guildId": {
+            availability: {
+                live: {
+                    ":sessionToken": {
+                        subscribe: {
+                            body: {};
+                            params: {
+                                guildId: string;
+                                sessionToken: string;
+                            };
+                            query: {};
+                            headers: {};
+                            response: {
+                                422: {
+                                    type: "validation";
+                                    on: string;
+                                    summary?: string;
+                                    message?: string;
+                                    found?: unknown;
+                                    property?: string;
+                                    expected?: string;
+                                };
+                            };
                         };
                     };
                 };
