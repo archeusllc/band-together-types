@@ -4066,9 +4066,9 @@ declare const app: Elysia<"", {
         ":guildId": {
             "invitation-links": {
                 post: {
-                    body: {
+                    body: Partial<{
                         name?: string | undefined;
-                    };
+                    }> | null;
                     params: {
                         guildId: string;
                     };
