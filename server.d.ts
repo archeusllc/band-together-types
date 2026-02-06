@@ -178,8 +178,12 @@ declare const app: Elysia<"", {
                                 userId: string;
                                 tag: string | null;
                                 avatar: string | null;
+                                banner: string | null;
                                 createdAt: Date;
                                 updatedAt: Date;
+                                hasPremiumAccess: boolean;
+                                premiumGrantedAt: Date | null;
+                                taggingEnabled: boolean;
                             };
                             joinedGuild: {
                                 guildId: string;
@@ -235,8 +239,12 @@ declare const app: Elysia<"", {
                             userId: string;
                             tag: string | null;
                             avatar: string | null;
+                            banner: string | null;
                             createdAt: Date;
                             updatedAt: Date;
+                            hasPremiumAccess: boolean;
+                            premiumGrantedAt: Date | null;
+                            taggingEnabled: boolean;
                         };
                         error?: undefined;
                         message?: undefined;
@@ -330,8 +338,12 @@ declare const app: Elysia<"", {
                         userId: string;
                         tag: string | null;
                         avatar: string | null;
+                        banner: string | null;
                         createdAt: Date;
                         updatedAt: Date;
+                        hasPremiumAccess: boolean;
+                        premiumGrantedAt: Date | null;
+                        taggingEnabled: boolean;
                     };
                     422: {
                         type: "validation";
@@ -403,6 +415,7 @@ declare const app: Elysia<"", {
                         guild: {
                             name: string;
                             createdAt: Date;
+                            taggingEnabled: boolean;
                             guildId: string;
                             slug: string;
                             guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
@@ -415,17 +428,16 @@ declare const app: Elysia<"", {
                             weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                             showBookedDates: boolean;
                             holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
-                            taggingEnabled: boolean;
                             tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                             useTagsForAI: boolean;
                         } | null;
                         venue: {
                             name: string;
                             avatar: string | null;
+                            banner: string | null;
                             createdAt: Date;
                             updatedAt: Date;
                             venueId: string;
-                            banner: string | null;
                             address: string | null;
                             city: string | null;
                             state: string | null;
@@ -439,21 +451,26 @@ declare const app: Elysia<"", {
                             userId: string;
                             tag: string | null;
                             avatar: string | null;
+                            banner: string | null;
                             createdAt: Date;
                             updatedAt: Date;
+                            hasPremiumAccess: boolean;
+                            premiumGrantedAt: Date | null;
+                            taggingEnabled: boolean;
                         } | null;
                         acts: {
                             name: string;
                             avatar: string | null;
+                            banner: string | null;
                             createdAt: Date;
                             updatedAt: Date;
                             actId: string;
                             bio: string | null;
-                            banner: string | null;
                         }[];
                     } & {
                         description: string | null;
                         userId: string | null;
+                        banner: string | null;
                         createdAt: Date;
                         updatedAt: Date;
                         guildId: string | null;
@@ -510,6 +527,7 @@ declare const app: Elysia<"", {
                         guild: {
                             name: string;
                             createdAt: Date;
+                            taggingEnabled: boolean;
                             guildId: string;
                             slug: string;
                             guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
@@ -522,17 +540,16 @@ declare const app: Elysia<"", {
                             weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                             showBookedDates: boolean;
                             holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
-                            taggingEnabled: boolean;
                             tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                             useTagsForAI: boolean;
                         } | null;
                         venue: {
                             name: string;
                             avatar: string | null;
+                            banner: string | null;
                             createdAt: Date;
                             updatedAt: Date;
                             venueId: string;
-                            banner: string | null;
                             address: string | null;
                             city: string | null;
                             state: string | null;
@@ -546,21 +563,26 @@ declare const app: Elysia<"", {
                             userId: string;
                             tag: string | null;
                             avatar: string | null;
+                            banner: string | null;
                             createdAt: Date;
                             updatedAt: Date;
+                            hasPremiumAccess: boolean;
+                            premiumGrantedAt: Date | null;
+                            taggingEnabled: boolean;
                         } | null;
                         acts: {
                             name: string;
                             avatar: string | null;
+                            banner: string | null;
                             createdAt: Date;
                             updatedAt: Date;
                             actId: string;
                             bio: string | null;
-                            banner: string | null;
                         }[];
                     } & {
                         description: string | null;
                         userId: string | null;
+                        banner: string | null;
                         createdAt: Date;
                         updatedAt: Date;
                         guildId: string | null;
@@ -607,6 +629,7 @@ declare const app: Elysia<"", {
                         guild: {
                             name: string;
                             createdAt: Date;
+                            taggingEnabled: boolean;
                             guildId: string;
                             slug: string;
                             guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
@@ -619,7 +642,6 @@ declare const app: Elysia<"", {
                             weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                             showBookedDates: boolean;
                             holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
-                            taggingEnabled: boolean;
                             tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                             useTagsForAI: boolean;
                         } | null;
@@ -627,6 +649,7 @@ declare const app: Elysia<"", {
                             guild: {
                                 name: string;
                                 createdAt: Date;
+                                taggingEnabled: boolean;
                                 guildId: string;
                                 slug: string;
                                 guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
@@ -639,17 +662,16 @@ declare const app: Elysia<"", {
                                 weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                 showBookedDates: boolean;
                                 holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
-                                taggingEnabled: boolean;
                                 tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                 useTagsForAI: boolean;
                             } | null;
                         } & {
                             name: string;
                             avatar: string | null;
+                            banner: string | null;
                             createdAt: Date;
                             updatedAt: Date;
                             venueId: string;
-                            banner: string | null;
                             address: string | null;
                             city: string | null;
                             state: string | null;
@@ -663,13 +685,18 @@ declare const app: Elysia<"", {
                             userId: string;
                             tag: string | null;
                             avatar: string | null;
+                            banner: string | null;
                             createdAt: Date;
                             updatedAt: Date;
+                            hasPremiumAccess: boolean;
+                            premiumGrantedAt: Date | null;
+                            taggingEnabled: boolean;
                         } | null;
                         acts: ({
                             guild: {
                                 name: string;
                                 createdAt: Date;
+                                taggingEnabled: boolean;
                                 guildId: string;
                                 slug: string;
                                 guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
@@ -682,22 +709,22 @@ declare const app: Elysia<"", {
                                 weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                 showBookedDates: boolean;
                                 holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
-                                taggingEnabled: boolean;
                                 tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                 useTagsForAI: boolean;
                             } | null;
                         } & {
                             name: string;
                             avatar: string | null;
+                            banner: string | null;
                             createdAt: Date;
                             updatedAt: Date;
                             actId: string;
                             bio: string | null;
-                            banner: string | null;
                         })[];
                     } & {
                         description: string | null;
                         userId: string | null;
+                        banner: string | null;
                         createdAt: Date;
                         updatedAt: Date;
                         guildId: string | null;
@@ -748,10 +775,10 @@ declare const app: Elysia<"", {
                     venue: {
                         name: string;
                         avatar: string | null;
+                        banner: string | null;
                         createdAt: Date;
                         updatedAt: Date;
                         venueId: string;
-                        banner: string | null;
                         address: string | null;
                         city: string | null;
                         state: string | null;
@@ -765,13 +792,18 @@ declare const app: Elysia<"", {
                         userId: string;
                         tag: string | null;
                         avatar: string | null;
+                        banner: string | null;
                         createdAt: Date;
                         updatedAt: Date;
+                        hasPremiumAccess: boolean;
+                        premiumGrantedAt: Date | null;
+                        taggingEnabled: boolean;
                     } | null;
                     acts: ({
                         guild: {
                             name: string;
                             createdAt: Date;
+                            taggingEnabled: boolean;
                             guildId: string;
                             slug: string;
                             guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
@@ -784,22 +816,22 @@ declare const app: Elysia<"", {
                             weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                             showBookedDates: boolean;
                             holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
-                            taggingEnabled: boolean;
                             tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                             useTagsForAI: boolean;
                         } | null;
                     } & {
                         name: string;
                         avatar: string | null;
+                        banner: string | null;
                         createdAt: Date;
                         updatedAt: Date;
                         actId: string;
                         bio: string | null;
-                        banner: string | null;
                     })[];
                 } & {
                     description: string | null;
                     userId: string | null;
+                    banner: string | null;
                     createdAt: Date;
                     updatedAt: Date;
                     guildId: string | null;
@@ -851,6 +883,7 @@ declare const app: Elysia<"", {
                         guild: {
                             name: string;
                             createdAt: Date;
+                            taggingEnabled: boolean;
                             guildId: string;
                             slug: string;
                             guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
@@ -863,17 +896,16 @@ declare const app: Elysia<"", {
                             weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                             showBookedDates: boolean;
                             holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
-                            taggingEnabled: boolean;
                             tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                             useTagsForAI: boolean;
                         } | null;
                         venue: {
                             name: string;
                             avatar: string | null;
+                            banner: string | null;
                             createdAt: Date;
                             updatedAt: Date;
                             venueId: string;
-                            banner: string | null;
                             address: string | null;
                             city: string | null;
                             state: string | null;
@@ -887,21 +919,26 @@ declare const app: Elysia<"", {
                             userId: string;
                             tag: string | null;
                             avatar: string | null;
+                            banner: string | null;
                             createdAt: Date;
                             updatedAt: Date;
+                            hasPremiumAccess: boolean;
+                            premiumGrantedAt: Date | null;
+                            taggingEnabled: boolean;
                         } | null;
                         acts: {
                             name: string;
                             avatar: string | null;
+                            banner: string | null;
                             createdAt: Date;
                             updatedAt: Date;
                             actId: string;
                             bio: string | null;
-                            banner: string | null;
                         }[];
                     } & {
                         description: string | null;
                         userId: string | null;
+                        banner: string | null;
                         createdAt: Date;
                         updatedAt: Date;
                         guildId: string | null;
@@ -935,10 +972,9 @@ declare const app: Elysia<"", {
         ":eventId": {
             "generate-poster": {
                 post: {
-                    body: {
-                        style?: "vintage" | "modern" | "punk" | "psychedelic" | "minimalist" | undefined;
+                    body: Partial<{
                         userInput?: string | undefined;
-                    };
+                    }> | null;
                     params: {
                         eventId: string;
                     };
@@ -952,10 +988,10 @@ declare const app: Elysia<"", {
                                 venue: {
                                     name: string;
                                     avatar: string | null;
+                                    banner: string | null;
                                     createdAt: Date;
                                     updatedAt: Date;
                                     venueId: string;
-                                    banner: string | null;
                                     address: string | null;
                                     city: string | null;
                                     state: string | null;
@@ -969,13 +1005,18 @@ declare const app: Elysia<"", {
                                     userId: string;
                                     tag: string | null;
                                     avatar: string | null;
+                                    banner: string | null;
                                     createdAt: Date;
                                     updatedAt: Date;
+                                    hasPremiumAccess: boolean;
+                                    premiumGrantedAt: Date | null;
+                                    taggingEnabled: boolean;
                                 } | null;
                                 acts: ({
                                     guild: {
                                         name: string;
                                         createdAt: Date;
+                                        taggingEnabled: boolean;
                                         guildId: string;
                                         slug: string;
                                         guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
@@ -988,22 +1029,130 @@ declare const app: Elysia<"", {
                                         weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                         showBookedDates: boolean;
                                         holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
-                                        taggingEnabled: boolean;
                                         tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                         useTagsForAI: boolean;
                                     } | null;
                                 } & {
                                     name: string;
                                     avatar: string | null;
+                                    banner: string | null;
                                     createdAt: Date;
                                     updatedAt: Date;
                                     actId: string;
                                     bio: string | null;
-                                    banner: string | null;
                                 })[];
                             } & {
                                 description: string | null;
                                 userId: string | null;
+                                banner: string | null;
+                                createdAt: Date;
+                                updatedAt: Date;
+                                guildId: string | null;
+                                slug: string | null;
+                                venueId: string | null;
+                                eventId: string;
+                                title: string | null;
+                                poster: string | null;
+                                startTime: Date | null;
+                                duration: number | null;
+                                visibility: import("@archeusllc/schema/prisma-client/client").$Enums.CalendarEventVisibility;
+                                confirmed: boolean;
+                            };
+                        } | {
+                            error: string;
+                        };
+                        422: {
+                            type: "validation";
+                            on: string;
+                            summary?: string;
+                            message?: string;
+                            found?: unknown;
+                            property?: string;
+                            expected?: string;
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    events: {
+        ":eventId": {
+            "generate-banner": {
+                post: {
+                    body: Partial<{
+                        userInput?: string | undefined;
+                    }> | null;
+                    params: {
+                        eventId: string;
+                    };
+                    query: unknown;
+                    headers: unknown;
+                    response: {
+                        200: {
+                            message: string;
+                            banner: string;
+                            event: {
+                                venue: {
+                                    name: string;
+                                    avatar: string | null;
+                                    banner: string | null;
+                                    createdAt: Date;
+                                    updatedAt: Date;
+                                    venueId: string;
+                                    address: string | null;
+                                    city: string | null;
+                                    state: string | null;
+                                    zipCode: string | null;
+                                    verified: boolean;
+                                } | null;
+                                owner: {
+                                    email: string;
+                                    displayName: string | null;
+                                    firebaseUid: string | null;
+                                    userId: string;
+                                    tag: string | null;
+                                    avatar: string | null;
+                                    banner: string | null;
+                                    createdAt: Date;
+                                    updatedAt: Date;
+                                    hasPremiumAccess: boolean;
+                                    premiumGrantedAt: Date | null;
+                                    taggingEnabled: boolean;
+                                } | null;
+                                acts: ({
+                                    guild: {
+                                        name: string;
+                                        createdAt: Date;
+                                        taggingEnabled: boolean;
+                                        guildId: string;
+                                        slug: string;
+                                        guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
+                                        isActive: boolean;
+                                        createdById: string | null;
+                                        currentOwnerId: string;
+                                        actId: string | null;
+                                        venueId: string | null;
+                                        clubId: string | null;
+                                        weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
+                                        showBookedDates: boolean;
+                                        holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
+                                        tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
+                                        useTagsForAI: boolean;
+                                    } | null;
+                                } & {
+                                    name: string;
+                                    avatar: string | null;
+                                    banner: string | null;
+                                    createdAt: Date;
+                                    updatedAt: Date;
+                                    actId: string;
+                                    bio: string | null;
+                                })[];
+                            } & {
+                                description: string | null;
+                                userId: string | null;
+                                banner: string | null;
                                 createdAt: Date;
                                 updatedAt: Date;
                                 guildId: string | null;
@@ -1079,6 +1228,7 @@ declare const app: Elysia<"", {
                             guild: {
                                 name: string;
                                 createdAt: Date;
+                                taggingEnabled: boolean;
                                 guildId: string;
                                 slug: string;
                                 guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
@@ -1091,7 +1241,6 @@ declare const app: Elysia<"", {
                                 weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                 showBookedDates: boolean;
                                 holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
-                                taggingEnabled: boolean;
                                 tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                 useTagsForAI: boolean;
                             } | null;
@@ -1099,6 +1248,7 @@ declare const app: Elysia<"", {
                                 guild: {
                                     name: string;
                                     createdAt: Date;
+                                    taggingEnabled: boolean;
                                     guildId: string;
                                     slug: string;
                                     guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
@@ -1111,17 +1261,16 @@ declare const app: Elysia<"", {
                                     weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                     showBookedDates: boolean;
                                     holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
-                                    taggingEnabled: boolean;
                                     tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                     useTagsForAI: boolean;
                                 } | null;
                             } & {
                                 name: string;
                                 avatar: string | null;
+                                banner: string | null;
                                 createdAt: Date;
                                 updatedAt: Date;
                                 venueId: string;
-                                banner: string | null;
                                 address: string | null;
                                 city: string | null;
                                 state: string | null;
@@ -1135,13 +1284,18 @@ declare const app: Elysia<"", {
                                 userId: string;
                                 tag: string | null;
                                 avatar: string | null;
+                                banner: string | null;
                                 createdAt: Date;
                                 updatedAt: Date;
+                                hasPremiumAccess: boolean;
+                                premiumGrantedAt: Date | null;
+                                taggingEnabled: boolean;
                             } | null;
                             acts: ({
                                 guild: {
                                     name: string;
                                     createdAt: Date;
+                                    taggingEnabled: boolean;
                                     guildId: string;
                                     slug: string;
                                     guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
@@ -1154,37 +1308,36 @@ declare const app: Elysia<"", {
                                     weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                     showBookedDates: boolean;
                                     holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
-                                    taggingEnabled: boolean;
                                     tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                     useTagsForAI: boolean;
                                 } | null;
                             } & {
                                 name: string;
                                 avatar: string | null;
+                                banner: string | null;
                                 createdAt: Date;
                                 updatedAt: Date;
                                 actId: string;
                                 bio: string | null;
-                                banner: string | null;
                             })[];
                             associationInvitations: ({
                                 guild: {
                                     act: {
                                         name: string;
                                         avatar: string | null;
+                                        banner: string | null;
                                         createdAt: Date;
                                         updatedAt: Date;
                                         actId: string;
                                         bio: string | null;
-                                        banner: string | null;
                                     } | null;
                                     venue: {
                                         name: string;
                                         avatar: string | null;
+                                        banner: string | null;
                                         createdAt: Date;
                                         updatedAt: Date;
                                         venueId: string;
-                                        banner: string | null;
                                         address: string | null;
                                         city: string | null;
                                         state: string | null;
@@ -1195,14 +1348,15 @@ declare const app: Elysia<"", {
                                         name: string;
                                         description: string | null;
                                         avatar: string | null;
+                                        banner: string | null;
                                         createdAt: Date;
                                         updatedAt: Date;
                                         clubId: string;
-                                        banner: string | null;
                                     } | null;
                                 } & {
                                     name: string;
                                     createdAt: Date;
+                                    taggingEnabled: boolean;
                                     guildId: string;
                                     slug: string;
                                     guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
@@ -1215,7 +1369,6 @@ declare const app: Elysia<"", {
                                     weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                     showBookedDates: boolean;
                                     holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
-                                    taggingEnabled: boolean;
                                     tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                     useTagsForAI: boolean;
                                 };
@@ -1233,6 +1386,7 @@ declare const app: Elysia<"", {
                         } & {
                             description: string | null;
                             userId: string | null;
+                            banner: string | null;
                             createdAt: Date;
                             updatedAt: Date;
                             guildId: string | null;
@@ -1285,19 +1439,19 @@ declare const app: Elysia<"", {
                                 act: {
                                     name: string;
                                     avatar: string | null;
+                                    banner: string | null;
                                     createdAt: Date;
                                     updatedAt: Date;
                                     actId: string;
                                     bio: string | null;
-                                    banner: string | null;
                                 } | null;
                                 venue: {
                                     name: string;
                                     avatar: string | null;
+                                    banner: string | null;
                                     createdAt: Date;
                                     updatedAt: Date;
                                     venueId: string;
-                                    banner: string | null;
                                     address: string | null;
                                     city: string | null;
                                     state: string | null;
@@ -1307,6 +1461,7 @@ declare const app: Elysia<"", {
                             } & {
                                 name: string;
                                 createdAt: Date;
+                                taggingEnabled: boolean;
                                 guildId: string;
                                 slug: string;
                                 guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
@@ -1319,7 +1474,6 @@ declare const app: Elysia<"", {
                                 weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                 showBookedDates: boolean;
                                 holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
-                                taggingEnabled: boolean;
                                 tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                 useTagsForAI: boolean;
                             };
@@ -1330,8 +1484,12 @@ declare const app: Elysia<"", {
                                 userId: string;
                                 tag: string | null;
                                 avatar: string | null;
+                                banner: string | null;
                                 createdAt: Date;
                                 updatedAt: Date;
+                                hasPremiumAccess: boolean;
+                                premiumGrantedAt: Date | null;
+                                taggingEnabled: boolean;
                             };
                         } & {
                             status: import("@archeusllc/schema/prisma-client/client").$Enums.GuildInvitationStatus;
@@ -1381,19 +1539,19 @@ declare const app: Elysia<"", {
                                 act: {
                                     name: string;
                                     avatar: string | null;
+                                    banner: string | null;
                                     createdAt: Date;
                                     updatedAt: Date;
                                     actId: string;
                                     bio: string | null;
-                                    banner: string | null;
                                 } | null;
                                 venue: {
                                     name: string;
                                     avatar: string | null;
+                                    banner: string | null;
                                     createdAt: Date;
                                     updatedAt: Date;
                                     venueId: string;
-                                    banner: string | null;
                                     address: string | null;
                                     city: string | null;
                                     state: string | null;
@@ -1403,6 +1561,7 @@ declare const app: Elysia<"", {
                             } & {
                                 name: string;
                                 createdAt: Date;
+                                taggingEnabled: boolean;
                                 guildId: string;
                                 slug: string;
                                 guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
@@ -1415,13 +1574,13 @@ declare const app: Elysia<"", {
                                 weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                 showBookedDates: boolean;
                                 holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
-                                taggingEnabled: boolean;
                                 tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                 useTagsForAI: boolean;
                             };
                             event: {
                                 description: string | null;
                                 userId: string | null;
+                                banner: string | null;
                                 createdAt: Date;
                                 updatedAt: Date;
                                 guildId: string | null;
@@ -1442,8 +1601,12 @@ declare const app: Elysia<"", {
                                 userId: string;
                                 tag: string | null;
                                 avatar: string | null;
+                                banner: string | null;
                                 createdAt: Date;
                                 updatedAt: Date;
+                                hasPremiumAccess: boolean;
+                                premiumGrantedAt: Date | null;
+                                taggingEnabled: boolean;
                             };
                         } & {
                             status: import("@archeusllc/schema/prisma-client/client").$Enums.GuildInvitationStatus;
@@ -1492,19 +1655,19 @@ declare const app: Elysia<"", {
                                         act: {
                                             name: string;
                                             avatar: string | null;
+                                            banner: string | null;
                                             createdAt: Date;
                                             updatedAt: Date;
                                             actId: string;
                                             bio: string | null;
-                                            banner: string | null;
                                         } | null;
                                         venue: {
                                             name: string;
                                             avatar: string | null;
+                                            banner: string | null;
                                             createdAt: Date;
                                             updatedAt: Date;
                                             venueId: string;
-                                            banner: string | null;
                                             address: string | null;
                                             city: string | null;
                                             state: string | null;
@@ -1514,6 +1677,7 @@ declare const app: Elysia<"", {
                                     } & {
                                         name: string;
                                         createdAt: Date;
+                                        taggingEnabled: boolean;
                                         guildId: string;
                                         slug: string;
                                         guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
@@ -1526,7 +1690,6 @@ declare const app: Elysia<"", {
                                         weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                         showBookedDates: boolean;
                                         holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
-                                        taggingEnabled: boolean;
                                         tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                         useTagsForAI: boolean;
                                     };
@@ -1534,10 +1697,10 @@ declare const app: Elysia<"", {
                                         venue: {
                                             name: string;
                                             avatar: string | null;
+                                            banner: string | null;
                                             createdAt: Date;
                                             updatedAt: Date;
                                             venueId: string;
-                                            banner: string | null;
                                             address: string | null;
                                             city: string | null;
                                             state: string | null;
@@ -1547,15 +1710,16 @@ declare const app: Elysia<"", {
                                         acts: {
                                             name: string;
                                             avatar: string | null;
+                                            banner: string | null;
                                             createdAt: Date;
                                             updatedAt: Date;
                                             actId: string;
                                             bio: string | null;
-                                            banner: string | null;
                                         }[];
                                     } & {
                                         description: string | null;
                                         userId: string | null;
+                                        banner: string | null;
                                         createdAt: Date;
                                         updatedAt: Date;
                                         guildId: string | null;
@@ -1618,19 +1782,19 @@ declare const app: Elysia<"", {
                                         act: {
                                             name: string;
                                             avatar: string | null;
+                                            banner: string | null;
                                             createdAt: Date;
                                             updatedAt: Date;
                                             actId: string;
                                             bio: string | null;
-                                            banner: string | null;
                                         } | null;
                                         venue: {
                                             name: string;
                                             avatar: string | null;
+                                            banner: string | null;
                                             createdAt: Date;
                                             updatedAt: Date;
                                             venueId: string;
-                                            banner: string | null;
                                             address: string | null;
                                             city: string | null;
                                             state: string | null;
@@ -1640,6 +1804,7 @@ declare const app: Elysia<"", {
                                     } & {
                                         name: string;
                                         createdAt: Date;
+                                        taggingEnabled: boolean;
                                         guildId: string;
                                         slug: string;
                                         guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
@@ -1652,13 +1817,13 @@ declare const app: Elysia<"", {
                                         weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                         showBookedDates: boolean;
                                         holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
-                                        taggingEnabled: boolean;
                                         tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                         useTagsForAI: boolean;
                                     };
                                     event: {
                                         description: string | null;
                                         userId: string | null;
+                                        banner: string | null;
                                         createdAt: Date;
                                         updatedAt: Date;
                                         guildId: string | null;
@@ -1784,12 +1949,17 @@ declare const app: Elysia<"", {
                                     userId: string;
                                     tag: string | null;
                                     avatar: string | null;
+                                    banner: string | null;
                                     createdAt: Date;
                                     updatedAt: Date;
+                                    hasPremiumAccess: boolean;
+                                    premiumGrantedAt: Date | null;
+                                    taggingEnabled: boolean;
                                 } | null;
                             } & {
                                 description: string | null;
                                 userId: string | null;
+                                banner: string | null;
                                 createdAt: Date;
                                 updatedAt: Date;
                                 guildId: string | null;
@@ -1896,19 +2066,19 @@ declare const app: Elysia<"", {
                             act: {
                                 name: string;
                                 avatar: string | null;
+                                banner: string | null;
                                 createdAt: Date;
                                 updatedAt: Date;
                                 actId: string;
                                 bio: string | null;
-                                banner: string | null;
                             } | null;
                             venue: {
                                 name: string;
                                 avatar: string | null;
+                                banner: string | null;
                                 createdAt: Date;
                                 updatedAt: Date;
                                 venueId: string;
-                                banner: string | null;
                                 address: string | null;
                                 city: string | null;
                                 state: string | null;
@@ -1919,14 +2089,15 @@ declare const app: Elysia<"", {
                                 name: string;
                                 description: string | null;
                                 avatar: string | null;
+                                banner: string | null;
                                 createdAt: Date;
                                 updatedAt: Date;
                                 clubId: string;
-                                banner: string | null;
                             } | null;
                         } & {
                             name: string;
                             createdAt: Date;
+                            taggingEnabled: boolean;
                             guildId: string;
                             slug: string;
                             guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
@@ -1939,7 +2110,6 @@ declare const app: Elysia<"", {
                             weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                             showBookedDates: boolean;
                             holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
-                            taggingEnabled: boolean;
                             tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                             useTagsForAI: boolean;
                         }) | null;
@@ -1947,10 +2117,10 @@ declare const app: Elysia<"", {
                             venue: {
                                 name: string;
                                 avatar: string | null;
+                                banner: string | null;
                                 createdAt: Date;
                                 updatedAt: Date;
                                 venueId: string;
-                                banner: string | null;
                                 address: string | null;
                                 city: string | null;
                                 state: string | null;
@@ -1960,15 +2130,16 @@ declare const app: Elysia<"", {
                             acts: {
                                 name: string;
                                 avatar: string | null;
+                                banner: string | null;
                                 createdAt: Date;
                                 updatedAt: Date;
                                 actId: string;
                                 bio: string | null;
-                                banner: string | null;
                             }[];
                         } & {
                             description: string | null;
                             userId: string | null;
+                            banner: string | null;
                             createdAt: Date;
                             updatedAt: Date;
                             guildId: string | null;
@@ -1989,8 +2160,12 @@ declare const app: Elysia<"", {
                             userId: string;
                             tag: string | null;
                             avatar: string | null;
+                            banner: string | null;
                             createdAt: Date;
                             updatedAt: Date;
+                            hasPremiumAccess: boolean;
+                            premiumGrantedAt: Date | null;
+                            taggingEnabled: boolean;
                         } | null;
                     } & {
                         userId: string;
@@ -2042,19 +2217,19 @@ declare const app: Elysia<"", {
                         act: {
                             name: string;
                             avatar: string | null;
+                            banner: string | null;
                             createdAt: Date;
                             updatedAt: Date;
                             actId: string;
                             bio: string | null;
-                            banner: string | null;
                         } | null;
                         venue: {
                             name: string;
                             avatar: string | null;
+                            banner: string | null;
                             createdAt: Date;
                             updatedAt: Date;
                             venueId: string;
-                            banner: string | null;
                             address: string | null;
                             city: string | null;
                             state: string | null;
@@ -2065,14 +2240,15 @@ declare const app: Elysia<"", {
                             name: string;
                             description: string | null;
                             avatar: string | null;
+                            banner: string | null;
                             createdAt: Date;
                             updatedAt: Date;
                             clubId: string;
-                            banner: string | null;
                         } | null;
                     } & {
                         name: string;
                         createdAt: Date;
+                        taggingEnabled: boolean;
                         guildId: string;
                         slug: string;
                         guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
@@ -2085,7 +2261,6 @@ declare const app: Elysia<"", {
                         weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                         showBookedDates: boolean;
                         holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
-                        taggingEnabled: boolean;
                         tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                         useTagsForAI: boolean;
                     }) | null;
@@ -2093,10 +2268,10 @@ declare const app: Elysia<"", {
                         venue: {
                             name: string;
                             avatar: string | null;
+                            banner: string | null;
                             createdAt: Date;
                             updatedAt: Date;
                             venueId: string;
-                            banner: string | null;
                             address: string | null;
                             city: string | null;
                             state: string | null;
@@ -2106,15 +2281,16 @@ declare const app: Elysia<"", {
                         acts: {
                             name: string;
                             avatar: string | null;
+                            banner: string | null;
                             createdAt: Date;
                             updatedAt: Date;
                             actId: string;
                             bio: string | null;
-                            banner: string | null;
                         }[];
                     } & {
                         description: string | null;
                         userId: string | null;
+                        banner: string | null;
                         createdAt: Date;
                         updatedAt: Date;
                         guildId: string | null;
@@ -2135,8 +2311,12 @@ declare const app: Elysia<"", {
                         userId: string;
                         tag: string | null;
                         avatar: string | null;
+                        banner: string | null;
                         createdAt: Date;
                         updatedAt: Date;
+                        hasPremiumAccess: boolean;
+                        premiumGrantedAt: Date | null;
+                        taggingEnabled: boolean;
                     } | null;
                 } & {
                     userId: string;
@@ -2396,6 +2576,7 @@ declare const app: Elysia<"", {
                                     guild: {
                                         name: string;
                                         createdAt: Date;
+                                        taggingEnabled: boolean;
                                         guildId: string;
                                         slug: string;
                                         guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
@@ -2408,17 +2589,16 @@ declare const app: Elysia<"", {
                                         weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                         showBookedDates: boolean;
                                         holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
-                                        taggingEnabled: boolean;
                                         tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                         useTagsForAI: boolean;
                                     } | null;
                                 } & {
                                     name: string;
                                     avatar: string | null;
+                                    banner: string | null;
                                     createdAt: Date;
                                     updatedAt: Date;
                                     venueId: string;
-                                    banner: string | null;
                                     address: string | null;
                                     city: string | null;
                                     state: string | null;
@@ -2432,13 +2612,18 @@ declare const app: Elysia<"", {
                                     userId: string;
                                     tag: string | null;
                                     avatar: string | null;
+                                    banner: string | null;
                                     createdAt: Date;
                                     updatedAt: Date;
+                                    hasPremiumAccess: boolean;
+                                    premiumGrantedAt: Date | null;
+                                    taggingEnabled: boolean;
                                 } | null;
                                 acts: ({
                                     guild: {
                                         name: string;
                                         createdAt: Date;
+                                        taggingEnabled: boolean;
                                         guildId: string;
                                         slug: string;
                                         guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
@@ -2451,22 +2636,22 @@ declare const app: Elysia<"", {
                                         weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                         showBookedDates: boolean;
                                         holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
-                                        taggingEnabled: boolean;
                                         tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                         useTagsForAI: boolean;
                                     } | null;
                                 } & {
                                     name: string;
                                     avatar: string | null;
+                                    banner: string | null;
                                     createdAt: Date;
                                     updatedAt: Date;
                                     actId: string;
                                     bio: string | null;
-                                    banner: string | null;
                                 })[];
                             } & {
                                 description: string | null;
                                 userId: string | null;
+                                banner: string | null;
                                 createdAt: Date;
                                 updatedAt: Date;
                                 guildId: string | null;
@@ -2487,8 +2672,12 @@ declare const app: Elysia<"", {
                                 userId: string;
                                 tag: string | null;
                                 avatar: string | null;
+                                banner: string | null;
                                 createdAt: Date;
                                 updatedAt: Date;
+                                hasPremiumAccess: boolean;
+                                premiumGrantedAt: Date | null;
+                                taggingEnabled: boolean;
                             };
                         } & {
                             status: import("@archeusllc/schema/prisma-client/client").$Enums.GuildInvitationStatus;
@@ -2522,10 +2711,9 @@ declare const app: Elysia<"", {
         ":actId": {
             "generate-avatar": {
                 post: {
-                    body: {
-                        style?: "bold" | "vintage" | "modern" | "abstract" | "minimal" | undefined;
+                    body: Partial<{
                         userInput?: string | undefined;
-                    };
+                    }> | null;
                     params: {
                         actId: string;
                     };
@@ -2558,10 +2746,9 @@ declare const app: Elysia<"", {
         ":actId": {
             "generate-banner": {
                 post: {
-                    body: {
-                        style?: "energetic" | "moody" | "elegant" | "vibrant" | "atmospheric" | undefined;
+                    body: Partial<{
                         userInput?: string | undefined;
-                    };
+                    }> | null;
                     params: {
                         actId: string;
                     };
@@ -2743,10 +2930,9 @@ declare const app: Elysia<"", {
         ":clubId": {
             "generate-avatar": {
                 post: {
-                    body: {
-                        style?: "bold" | "vintage" | "modern" | "abstract" | "minimal" | undefined;
+                    body: Partial<{
                         userInput?: string | undefined;
-                    };
+                    }> | null;
                     params: {
                         clubId: string;
                     };
@@ -2779,10 +2965,9 @@ declare const app: Elysia<"", {
         ":clubId": {
             "generate-banner": {
                 post: {
-                    body: {
-                        style?: "energetic" | "moody" | "elegant" | "vibrant" | "atmospheric" | undefined;
+                    body: Partial<{
                         userInput?: string | undefined;
-                    };
+                    }> | null;
                     params: {
                         clubId: string;
                     };
@@ -2831,10 +3016,10 @@ declare const app: Elysia<"", {
                     } & {
                         name: string;
                         avatar: string | null;
+                        banner: string | null;
                         createdAt: Date;
                         updatedAt: Date;
                         venueId: string;
-                        banner: string | null;
                         address: string | null;
                         city: string | null;
                         state: string | null;
@@ -2874,10 +3059,10 @@ declare const app: Elysia<"", {
                     200: {
                         name: string;
                         avatar: string | null;
+                        banner: string | null;
                         createdAt: Date;
                         updatedAt: Date;
                         venueId: string;
-                        banner: string | null;
                         address: string | null;
                         city: string | null;
                         state: string | null;
@@ -2957,10 +3142,10 @@ declare const app: Elysia<"", {
                         venue: {
                             name: string;
                             avatar: string | null;
+                            banner: string | null;
                             createdAt: Date;
                             updatedAt: Date;
                             venueId: string;
-                            banner: string | null;
                             address: string | null;
                             city: string | null;
                             state: string | null;
@@ -3105,19 +3290,19 @@ declare const app: Elysia<"", {
                             } & {
                                 name: string;
                                 avatar: string | null;
+                                banner: string | null;
                                 createdAt: Date;
                                 updatedAt: Date;
                                 actId: string;
                                 bio: string | null;
-                                banner: string | null;
                             };
                             venue: {
                                 name: string;
                                 avatar: string | null;
+                                banner: string | null;
                                 createdAt: Date;
                                 updatedAt: Date;
                                 venueId: string;
-                                banner: string | null;
                                 address: string | null;
                                 city: string | null;
                                 state: string | null;
@@ -3173,11 +3358,11 @@ declare const app: Elysia<"", {
                                 } & {
                                     name: string;
                                     avatar: string | null;
+                                    banner: string | null;
                                     createdAt: Date;
                                     updatedAt: Date;
                                     actId: string;
                                     bio: string | null;
-                                    banner: string | null;
                                 };
                             } & {
                                 message: string | null;
@@ -3257,6 +3442,7 @@ declare const app: Elysia<"", {
                                     guild: {
                                         name: string;
                                         createdAt: Date;
+                                        taggingEnabled: boolean;
                                         guildId: string;
                                         slug: string;
                                         guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
@@ -3269,17 +3455,16 @@ declare const app: Elysia<"", {
                                         weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                         showBookedDates: boolean;
                                         holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
-                                        taggingEnabled: boolean;
                                         tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                         useTagsForAI: boolean;
                                     } | null;
                                 } & {
                                     name: string;
                                     avatar: string | null;
+                                    banner: string | null;
                                     createdAt: Date;
                                     updatedAt: Date;
                                     venueId: string;
-                                    banner: string | null;
                                     address: string | null;
                                     city: string | null;
                                     state: string | null;
@@ -3293,13 +3478,18 @@ declare const app: Elysia<"", {
                                     userId: string;
                                     tag: string | null;
                                     avatar: string | null;
+                                    banner: string | null;
                                     createdAt: Date;
                                     updatedAt: Date;
+                                    hasPremiumAccess: boolean;
+                                    premiumGrantedAt: Date | null;
+                                    taggingEnabled: boolean;
                                 } | null;
                                 acts: ({
                                     guild: {
                                         name: string;
                                         createdAt: Date;
+                                        taggingEnabled: boolean;
                                         guildId: string;
                                         slug: string;
                                         guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
@@ -3312,22 +3502,22 @@ declare const app: Elysia<"", {
                                         weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                         showBookedDates: boolean;
                                         holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
-                                        taggingEnabled: boolean;
                                         tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                         useTagsForAI: boolean;
                                     } | null;
                                 } & {
                                     name: string;
                                     avatar: string | null;
+                                    banner: string | null;
                                     createdAt: Date;
                                     updatedAt: Date;
                                     actId: string;
                                     bio: string | null;
-                                    banner: string | null;
                                 })[];
                             } & {
                                 description: string | null;
                                 userId: string | null;
+                                banner: string | null;
                                 createdAt: Date;
                                 updatedAt: Date;
                                 guildId: string | null;
@@ -3348,8 +3538,12 @@ declare const app: Elysia<"", {
                                 userId: string;
                                 tag: string | null;
                                 avatar: string | null;
+                                banner: string | null;
                                 createdAt: Date;
                                 updatedAt: Date;
+                                hasPremiumAccess: boolean;
+                                premiumGrantedAt: Date | null;
+                                taggingEnabled: boolean;
                             };
                         } & {
                             status: import("@archeusllc/schema/prisma-client/client").$Enums.GuildInvitationStatus;
@@ -3383,10 +3577,9 @@ declare const app: Elysia<"", {
         ":venueId": {
             "generate-avatar": {
                 post: {
-                    body: {
-                        style?: "bold" | "vintage" | "modern" | "abstract" | "minimal" | undefined;
+                    body: Partial<{
                         userInput?: string | undefined;
-                    };
+                    }> | null;
                     params: {
                         venueId: string;
                     };
@@ -3419,10 +3612,9 @@ declare const app: Elysia<"", {
         ":venueId": {
             "generate-banner": {
                 post: {
-                    body: {
-                        style?: "energetic" | "moody" | "elegant" | "vibrant" | "atmospheric" | undefined;
+                    body: Partial<{
                         userInput?: string | undefined;
-                    };
+                    }> | null;
                     params: {
                         venueId: string;
                     };
@@ -4732,6 +4924,7 @@ declare const app: Elysia<"", {
                     guild: {
                         name: string;
                         createdAt: Date;
+                        taggingEnabled: boolean;
                         guildId: string;
                         slug: string;
                         guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
@@ -4744,7 +4937,6 @@ declare const app: Elysia<"", {
                         weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                         showBookedDates: boolean;
                         holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
-                        taggingEnabled: boolean;
                         tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                         useTagsForAI: boolean;
                     } | null;
@@ -5646,6 +5838,7 @@ declare const app: Elysia<"", {
                             guild: {
                                 name: string;
                                 createdAt: Date;
+                                taggingEnabled: boolean;
                                 guildId: string;
                                 slug: string;
                                 guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
@@ -5658,7 +5851,6 @@ declare const app: Elysia<"", {
                                 weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                 showBookedDates: boolean;
                                 holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
-                                taggingEnabled: boolean;
                                 tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                 useTagsForAI: boolean;
                             } | null;
@@ -5755,6 +5947,7 @@ declare const app: Elysia<"", {
                         guild: {
                             name: string;
                             createdAt: Date;
+                            taggingEnabled: boolean;
                             guildId: string;
                             slug: string;
                             guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
@@ -5767,7 +5960,6 @@ declare const app: Elysia<"", {
                             weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                             showBookedDates: boolean;
                             holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
-                            taggingEnabled: boolean;
                             tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                             useTagsForAI: boolean;
                         } | null;
