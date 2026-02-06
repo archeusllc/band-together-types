@@ -415,6 +415,9 @@ declare const app: Elysia<"", {
                             weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                             showBookedDates: boolean;
                             holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
+                            taggingEnabled: boolean;
+                            tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
+                            useTagsForAI: boolean;
                         } | null;
                         venue: {
                             name: string;
@@ -519,6 +522,9 @@ declare const app: Elysia<"", {
                             weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                             showBookedDates: boolean;
                             holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
+                            taggingEnabled: boolean;
+                            tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
+                            useTagsForAI: boolean;
                         } | null;
                         venue: {
                             name: string;
@@ -613,6 +619,9 @@ declare const app: Elysia<"", {
                             weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                             showBookedDates: boolean;
                             holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
+                            taggingEnabled: boolean;
+                            tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
+                            useTagsForAI: boolean;
                         } | null;
                         venue: ({
                             guild: {
@@ -630,6 +639,9 @@ declare const app: Elysia<"", {
                                 weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                 showBookedDates: boolean;
                                 holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
+                                taggingEnabled: boolean;
+                                tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
+                                useTagsForAI: boolean;
                             } | null;
                         } & {
                             name: string;
@@ -670,6 +682,9 @@ declare const app: Elysia<"", {
                                 weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                 showBookedDates: boolean;
                                 holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
+                                taggingEnabled: boolean;
+                                tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
+                                useTagsForAI: boolean;
                             } | null;
                         } & {
                             name: string;
@@ -769,6 +784,9 @@ declare const app: Elysia<"", {
                             weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                             showBookedDates: boolean;
                             holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
+                            taggingEnabled: boolean;
+                            tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
+                            useTagsForAI: boolean;
                         } | null;
                     } & {
                         name: string;
@@ -845,6 +863,9 @@ declare const app: Elysia<"", {
                             weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                             showBookedDates: boolean;
                             holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
+                            taggingEnabled: boolean;
+                            tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
+                            useTagsForAI: boolean;
                         } | null;
                         venue: {
                             name: string;
@@ -967,6 +988,9 @@ declare const app: Elysia<"", {
                                         weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                         showBookedDates: boolean;
                                         holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
+                                        taggingEnabled: boolean;
+                                        tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
+                                        useTagsForAI: boolean;
                                     } | null;
                                 } & {
                                     name: string;
@@ -1067,6 +1091,9 @@ declare const app: Elysia<"", {
                                 weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                 showBookedDates: boolean;
                                 holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
+                                taggingEnabled: boolean;
+                                tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
+                                useTagsForAI: boolean;
                             } | null;
                             venue: ({
                                 guild: {
@@ -1084,6 +1111,9 @@ declare const app: Elysia<"", {
                                     weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                     showBookedDates: boolean;
                                     holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
+                                    taggingEnabled: boolean;
+                                    tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
+                                    useTagsForAI: boolean;
                                 } | null;
                             } & {
                                 name: string;
@@ -1124,6 +1154,9 @@ declare const app: Elysia<"", {
                                     weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                     showBookedDates: boolean;
                                     holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
+                                    taggingEnabled: boolean;
+                                    tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
+                                    useTagsForAI: boolean;
                                 } | null;
                             } & {
                                 name: string;
@@ -1182,6 +1215,9 @@ declare const app: Elysia<"", {
                                     weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                     showBookedDates: boolean;
                                     holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
+                                    taggingEnabled: boolean;
+                                    tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
+                                    useTagsForAI: boolean;
                                 };
                             } & {
                                 status: import("@archeusllc/schema/prisma-client/client").$Enums.GuildInvitationStatus;
@@ -1283,6 +1319,9 @@ declare const app: Elysia<"", {
                                 weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                 showBookedDates: boolean;
                                 holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
+                                taggingEnabled: boolean;
+                                tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
+                                useTagsForAI: boolean;
                             };
                             invitedBy: {
                                 email: string;
@@ -1376,6 +1415,9 @@ declare const app: Elysia<"", {
                                 weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                 showBookedDates: boolean;
                                 holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
+                                taggingEnabled: boolean;
+                                tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
+                                useTagsForAI: boolean;
                             };
                             event: {
                                 description: string | null;
@@ -1484,6 +1526,9 @@ declare const app: Elysia<"", {
                                         weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                         showBookedDates: boolean;
                                         holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
+                                        taggingEnabled: boolean;
+                                        tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
+                                        useTagsForAI: boolean;
                                     };
                                     event: {
                                         venue: {
@@ -1607,6 +1652,9 @@ declare const app: Elysia<"", {
                                         weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                         showBookedDates: boolean;
                                         holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
+                                        taggingEnabled: boolean;
+                                        tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
+                                        useTagsForAI: boolean;
                                     };
                                     event: {
                                         description: string | null;
@@ -1841,6 +1889,8 @@ declare const app: Elysia<"", {
                             value: string;
                             tagId: string;
                             category: string;
+                            color: string | null;
+                            isBanned: boolean;
                         } | null;
                         guild: ({
                             act: {
@@ -1889,6 +1939,9 @@ declare const app: Elysia<"", {
                             weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                             showBookedDates: boolean;
                             holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
+                            taggingEnabled: boolean;
+                            tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
+                            useTagsForAI: boolean;
                         }) | null;
                         event: ({
                             venue: {
@@ -1982,6 +2035,8 @@ declare const app: Elysia<"", {
                         value: string;
                         tagId: string;
                         category: string;
+                        color: string | null;
+                        isBanned: boolean;
                     } | null;
                     guild: ({
                         act: {
@@ -2030,6 +2085,9 @@ declare const app: Elysia<"", {
                         weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                         showBookedDates: boolean;
                         holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
+                        taggingEnabled: boolean;
+                        tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
+                        useTagsForAI: boolean;
                     }) | null;
                     event: ({
                         venue: {
@@ -2350,6 +2408,9 @@ declare const app: Elysia<"", {
                                         weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                         showBookedDates: boolean;
                                         holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
+                                        taggingEnabled: boolean;
+                                        tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
+                                        useTagsForAI: boolean;
                                     } | null;
                                 } & {
                                     name: string;
@@ -2390,6 +2451,9 @@ declare const app: Elysia<"", {
                                         weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                         showBookedDates: boolean;
                                         holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
+                                        taggingEnabled: boolean;
+                                        tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
+                                        useTagsForAI: boolean;
                                     } | null;
                                 } & {
                                     name: string;
@@ -3205,6 +3269,9 @@ declare const app: Elysia<"", {
                                         weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                         showBookedDates: boolean;
                                         holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
+                                        taggingEnabled: boolean;
+                                        tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
+                                        useTagsForAI: boolean;
                                     } | null;
                                 } & {
                                     name: string;
@@ -3245,6 +3312,9 @@ declare const app: Elysia<"", {
                                         weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                         showBookedDates: boolean;
                                         holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
+                                        taggingEnabled: boolean;
+                                        tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
+                                        useTagsForAI: boolean;
                                     } | null;
                                 } & {
                                     name: string;
@@ -4674,6 +4744,9 @@ declare const app: Elysia<"", {
                         weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                         showBookedDates: boolean;
                         holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
+                        taggingEnabled: boolean;
+                        tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
+                        useTagsForAI: boolean;
                     } | null;
                     setItems: ({
                         track: {
@@ -5585,6 +5658,9 @@ declare const app: Elysia<"", {
                                 weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                 showBookedDates: boolean;
                                 holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
+                                taggingEnabled: boolean;
+                                tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
+                                useTagsForAI: boolean;
                             } | null;
                             owner: {
                                 email: string;
@@ -5691,6 +5767,9 @@ declare const app: Elysia<"", {
                             weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                             showBookedDates: boolean;
                             holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
+                            taggingEnabled: boolean;
+                            tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
+                            useTagsForAI: boolean;
                         } | null;
                         owner: {
                             email: string;
@@ -5825,6 +5904,586 @@ declare const app: Elysia<"", {
                         found?: unknown;
                         property?: string;
                         expected?: string;
+                    };
+                };
+            };
+        };
+    };
+} & {
+    tags: {};
+} & {
+    tags: {
+        get: {
+            body: unknown;
+            params: {};
+            query: unknown;
+            headers: unknown;
+            response: {
+                200: {
+                    categories: {
+                        category: string;
+                        color: string | null;
+                        tags: Array<{
+                            tagId: string;
+                            value: string;
+                        }>;
+                    }[];
+                };
+                422: {
+                    type: "validation";
+                    on: string;
+                    summary?: string;
+                    message?: string;
+                    found?: unknown;
+                    property?: string;
+                    expected?: string;
+                };
+            };
+        };
+    };
+} & {
+    tags: {
+        categories: {
+            get: {
+                body: unknown;
+                params: {};
+                query: unknown;
+                headers: unknown;
+                response: {
+                    200: {
+                        categories: {
+                            category: string;
+                            color: string | null;
+                            tagCount: number;
+                        }[];
+                    };
+                    422: {
+                        type: "validation";
+                        on: string;
+                        summary?: string;
+                        message?: string;
+                        found?: unknown;
+                        property?: string;
+                        expected?: string;
+                    };
+                };
+            };
+        };
+    };
+} & {
+    tags: {
+        post: {
+            body: {
+                category?: string | undefined;
+                value: string;
+            };
+            params: {};
+            query: unknown;
+            headers: unknown;
+            response: {
+                200: {
+                    value: string;
+                    tagId: string;
+                    category: string;
+                    color: string | null;
+                    isBanned: boolean;
+                } | {
+                    error: string;
+                };
+                422: {
+                    type: "validation";
+                    on: string;
+                    summary?: string;
+                    message?: string;
+                    found?: unknown;
+                    property?: string;
+                    expected?: string;
+                };
+            };
+        };
+    };
+} & {
+    guilds: {
+        ":guildId": {
+            tags: {};
+        };
+    };
+} & {
+    guilds: {
+        ":guildId": {
+            tags: {
+                get: {
+                    body: unknown;
+                    params: {
+                        guildId: string;
+                    };
+                    query: {
+                        limit?: string | undefined;
+                    };
+                    headers: unknown;
+                    response: {
+                        200: {
+                            tags: import("./types").PublicTag[];
+                            total: number;
+                        };
+                        422: {
+                            type: "validation";
+                            on: string;
+                            summary?: string;
+                            message?: string;
+                            found?: unknown;
+                            property?: string;
+                            expected?: string;
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    guilds: {
+        ":guildId": {
+            tags: {
+                mine: {
+                    get: {
+                        body: unknown;
+                        params: {
+                            guildId: string;
+                        };
+                        query: unknown;
+                        headers: unknown;
+                        response: {
+                            200: {
+                                tags: import("./types").PrivateTag[];
+                            } | {
+                                error: string;
+                            };
+                            422: {
+                                type: "validation";
+                                on: string;
+                                summary?: string;
+                                message?: string;
+                                found?: unknown;
+                                property?: string;
+                                expected?: string;
+                            };
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    guilds: {
+        ":guildId": {
+            tags: {
+                pending: {
+                    get: {
+                        body: unknown;
+                        params: {
+                            guildId: string;
+                        };
+                        query: unknown;
+                        headers: unknown;
+                        response: {
+                            200: {
+                                tags: Array<{
+                                    tagId: string;
+                                    category: string;
+                                    value: string;
+                                    color: string | null;
+                                    applicationCount: number;
+                                    voteScore: number;
+                                }>;
+                            } | {
+                                error: string;
+                            };
+                            422: {
+                                type: "validation";
+                                on: string;
+                                summary?: string;
+                                message?: string;
+                                found?: unknown;
+                                property?: string;
+                                expected?: string;
+                            };
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    guilds: {
+        ":guildId": {
+            tags: {
+                blocked: {
+                    get: {
+                        body: unknown;
+                        params: {
+                            guildId: string;
+                        };
+                        query: unknown;
+                        headers: unknown;
+                        response: {
+                            200: {
+                                tags: Array<{
+                                    tagId: string;
+                                    category: string;
+                                    value: string;
+                                    color: string | null;
+                                }>;
+                            } | {
+                                error: string;
+                            };
+                            422: {
+                                type: "validation";
+                                on: string;
+                                summary?: string;
+                                message?: string;
+                                found?: unknown;
+                                property?: string;
+                                expected?: string;
+                            };
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    guilds: {
+        ":guildId": {
+            tags: {
+                post: {
+                    body: {
+                        tagId: string;
+                    };
+                    params: {
+                        guildId: string;
+                    };
+                    query: unknown;
+                    headers: unknown;
+                    response: {
+                        200: ({
+                            tag: {
+                                value: string;
+                                tagId: string;
+                                category: string;
+                                color: string | null;
+                                isBanned: boolean;
+                            };
+                        } & {
+                            userId: string;
+                            createdAt: Date;
+                            entityType: import("@archeusllc/schema/prisma-client/client").$Enums.TaggableEntityType;
+                            tagId: string;
+                            id: string;
+                            entityId: string;
+                            vote: number;
+                        }) | {
+                            error: string;
+                        };
+                        422: {
+                            type: "validation";
+                            on: string;
+                            summary?: string;
+                            message?: string;
+                            found?: unknown;
+                            property?: string;
+                            expected?: string;
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    guilds: {
+        ":guildId": {
+            tags: {
+                ":tagId": {
+                    delete: {
+                        body: unknown;
+                        params: {
+                            guildId: string;
+                            tagId: string;
+                        };
+                        query: unknown;
+                        headers: unknown;
+                        response: {
+                            200: {
+                                success: boolean;
+                            } | {
+                                error: string;
+                            };
+                            422: {
+                                type: "validation";
+                                on: string;
+                                summary?: string;
+                                message?: string;
+                                found?: unknown;
+                                property?: string;
+                                expected?: string;
+                            };
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    guilds: {
+        ":guildId": {
+            tags: {
+                ":tagId": {
+                    downvote: {
+                        post: {
+                            body: unknown;
+                            params: {
+                                guildId: string;
+                                tagId: string;
+                            };
+                            query: unknown;
+                            headers: unknown;
+                            response: {
+                                200: {
+                                    userId: string;
+                                    createdAt: Date;
+                                    entityType: import("@archeusllc/schema/prisma-client/client").$Enums.TaggableEntityType;
+                                    tagId: string;
+                                    id: string;
+                                    entityId: string;
+                                    vote: number;
+                                } | {
+                                    removed: boolean;
+                                    tagId: string;
+                                } | {
+                                    error: string;
+                                };
+                                422: {
+                                    type: "validation";
+                                    on: string;
+                                    summary?: string;
+                                    message?: string;
+                                    found?: unknown;
+                                    property?: string;
+                                    expected?: string;
+                                };
+                            };
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    guilds: {
+        ":guildId": {
+            tags: {
+                ":tagId": {
+                    official: {
+                        post: {
+                            body: unknown;
+                            params: {
+                                guildId: string;
+                                tagId: string;
+                            };
+                            query: unknown;
+                            headers: unknown;
+                            response: {
+                                200: ({
+                                    tag: {
+                                        value: string;
+                                        tagId: string;
+                                        category: string;
+                                        color: string | null;
+                                        isBanned: boolean;
+                                    };
+                                } & {
+                                    createdAt: Date;
+                                    entityType: import("@archeusllc/schema/prisma-client/client").$Enums.TaggableEntityType;
+                                    tagId: string;
+                                    id: string;
+                                    entityId: string;
+                                }) | {
+                                    error: string;
+                                };
+                                422: {
+                                    type: "validation";
+                                    on: string;
+                                    summary?: string;
+                                    message?: string;
+                                    found?: unknown;
+                                    property?: string;
+                                    expected?: string;
+                                };
+                            };
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    guilds: {
+        ":guildId": {
+            tags: {
+                ":tagId": {
+                    official: {
+                        delete: {
+                            body: unknown;
+                            params: {
+                                guildId: string;
+                                tagId: string;
+                            };
+                            query: unknown;
+                            headers: unknown;
+                            response: {
+                                200: {
+                                    success: boolean;
+                                } | {
+                                    error: string;
+                                };
+                                422: {
+                                    type: "validation";
+                                    on: string;
+                                    summary?: string;
+                                    message?: string;
+                                    found?: unknown;
+                                    property?: string;
+                                    expected?: string;
+                                };
+                            };
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    guilds: {
+        ":guildId": {
+            tags: {
+                ":tagId": {
+                    block: {
+                        post: {
+                            body: unknown;
+                            params: {
+                                guildId: string;
+                                tagId: string;
+                            };
+                            query: unknown;
+                            headers: unknown;
+                            response: {
+                                200: ({
+                                    tag: {
+                                        value: string;
+                                        tagId: string;
+                                        category: string;
+                                        color: string | null;
+                                        isBanned: boolean;
+                                    };
+                                } & {
+                                    createdAt: Date;
+                                    entityType: import("@archeusllc/schema/prisma-client/client").$Enums.TaggableEntityType;
+                                    tagId: string;
+                                    id: string;
+                                    entityId: string;
+                                    blockedById: string;
+                                }) | {
+                                    error: string;
+                                };
+                                422: {
+                                    type: "validation";
+                                    on: string;
+                                    summary?: string;
+                                    message?: string;
+                                    found?: unknown;
+                                    property?: string;
+                                    expected?: string;
+                                };
+                            };
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    guilds: {
+        ":guildId": {
+            tags: {
+                ":tagId": {
+                    block: {
+                        delete: {
+                            body: unknown;
+                            params: {
+                                guildId: string;
+                                tagId: string;
+                            };
+                            query: unknown;
+                            headers: unknown;
+                            response: {
+                                200: {
+                                    success: boolean;
+                                } | {
+                                    error: string;
+                                };
+                                422: {
+                                    type: "validation";
+                                    on: string;
+                                    summary?: string;
+                                    message?: string;
+                                    found?: unknown;
+                                    property?: string;
+                                    expected?: string;
+                                };
+                            };
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    guilds: {
+        ":guildId": {
+            "tag-settings": {};
+        };
+    };
+} & {
+    guilds: {
+        ":guildId": {
+            "tag-settings": {
+                patch: {
+                    body: {
+                        taggingEnabled?: boolean | undefined;
+                        tagsExcludedFromAI?: string[] | undefined;
+                        useTagsForAI?: boolean | undefined;
+                    };
+                    params: {
+                        guildId: string;
+                    };
+                    query: unknown;
+                    headers: unknown;
+                    response: {
+                        200: {
+                            taggingEnabled: boolean;
+                            useTagsForAI: boolean;
+                            tagsExcludedFromAI: string[];
+                        } | {
+                            error: string;
+                        };
+                        422: {
+                            type: "validation";
+                            on: string;
+                            summary?: string;
+                            message?: string;
+                            found?: unknown;
+                            property?: string;
+                            expected?: string;
+                        };
                     };
                 };
             };
