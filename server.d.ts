@@ -2482,6 +2482,8 @@ declare const app: Elysia<"", {
         };
     };
 } & {
+    tracks: {};
+} & {
     tracks: {
         search: {
             get: {
@@ -2491,7 +2493,6 @@ declare const app: Elysia<"", {
                     query?: string | undefined;
                     type?: string | undefined;
                     limit?: number | undefined;
-                    tuning?: string | undefined;
                     offset?: number | undefined;
                     sortBy?: string | undefined;
                     sortOrder?: string | undefined;
@@ -2499,12 +2500,137 @@ declare const app: Elysia<"", {
                 headers: unknown;
                 response: {
                     200: {
-                        data: import("@archeusllc/schema").TrackSearchResult[];
+                        data: {
+                            type: import("@archeusllc/schema/prisma-client/client").$Enums.TrackType;
+                            title: string;
+                            duration: number;
+                            trackId: string;
+                            artist: string;
+                        }[];
                         total: number;
                         limit: number;
                         offset: number;
                     } | {
                         error: string;
+                    };
+                    422: {
+                        type: "validation";
+                        on: string;
+                        summary?: string;
+                        message?: string;
+                        found?: unknown;
+                        property?: string;
+                        expected?: string;
+                    };
+                };
+            };
+        };
+    };
+} & {
+    tracks: {
+        ":trackId": {
+            get: {
+                body: unknown;
+                params: {
+                    trackId: string;
+                };
+                query: unknown;
+                headers: unknown;
+                response: {
+                    200: ({
+                        tags: {
+                            value: string;
+                            tagId: string;
+                            category: string;
+                            color: string | null;
+                        }[];
+                    } & {
+                        type: import("@archeusllc/schema/prisma-client/client").$Enums.TrackType;
+                        createdAt: Date;
+                        updatedAt: Date;
+                        isActive: boolean;
+                        title: string;
+                        duration: number;
+                        trackId: string;
+                        artist: string;
+                        createdBy: string;
+                    }) | {
+                        error: string;
+                    };
+                    422: {
+                        type: "validation";
+                        on: string;
+                        summary?: string;
+                        message?: string;
+                        found?: unknown;
+                        property?: string;
+                        expected?: string;
+                    };
+                };
+            };
+        };
+    };
+} & {
+    tracks: {
+        post: {
+            body: {
+                type?: "SONG" | "OTHER" | undefined;
+                title: string;
+                duration: number;
+                artist: string;
+            };
+            params: {};
+            query: unknown;
+            headers: unknown;
+            response: {
+                200: {
+                    type: import("@archeusllc/schema/prisma-client/client").$Enums.TrackType;
+                    createdAt: Date;
+                    updatedAt: Date;
+                    isActive: boolean;
+                    title: string;
+                    duration: number;
+                    trackId: string;
+                    artist: string;
+                    createdBy: string;
+                } | {
+                    error: string;
+                };
+                422: {
+                    type: "validation";
+                    on: string;
+                    summary?: string;
+                    message?: string;
+                    found?: unknown;
+                    property?: string;
+                    expected?: string;
+                };
+            };
+        };
+    };
+} & {
+    tracks: {
+        "check-duplicates": {
+            post: {
+                body: {
+                    title: string;
+                    artist: string;
+                };
+                params: {};
+                query: unknown;
+                headers: unknown;
+                response: {
+                    200: {
+                        duplicates: {
+                            title: string;
+                            duration: number;
+                            trackId: string;
+                            artist: string;
+                        }[];
+                        error?: undefined;
+                    } | {
+                        error: string;
+                        duplicates?: undefined;
                     };
                     422: {
                         type: "validation";
@@ -5062,11 +5188,10 @@ declare const app: Elysia<"", {
                             updatedAt: Date;
                             isActive: boolean;
                             title: string;
-                            createdBy: string;
+                            duration: number;
                             trackId: string;
                             artist: string;
-                            defaultDuration: number | null;
-                            defaultTuning: string | null;
+                            createdBy: string;
                         };
                         section: {
                             name: string;
@@ -5160,11 +5285,10 @@ declare const app: Elysia<"", {
                             updatedAt: Date;
                             isActive: boolean;
                             title: string;
-                            createdBy: string;
+                            duration: number;
                             trackId: string;
                             artist: string;
-                            defaultDuration: number | null;
-                            defaultTuning: string | null;
+                            createdBy: string;
                         };
                     } & {
                         createdAt: Date;
@@ -5237,11 +5361,10 @@ declare const app: Elysia<"", {
                                 updatedAt: Date;
                                 isActive: boolean;
                                 title: string;
-                                createdBy: string;
+                                duration: number;
                                 trackId: string;
                                 artist: string;
-                                defaultDuration: number | null;
-                                defaultTuning: string | null;
+                                createdBy: string;
                             };
                             section: {
                                 name: string;
@@ -5350,11 +5473,10 @@ declare const app: Elysia<"", {
                                     updatedAt: Date;
                                     isActive: boolean;
                                     title: string;
-                                    createdBy: string;
+                                    duration: number;
                                     trackId: string;
                                     artist: string;
-                                    defaultDuration: number | null;
-                                    defaultTuning: string | null;
+                                    createdBy: string;
                                 };
                                 section: {
                                     name: string;
@@ -5476,11 +5598,10 @@ declare const app: Elysia<"", {
                                 updatedAt: Date;
                                 isActive: boolean;
                                 title: string;
-                                createdBy: string;
+                                duration: number;
                                 trackId: string;
                                 artist: string;
-                                defaultDuration: number | null;
-                                defaultTuning: string | null;
+                                createdBy: string;
                             };
                             section: {
                                 name: string;
@@ -5547,11 +5668,10 @@ declare const app: Elysia<"", {
                                     updatedAt: Date;
                                     isActive: boolean;
                                     title: string;
-                                    createdBy: string;
+                                    duration: number;
                                     trackId: string;
                                     artist: string;
-                                    defaultDuration: number | null;
-                                    defaultTuning: string | null;
+                                    createdBy: string;
                                 };
                                 section: {
                                     name: string;
@@ -5655,11 +5775,10 @@ declare const app: Elysia<"", {
                                     updatedAt: Date;
                                     isActive: boolean;
                                     title: string;
-                                    createdBy: string;
+                                    duration: number;
                                     trackId: string;
                                     artist: string;
-                                    defaultDuration: number | null;
-                                    defaultTuning: string | null;
+                                    createdBy: string;
                                 };
                                 section: {
                                     name: string;
@@ -5751,11 +5870,10 @@ declare const app: Elysia<"", {
                                     updatedAt: Date;
                                     isActive: boolean;
                                     title: string;
-                                    createdBy: string;
+                                    duration: number;
                                     trackId: string;
                                     artist: string;
-                                    defaultDuration: number | null;
-                                    defaultTuning: string | null;
+                                    createdBy: string;
                                 };
                                 section: {
                                     name: string;
@@ -5844,11 +5962,10 @@ declare const app: Elysia<"", {
                                         updatedAt: Date;
                                         isActive: boolean;
                                         title: string;
-                                        createdBy: string;
+                                        duration: number;
                                         trackId: string;
                                         artist: string;
-                                        defaultDuration: number | null;
-                                        defaultTuning: string | null;
+                                        createdBy: string;
                                     };
                                     section: {
                                         name: string;
@@ -6078,11 +6195,10 @@ declare const app: Elysia<"", {
                                     updatedAt: Date;
                                     isActive: boolean;
                                     title: string;
-                                    createdBy: string;
+                                    duration: number;
                                     trackId: string;
                                     artist: string;
-                                    defaultDuration: number | null;
-                                    defaultTuning: string | null;
+                                    createdBy: string;
                                 };
                                 section: {
                                     name: string;
@@ -6187,11 +6303,10 @@ declare const app: Elysia<"", {
                                 updatedAt: Date;
                                 isActive: boolean;
                                 title: string;
-                                createdBy: string;
+                                duration: number;
                                 trackId: string;
                                 artist: string;
-                                defaultDuration: number | null;
-                                defaultTuning: string | null;
+                                createdBy: string;
                             };
                             section: {
                                 name: string;
@@ -6888,6 +7003,170 @@ declare const app: Elysia<"", {
                             found?: unknown;
                             property?: string;
                             expected?: string;
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    tracks: {
+        ":trackId": {
+            tags: {};
+        };
+    };
+} & {
+    tracks: {
+        ":trackId": {
+            tags: {
+                get: {
+                    body: unknown;
+                    params: {
+                        trackId: string;
+                    };
+                    query: {
+                        limit?: string | undefined;
+                    };
+                    headers: unknown;
+                    response: {
+                        200: {
+                            tags: import("./types").PublicTag[];
+                            total: number;
+                        };
+                        422: {
+                            type: "validation";
+                            on: string;
+                            summary?: string;
+                            message?: string;
+                            found?: unknown;
+                            property?: string;
+                            expected?: string;
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    tracks: {
+        ":trackId": {
+            tags: {
+                post: {
+                    body: {
+                        tagId: string;
+                    };
+                    params: {
+                        trackId: string;
+                    };
+                    query: unknown;
+                    headers: unknown;
+                    response: {
+                        200: ({
+                            tag: {
+                                value: string;
+                                tagId: string;
+                                category: string;
+                                color: string | null;
+                                isBanned: boolean;
+                            };
+                        } & {
+                            userId: string;
+                            createdAt: Date;
+                            entityType: import("@archeusllc/schema/prisma-client/client").$Enums.TaggableEntityType;
+                            tagId: string;
+                            id: string;
+                            entityId: string;
+                            vote: number;
+                        }) | {
+                            error: string;
+                        };
+                        422: {
+                            type: "validation";
+                            on: string;
+                            summary?: string;
+                            message?: string;
+                            found?: unknown;
+                            property?: string;
+                            expected?: string;
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    tracks: {
+        ":trackId": {
+            tags: {
+                ":tagId": {
+                    delete: {
+                        body: unknown;
+                        params: {
+                            tagId: string;
+                            trackId: string;
+                        };
+                        query: unknown;
+                        headers: unknown;
+                        response: {
+                            200: {
+                                success: boolean;
+                            } | {
+                                error: string;
+                            };
+                            422: {
+                                type: "validation";
+                                on: string;
+                                summary?: string;
+                                message?: string;
+                                found?: unknown;
+                                property?: string;
+                                expected?: string;
+                            };
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    tracks: {
+        ":trackId": {
+            tags: {
+                ":tagId": {
+                    downvote: {
+                        post: {
+                            body: unknown;
+                            params: {
+                                tagId: string;
+                                trackId: string;
+                            };
+                            query: unknown;
+                            headers: unknown;
+                            response: {
+                                200: {
+                                    userId: string;
+                                    createdAt: Date;
+                                    entityType: import("@archeusllc/schema/prisma-client/client").$Enums.TaggableEntityType;
+                                    tagId: string;
+                                    id: string;
+                                    entityId: string;
+                                    vote: number;
+                                } | {
+                                    removed: boolean;
+                                    tagId: string;
+                                } | {
+                                    error: string;
+                                };
+                                422: {
+                                    type: "validation";
+                                    on: string;
+                                    summary?: string;
+                                    message?: string;
+                                    found?: unknown;
+                                    property?: string;
+                                    expected?: string;
+                                };
+                            };
                         };
                     };
                 };
