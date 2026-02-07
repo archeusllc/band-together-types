@@ -1010,6 +1010,7 @@ declare const app: Elysia<"", {
                         imageUrls?: string[] | undefined;
                         strength?: number | undefined;
                         excludeTagIds?: string[] | undefined;
+                        useExistingBanner?: boolean | undefined;
                     }> | null;
                     params: {
                         eventId: string;
@@ -1121,6 +1122,7 @@ declare const app: Elysia<"", {
                         imageUrls?: string[] | undefined;
                         strength?: number | undefined;
                         excludeTagIds?: string[] | undefined;
+                        useExistingPoster?: boolean | undefined;
                     }> | null;
                     params: {
                         eventId: string;
