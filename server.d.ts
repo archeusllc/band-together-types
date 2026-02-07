@@ -431,6 +431,38 @@ declare const app: Elysia<"", {
         };
     };
 } & {
+    config: {
+        tagline: {
+            get: {
+                body: unknown;
+                params: {};
+                query: unknown;
+                headers: unknown;
+                response: {
+                    200: {
+                        tagline: string;
+                    };
+                };
+            };
+        };
+    };
+} & {
+    config: {
+        public: {
+            get: {
+                body: unknown;
+                params: {};
+                query: unknown;
+                headers: unknown;
+                response: {
+                    200: {
+                        sampleSetlistLink: string | null;
+                    };
+                };
+            };
+        };
+    };
+} & {
     feed: {};
 } & {
     feed: {
