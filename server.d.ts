@@ -508,6 +508,7 @@ declare const app: Elysia<"", {
                             state: string | null;
                             zipCode: string | null;
                             verified: boolean;
+                            createdByUserId: string | null;
                         } | null;
                         owner: {
                             email: string;
@@ -620,6 +621,7 @@ declare const app: Elysia<"", {
                             state: string | null;
                             zipCode: string | null;
                             verified: boolean;
+                            createdByUserId: string | null;
                         } | null;
                         owner: {
                             email: string;
@@ -742,6 +744,7 @@ declare const app: Elysia<"", {
                             state: string | null;
                             zipCode: string | null;
                             verified: boolean;
+                            createdByUserId: string | null;
                         }) | null;
                         owner: {
                             email: string;
@@ -849,6 +852,7 @@ declare const app: Elysia<"", {
                         state: string | null;
                         zipCode: string | null;
                         verified: boolean;
+                        createdByUserId: string | null;
                     } | null;
                     owner: {
                         email: string;
@@ -976,6 +980,7 @@ declare const app: Elysia<"", {
                             state: string | null;
                             zipCode: string | null;
                             verified: boolean;
+                            createdByUserId: string | null;
                         } | null;
                         owner: {
                             email: string;
@@ -1066,6 +1071,7 @@ declare const app: Elysia<"", {
                                     state: string | null;
                                     zipCode: string | null;
                                     verified: boolean;
+                                    createdByUserId: string | null;
                                 } | null;
                                 owner: {
                                     email: string;
@@ -1178,6 +1184,7 @@ declare const app: Elysia<"", {
                                     state: string | null;
                                     zipCode: string | null;
                                     verified: boolean;
+                                    createdByUserId: string | null;
                                 } | null;
                                 owner: {
                                     email: string;
@@ -1386,6 +1393,7 @@ declare const app: Elysia<"", {
                                 state: string | null;
                                 zipCode: string | null;
                                 verified: boolean;
+                                createdByUserId: string | null;
                             }) | null;
                             owner: {
                                 email: string;
@@ -1432,15 +1440,6 @@ declare const app: Elysia<"", {
                             })[];
                             associationInvitations: ({
                                 guild: {
-                                    act: {
-                                        name: string;
-                                        avatar: string | null;
-                                        banner: string | null;
-                                        createdAt: Date;
-                                        updatedAt: Date;
-                                        actId: string;
-                                        bio: string | null;
-                                    } | null;
                                     venue: {
                                         name: string;
                                         avatar: string | null;
@@ -1453,6 +1452,16 @@ declare const app: Elysia<"", {
                                         state: string | null;
                                         zipCode: string | null;
                                         verified: boolean;
+                                        createdByUserId: string | null;
+                                    } | null;
+                                    act: {
+                                        name: string;
+                                        avatar: string | null;
+                                        banner: string | null;
+                                        createdAt: Date;
+                                        updatedAt: Date;
+                                        actId: string;
+                                        bio: string | null;
                                     } | null;
                                     club: {
                                         name: string;
@@ -1546,15 +1555,6 @@ declare const app: Elysia<"", {
                     response: {
                         200: ({
                             guild: {
-                                act: {
-                                    name: string;
-                                    avatar: string | null;
-                                    banner: string | null;
-                                    createdAt: Date;
-                                    updatedAt: Date;
-                                    actId: string;
-                                    bio: string | null;
-                                } | null;
                                 venue: {
                                     name: string;
                                     avatar: string | null;
@@ -1567,6 +1567,16 @@ declare const app: Elysia<"", {
                                     state: string | null;
                                     zipCode: string | null;
                                     verified: boolean;
+                                    createdByUserId: string | null;
+                                } | null;
+                                act: {
+                                    name: string;
+                                    avatar: string | null;
+                                    banner: string | null;
+                                    createdAt: Date;
+                                    updatedAt: Date;
+                                    actId: string;
+                                    bio: string | null;
                                 } | null;
                             } & {
                                 name: string;
@@ -1646,15 +1656,6 @@ declare const app: Elysia<"", {
                     response: {
                         200: ({
                             guild: {
-                                act: {
-                                    name: string;
-                                    avatar: string | null;
-                                    banner: string | null;
-                                    createdAt: Date;
-                                    updatedAt: Date;
-                                    actId: string;
-                                    bio: string | null;
-                                } | null;
                                 venue: {
                                     name: string;
                                     avatar: string | null;
@@ -1667,6 +1668,16 @@ declare const app: Elysia<"", {
                                     state: string | null;
                                     zipCode: string | null;
                                     verified: boolean;
+                                    createdByUserId: string | null;
+                                } | null;
+                                act: {
+                                    name: string;
+                                    avatar: string | null;
+                                    banner: string | null;
+                                    createdAt: Date;
+                                    updatedAt: Date;
+                                    actId: string;
+                                    bio: string | null;
                                 } | null;
                             } & {
                                 name: string;
@@ -1762,15 +1773,6 @@ declare const app: Elysia<"", {
                             response: {
                                 200: ({
                                     guild: {
-                                        act: {
-                                            name: string;
-                                            avatar: string | null;
-                                            banner: string | null;
-                                            createdAt: Date;
-                                            updatedAt: Date;
-                                            actId: string;
-                                            bio: string | null;
-                                        } | null;
                                         venue: {
                                             name: string;
                                             avatar: string | null;
@@ -1783,6 +1785,16 @@ declare const app: Elysia<"", {
                                             state: string | null;
                                             zipCode: string | null;
                                             verified: boolean;
+                                            createdByUserId: string | null;
+                                        } | null;
+                                        act: {
+                                            name: string;
+                                            avatar: string | null;
+                                            banner: string | null;
+                                            createdAt: Date;
+                                            updatedAt: Date;
+                                            actId: string;
+                                            bio: string | null;
                                         } | null;
                                     } & {
                                         name: string;
@@ -1816,6 +1828,7 @@ declare const app: Elysia<"", {
                                             state: string | null;
                                             zipCode: string | null;
                                             verified: boolean;
+                                            createdByUserId: string | null;
                                         } | null;
                                         acts: {
                                             name: string;
@@ -1889,15 +1902,6 @@ declare const app: Elysia<"", {
                             response: {
                                 200: ({
                                     guild: {
-                                        act: {
-                                            name: string;
-                                            avatar: string | null;
-                                            banner: string | null;
-                                            createdAt: Date;
-                                            updatedAt: Date;
-                                            actId: string;
-                                            bio: string | null;
-                                        } | null;
                                         venue: {
                                             name: string;
                                             avatar: string | null;
@@ -1910,6 +1914,16 @@ declare const app: Elysia<"", {
                                             state: string | null;
                                             zipCode: string | null;
                                             verified: boolean;
+                                            createdByUserId: string | null;
+                                        } | null;
+                                        act: {
+                                            name: string;
+                                            avatar: string | null;
+                                            banner: string | null;
+                                            createdAt: Date;
+                                            updatedAt: Date;
+                                            actId: string;
+                                            bio: string | null;
                                         } | null;
                                     } & {
                                         name: string;
@@ -2173,15 +2187,6 @@ declare const app: Elysia<"", {
                             isBanned: boolean;
                         } | null;
                         guild: ({
-                            act: {
-                                name: string;
-                                avatar: string | null;
-                                banner: string | null;
-                                createdAt: Date;
-                                updatedAt: Date;
-                                actId: string;
-                                bio: string | null;
-                            } | null;
                             venue: {
                                 name: string;
                                 avatar: string | null;
@@ -2194,6 +2199,16 @@ declare const app: Elysia<"", {
                                 state: string | null;
                                 zipCode: string | null;
                                 verified: boolean;
+                                createdByUserId: string | null;
+                            } | null;
+                            act: {
+                                name: string;
+                                avatar: string | null;
+                                banner: string | null;
+                                createdAt: Date;
+                                updatedAt: Date;
+                                actId: string;
+                                bio: string | null;
                             } | null;
                             club: {
                                 name: string;
@@ -2236,6 +2251,7 @@ declare const app: Elysia<"", {
                                 state: string | null;
                                 zipCode: string | null;
                                 verified: boolean;
+                                createdByUserId: string | null;
                             } | null;
                             acts: {
                                 name: string;
@@ -2324,15 +2340,6 @@ declare const app: Elysia<"", {
                         isBanned: boolean;
                     } | null;
                     guild: ({
-                        act: {
-                            name: string;
-                            avatar: string | null;
-                            banner: string | null;
-                            createdAt: Date;
-                            updatedAt: Date;
-                            actId: string;
-                            bio: string | null;
-                        } | null;
                         venue: {
                             name: string;
                             avatar: string | null;
@@ -2345,6 +2352,16 @@ declare const app: Elysia<"", {
                             state: string | null;
                             zipCode: string | null;
                             verified: boolean;
+                            createdByUserId: string | null;
+                        } | null;
+                        act: {
+                            name: string;
+                            avatar: string | null;
+                            banner: string | null;
+                            createdAt: Date;
+                            updatedAt: Date;
+                            actId: string;
+                            bio: string | null;
                         } | null;
                         club: {
                             name: string;
@@ -2387,6 +2404,7 @@ declare const app: Elysia<"", {
                             state: string | null;
                             zipCode: string | null;
                             verified: boolean;
+                            createdByUserId: string | null;
                         } | null;
                         acts: {
                             name: string;
@@ -2482,8 +2500,6 @@ declare const app: Elysia<"", {
         };
     };
 } & {
-    tracks: {};
-} & {
     tracks: {
         search: {
             get: {
@@ -2493,6 +2509,7 @@ declare const app: Elysia<"", {
                     query?: string | undefined;
                     type?: string | undefined;
                     limit?: number | undefined;
+                    tuning?: string | undefined;
                     offset?: number | undefined;
                     sortBy?: string | undefined;
                     sortOrder?: string | undefined;
@@ -2500,137 +2517,12 @@ declare const app: Elysia<"", {
                 headers: unknown;
                 response: {
                     200: {
-                        data: {
-                            type: import("@archeusllc/schema/prisma-client/client").$Enums.TrackType;
-                            title: string;
-                            duration: number;
-                            trackId: string;
-                            artist: string;
-                        }[];
+                        data: import("@archeusllc/schema").TrackSearchResult[];
                         total: number;
                         limit: number;
                         offset: number;
                     } | {
                         error: string;
-                    };
-                    422: {
-                        type: "validation";
-                        on: string;
-                        summary?: string;
-                        message?: string;
-                        found?: unknown;
-                        property?: string;
-                        expected?: string;
-                    };
-                };
-            };
-        };
-    };
-} & {
-    tracks: {
-        ":trackId": {
-            get: {
-                body: unknown;
-                params: {
-                    trackId: string;
-                };
-                query: unknown;
-                headers: unknown;
-                response: {
-                    200: ({
-                        tags: {
-                            value: string;
-                            tagId: string;
-                            category: string;
-                            color: string | null;
-                        }[];
-                    } & {
-                        type: import("@archeusllc/schema/prisma-client/client").$Enums.TrackType;
-                        createdAt: Date;
-                        updatedAt: Date;
-                        isActive: boolean;
-                        title: string;
-                        duration: number;
-                        trackId: string;
-                        artist: string;
-                        createdBy: string;
-                    }) | {
-                        error: string;
-                    };
-                    422: {
-                        type: "validation";
-                        on: string;
-                        summary?: string;
-                        message?: string;
-                        found?: unknown;
-                        property?: string;
-                        expected?: string;
-                    };
-                };
-            };
-        };
-    };
-} & {
-    tracks: {
-        post: {
-            body: {
-                type?: "SONG" | "OTHER" | undefined;
-                title: string;
-                duration: number;
-                artist: string;
-            };
-            params: {};
-            query: unknown;
-            headers: unknown;
-            response: {
-                200: {
-                    type: import("@archeusllc/schema/prisma-client/client").$Enums.TrackType;
-                    createdAt: Date;
-                    updatedAt: Date;
-                    isActive: boolean;
-                    title: string;
-                    duration: number;
-                    trackId: string;
-                    artist: string;
-                    createdBy: string;
-                } | {
-                    error: string;
-                };
-                422: {
-                    type: "validation";
-                    on: string;
-                    summary?: string;
-                    message?: string;
-                    found?: unknown;
-                    property?: string;
-                    expected?: string;
-                };
-            };
-        };
-    };
-} & {
-    tracks: {
-        "check-duplicates": {
-            post: {
-                body: {
-                    title: string;
-                    artist: string;
-                };
-                params: {};
-                query: unknown;
-                headers: unknown;
-                response: {
-                    200: {
-                        duplicates: {
-                            title: string;
-                            duration: number;
-                            trackId: string;
-                            artist: string;
-                        }[];
-                        error?: undefined;
-                    } | {
-                        error: string;
-                        duplicates?: undefined;
                     };
                     422: {
                         type: "validation";
@@ -2925,6 +2817,7 @@ declare const app: Elysia<"", {
                                     state: string | null;
                                     zipCode: string | null;
                                     verified: boolean;
+                                    createdByUserId: string | null;
                                 }) | null;
                                 owner: {
                                     email: string;
@@ -3358,6 +3251,7 @@ declare const app: Elysia<"", {
                         state: string | null;
                         zipCode: string | null;
                         verified: boolean;
+                        createdByUserId: string | null;
                     })[] | {
                         error: string;
                     };
@@ -3376,17 +3270,15 @@ declare const app: Elysia<"", {
     };
 } & {
     venues: {
-        unofficial: {
-            post: {
-                body: {
-                    address?: string | undefined;
+        "check-duplicates": {
+            get: {
+                body: unknown;
+                params: {};
+                query: {
                     city?: string | undefined;
                     state?: string | undefined;
-                    zipCode?: string | undefined;
                     name: string;
                 };
-                params: {};
-                query: unknown;
                 headers: unknown;
                 response: {
                     200: {
@@ -3401,7 +3293,8 @@ declare const app: Elysia<"", {
                         state: string | null;
                         zipCode: string | null;
                         verified: boolean;
-                    } | {
+                        createdByUserId: string | null;
+                    }[] | {
                         error: string;
                     };
                     422: {
@@ -3484,6 +3377,7 @@ declare const app: Elysia<"", {
                             state: string | null;
                             zipCode: string | null;
                             verified: boolean;
+                            createdByUserId: string | null;
                         };
                         guildId: null;
                         name: string;
@@ -3491,6 +3385,51 @@ declare const app: Elysia<"", {
                         currentOwner: null;
                         guildMembers: never[];
                         error?: undefined;
+                    };
+                    422: {
+                        type: "validation";
+                        on: string;
+                        summary?: string;
+                        message?: string;
+                        found?: unknown;
+                        property?: string;
+                        expected?: string;
+                    };
+                };
+            };
+        };
+    };
+} & {
+    venues: {
+        unofficial: {
+            post: {
+                body: {
+                    avatar?: string | undefined;
+                    address?: string | undefined;
+                    city?: string | undefined;
+                    state?: string | undefined;
+                    zipCode?: string | undefined;
+                    name: string;
+                };
+                params: {};
+                query: unknown;
+                headers: unknown;
+                response: {
+                    200: {
+                        name: string;
+                        avatar: string | null;
+                        banner: string | null;
+                        createdAt: Date;
+                        updatedAt: Date;
+                        venueId: string;
+                        address: string | null;
+                        city: string | null;
+                        state: string | null;
+                        zipCode: string | null;
+                        verified: boolean;
+                        createdByUserId: string | null;
+                    } | {
+                        error: string;
                     };
                     422: {
                         type: "validation";
@@ -3614,6 +3553,20 @@ declare const app: Elysia<"", {
                     headers: unknown;
                     response: {
                         200: ({
+                            venue: {
+                                name: string;
+                                avatar: string | null;
+                                banner: string | null;
+                                createdAt: Date;
+                                updatedAt: Date;
+                                venueId: string;
+                                address: string | null;
+                                city: string | null;
+                                state: string | null;
+                                zipCode: string | null;
+                                verified: boolean;
+                                createdByUserId: string | null;
+                            };
                             act: {
                                 guild: {
                                     name: string;
@@ -3628,19 +3581,6 @@ declare const app: Elysia<"", {
                                 updatedAt: Date;
                                 actId: string;
                                 bio: string | null;
-                            };
-                            venue: {
-                                name: string;
-                                avatar: string | null;
-                                banner: string | null;
-                                createdAt: Date;
-                                updatedAt: Date;
-                                venueId: string;
-                                address: string | null;
-                                city: string | null;
-                                state: string | null;
-                                zipCode: string | null;
-                                verified: boolean;
                             };
                         } & {
                             message: string | null;
@@ -3803,6 +3743,7 @@ declare const app: Elysia<"", {
                                     state: string | null;
                                     zipCode: string | null;
                                     verified: boolean;
+                                    createdByUserId: string | null;
                                 }) | null;
                                 owner: {
                                     email: string;
@@ -3926,6 +3867,52 @@ declare const app: Elysia<"", {
                             message: string;
                             avatar: string;
                             guild: import("./types").GuildResponse;
+                        } | {
+                            error: string;
+                        };
+                        422: {
+                            type: "validation";
+                            on: string;
+                            summary?: string;
+                            message?: string;
+                            found?: unknown;
+                            property?: string;
+                            expected?: string;
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    venues: {
+        ":venueId": {
+            "generate-avatar-unclaimed": {
+                post: {
+                    body: unknown;
+                    params: {
+                        venueId: string;
+                    };
+                    query: unknown;
+                    headers: unknown;
+                    response: {
+                        200: {
+                            message: string;
+                            avatar: string;
+                            venue: {
+                                name: string;
+                                avatar: string | null;
+                                banner: string | null;
+                                createdAt: Date;
+                                updatedAt: Date;
+                                venueId: string;
+                                address: string | null;
+                                city: string | null;
+                                state: string | null;
+                                zipCode: string | null;
+                                verified: boolean;
+                                createdByUserId: string | null;
+                            };
                         } | {
                             error: string;
                         };
@@ -5188,10 +5175,11 @@ declare const app: Elysia<"", {
                             updatedAt: Date;
                             isActive: boolean;
                             title: string;
-                            duration: number;
+                            createdBy: string;
                             trackId: string;
                             artist: string;
-                            createdBy: string;
+                            defaultDuration: number | null;
+                            defaultTuning: string | null;
                         };
                         section: {
                             name: string;
@@ -5285,10 +5273,11 @@ declare const app: Elysia<"", {
                             updatedAt: Date;
                             isActive: boolean;
                             title: string;
-                            duration: number;
+                            createdBy: string;
                             trackId: string;
                             artist: string;
-                            createdBy: string;
+                            defaultDuration: number | null;
+                            defaultTuning: string | null;
                         };
                     } & {
                         createdAt: Date;
@@ -5361,10 +5350,11 @@ declare const app: Elysia<"", {
                                 updatedAt: Date;
                                 isActive: boolean;
                                 title: string;
-                                duration: number;
+                                createdBy: string;
                                 trackId: string;
                                 artist: string;
-                                createdBy: string;
+                                defaultDuration: number | null;
+                                defaultTuning: string | null;
                             };
                             section: {
                                 name: string;
@@ -5473,10 +5463,11 @@ declare const app: Elysia<"", {
                                     updatedAt: Date;
                                     isActive: boolean;
                                     title: string;
-                                    duration: number;
+                                    createdBy: string;
                                     trackId: string;
                                     artist: string;
-                                    createdBy: string;
+                                    defaultDuration: number | null;
+                                    defaultTuning: string | null;
                                 };
                                 section: {
                                     name: string;
@@ -5598,10 +5589,11 @@ declare const app: Elysia<"", {
                                 updatedAt: Date;
                                 isActive: boolean;
                                 title: string;
-                                duration: number;
+                                createdBy: string;
                                 trackId: string;
                                 artist: string;
-                                createdBy: string;
+                                defaultDuration: number | null;
+                                defaultTuning: string | null;
                             };
                             section: {
                                 name: string;
@@ -5668,10 +5660,11 @@ declare const app: Elysia<"", {
                                     updatedAt: Date;
                                     isActive: boolean;
                                     title: string;
-                                    duration: number;
+                                    createdBy: string;
                                     trackId: string;
                                     artist: string;
-                                    createdBy: string;
+                                    defaultDuration: number | null;
+                                    defaultTuning: string | null;
                                 };
                                 section: {
                                     name: string;
@@ -5775,10 +5768,11 @@ declare const app: Elysia<"", {
                                     updatedAt: Date;
                                     isActive: boolean;
                                     title: string;
-                                    duration: number;
+                                    createdBy: string;
                                     trackId: string;
                                     artist: string;
-                                    createdBy: string;
+                                    defaultDuration: number | null;
+                                    defaultTuning: string | null;
                                 };
                                 section: {
                                     name: string;
@@ -5870,10 +5864,11 @@ declare const app: Elysia<"", {
                                     updatedAt: Date;
                                     isActive: boolean;
                                     title: string;
-                                    duration: number;
+                                    createdBy: string;
                                     trackId: string;
                                     artist: string;
-                                    createdBy: string;
+                                    defaultDuration: number | null;
+                                    defaultTuning: string | null;
                                 };
                                 section: {
                                     name: string;
@@ -5962,10 +5957,11 @@ declare const app: Elysia<"", {
                                         updatedAt: Date;
                                         isActive: boolean;
                                         title: string;
-                                        duration: number;
+                                        createdBy: string;
                                         trackId: string;
                                         artist: string;
-                                        createdBy: string;
+                                        defaultDuration: number | null;
+                                        defaultTuning: string | null;
                                     };
                                     section: {
                                         name: string;
@@ -6195,10 +6191,11 @@ declare const app: Elysia<"", {
                                     updatedAt: Date;
                                     isActive: boolean;
                                     title: string;
-                                    duration: number;
+                                    createdBy: string;
                                     trackId: string;
                                     artist: string;
-                                    createdBy: string;
+                                    defaultDuration: number | null;
+                                    defaultTuning: string | null;
                                 };
                                 section: {
                                     name: string;
@@ -6303,10 +6300,11 @@ declare const app: Elysia<"", {
                                 updatedAt: Date;
                                 isActive: boolean;
                                 title: string;
-                                duration: number;
+                                createdBy: string;
                                 trackId: string;
                                 artist: string;
-                                createdBy: string;
+                                defaultDuration: number | null;
+                                defaultTuning: string | null;
                             };
                             section: {
                                 name: string;
@@ -7010,170 +7008,6 @@ declare const app: Elysia<"", {
         };
     };
 } & {
-    tracks: {
-        ":trackId": {
-            tags: {};
-        };
-    };
-} & {
-    tracks: {
-        ":trackId": {
-            tags: {
-                get: {
-                    body: unknown;
-                    params: {
-                        trackId: string;
-                    };
-                    query: {
-                        limit?: string | undefined;
-                    };
-                    headers: unknown;
-                    response: {
-                        200: {
-                            tags: import("./types").PublicTag[];
-                            total: number;
-                        };
-                        422: {
-                            type: "validation";
-                            on: string;
-                            summary?: string;
-                            message?: string;
-                            found?: unknown;
-                            property?: string;
-                            expected?: string;
-                        };
-                    };
-                };
-            };
-        };
-    };
-} & {
-    tracks: {
-        ":trackId": {
-            tags: {
-                post: {
-                    body: {
-                        tagId: string;
-                    };
-                    params: {
-                        trackId: string;
-                    };
-                    query: unknown;
-                    headers: unknown;
-                    response: {
-                        200: ({
-                            tag: {
-                                value: string;
-                                tagId: string;
-                                category: string;
-                                color: string | null;
-                                isBanned: boolean;
-                            };
-                        } & {
-                            userId: string;
-                            createdAt: Date;
-                            entityType: import("@archeusllc/schema/prisma-client/client").$Enums.TaggableEntityType;
-                            tagId: string;
-                            id: string;
-                            entityId: string;
-                            vote: number;
-                        }) | {
-                            error: string;
-                        };
-                        422: {
-                            type: "validation";
-                            on: string;
-                            summary?: string;
-                            message?: string;
-                            found?: unknown;
-                            property?: string;
-                            expected?: string;
-                        };
-                    };
-                };
-            };
-        };
-    };
-} & {
-    tracks: {
-        ":trackId": {
-            tags: {
-                ":tagId": {
-                    delete: {
-                        body: unknown;
-                        params: {
-                            tagId: string;
-                            trackId: string;
-                        };
-                        query: unknown;
-                        headers: unknown;
-                        response: {
-                            200: {
-                                success: boolean;
-                            } | {
-                                error: string;
-                            };
-                            422: {
-                                type: "validation";
-                                on: string;
-                                summary?: string;
-                                message?: string;
-                                found?: unknown;
-                                property?: string;
-                                expected?: string;
-                            };
-                        };
-                    };
-                };
-            };
-        };
-    };
-} & {
-    tracks: {
-        ":trackId": {
-            tags: {
-                ":tagId": {
-                    downvote: {
-                        post: {
-                            body: unknown;
-                            params: {
-                                tagId: string;
-                                trackId: string;
-                            };
-                            query: unknown;
-                            headers: unknown;
-                            response: {
-                                200: {
-                                    userId: string;
-                                    createdAt: Date;
-                                    entityType: import("@archeusllc/schema/prisma-client/client").$Enums.TaggableEntityType;
-                                    tagId: string;
-                                    id: string;
-                                    entityId: string;
-                                    vote: number;
-                                } | {
-                                    removed: boolean;
-                                    tagId: string;
-                                } | {
-                                    error: string;
-                                };
-                                422: {
-                                    type: "validation";
-                                    on: string;
-                                    summary?: string;
-                                    message?: string;
-                                    found?: unknown;
-                                    property?: string;
-                                    expected?: string;
-                                };
-                            };
-                        };
-                    };
-                };
-            };
-        };
-    };
-} & {
     admin: {
         "image-models": {
             get: {
@@ -7287,6 +7121,7 @@ declare const app: Elysia<"", {
                                     state: string | null;
                                     zipCode: string | null;
                                     verified: boolean;
+                                    createdByUserId: string | null;
                                 };
                             };
                             422: {
@@ -7336,6 +7171,7 @@ declare const app: Elysia<"", {
                                     state: string | null;
                                     zipCode: string | null;
                                     verified: boolean;
+                                    createdByUserId: string | null;
                                 };
                             };
                             422: {
