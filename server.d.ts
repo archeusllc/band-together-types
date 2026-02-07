@@ -3223,6 +3223,58 @@ declare const app: Elysia<"", {
     };
 } & {
     venues: {
+        places: {
+            autocomplete: {
+                get: {
+                    body: unknown;
+                    params: {};
+                    query: {
+                        input: string;
+                    };
+                    headers: unknown;
+                    response: {
+                        422: {
+                            type: "validation";
+                            on: string;
+                            summary?: string;
+                            message?: string;
+                            found?: unknown;
+                            property?: string;
+                            expected?: string;
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    venues: {
+        places: {
+            details: {
+                get: {
+                    body: unknown;
+                    params: {};
+                    query: {
+                        placeId: string;
+                    };
+                    headers: unknown;
+                    response: {
+                        422: {
+                            type: "validation";
+                            on: string;
+                            summary?: string;
+                            message?: string;
+                            found?: unknown;
+                            property?: string;
+                            expected?: string;
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    venues: {
         search: {
             get: {
                 body: unknown;
@@ -3889,7 +3941,10 @@ declare const app: Elysia<"", {
         ":venueId": {
             "generate-avatar-unclaimed": {
                 post: {
-                    body: unknown;
+                    body: Partial<{
+                        imageUrls?: string[] | undefined;
+                        strength?: number | undefined;
+                    }> | null;
                     params: {
                         venueId: string;
                     };
