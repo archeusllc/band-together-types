@@ -398,6 +398,39 @@ declare const app: Elysia<"", {
         };
     };
 } & {
+    auth: {
+        me: {
+            "generate-avatar": {
+                post: {
+                    body: Partial<{
+                        userInput?: string | undefined;
+                        imageUrls?: string[] | undefined;
+                        strength?: number | undefined;
+                    }> | null;
+                    params: {};
+                    query: unknown;
+                    headers: unknown;
+                    response: {
+                        200: {
+                            avatar: string;
+                        } | {
+                            error: string;
+                        };
+                        422: {
+                            type: "validation";
+                            on: string;
+                            summary?: string;
+                            message?: string;
+                            found?: unknown;
+                            property?: string;
+                            expected?: string;
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
     feed: {};
 } & {
     feed: {
@@ -974,6 +1007,9 @@ declare const app: Elysia<"", {
                 post: {
                     body: Partial<{
                         userInput?: string | undefined;
+                        imageUrls?: string[] | undefined;
+                        strength?: number | undefined;
+                        excludeTagIds?: string[] | undefined;
                     }> | null;
                     params: {
                         eventId: string;
@@ -1082,6 +1118,9 @@ declare const app: Elysia<"", {
                 post: {
                     body: Partial<{
                         userInput?: string | undefined;
+                        imageUrls?: string[] | undefined;
+                        strength?: number | undefined;
+                        excludeTagIds?: string[] | undefined;
                     }> | null;
                     params: {
                         eventId: string;
@@ -1166,6 +1205,43 @@ declare const app: Elysia<"", {
                                 visibility: import("@archeusllc/schema/prisma-client/client").$Enums.CalendarEventVisibility;
                                 confirmed: boolean;
                             };
+                        } | {
+                            error: string;
+                        };
+                        422: {
+                            type: "validation";
+                            on: string;
+                            summary?: string;
+                            message?: string;
+                            found?: unknown;
+                            property?: string;
+                            expected?: string;
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    events: {
+        ":eventId": {
+            "ai-tags": {
+                get: {
+                    body: unknown;
+                    params: {
+                        eventId: string;
+                    };
+                    query: unknown;
+                    headers: unknown;
+                    response: {
+                        200: {
+                            tags: {
+                                tagId: string;
+                                category: string;
+                                value: string;
+                                color: string | null;
+                                source: string;
+                            }[];
                         } | {
                             error: string;
                         };
@@ -2410,6 +2486,91 @@ declare const app: Elysia<"", {
         };
     };
 } & {
+    guilds: {};
+} & {
+    guilds: {
+        "img2img-available": {
+            get: {
+                body: unknown;
+                params: {};
+                query: unknown;
+                headers: unknown;
+                response: {
+                    200: import("./routes/guilds/guilds.routes").Img2ImgAvailabilityResult;
+                };
+            };
+        };
+    };
+} & {
+    guilds: {
+        ":guildId": {
+            "ai-tags": {
+                get: {
+                    body: unknown;
+                    params: {
+                        guildId: string;
+                    };
+                    query: unknown;
+                    headers: unknown;
+                    response: {
+                        200: {
+                            tags: {
+                                tagId: string;
+                                category: string;
+                                value: string;
+                                color: string | null;
+                            }[];
+                            error?: undefined;
+                        } | {
+                            error: string;
+                            tags?: undefined;
+                        };
+                        422: {
+                            type: "validation";
+                            on: string;
+                            summary?: string;
+                            message?: string;
+                            found?: unknown;
+                            property?: string;
+                            expected?: string;
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    guilds: {
+        "upload-reference-image": {
+            post: {
+                body: {
+                    file: File;
+                };
+                params: {};
+                query: unknown;
+                headers: unknown;
+                response: {
+                    200: {
+                        error: string;
+                        url?: undefined;
+                    } | {
+                        url: string;
+                        error?: undefined;
+                    };
+                    422: {
+                        type: "validation";
+                        on: string;
+                        summary?: string;
+                        message?: string;
+                        found?: unknown;
+                        property?: string;
+                        expected?: string;
+                    };
+                };
+            };
+        };
+    };
+} & {
     acts: {};
 } & {
     acts: {
@@ -2713,6 +2874,9 @@ declare const app: Elysia<"", {
                 post: {
                     body: Partial<{
                         userInput?: string | undefined;
+                        imageUrls?: string[] | undefined;
+                        strength?: number | undefined;
+                        excludeTagIds?: string[] | undefined;
                     }> | null;
                     params: {
                         actId: string;
@@ -2748,6 +2912,9 @@ declare const app: Elysia<"", {
                 post: {
                     body: Partial<{
                         userInput?: string | undefined;
+                        imageUrls?: string[] | undefined;
+                        strength?: number | undefined;
+                        excludeTagIds?: string[] | undefined;
                     }> | null;
                     params: {
                         actId: string;
@@ -2932,6 +3099,9 @@ declare const app: Elysia<"", {
                 post: {
                     body: Partial<{
                         userInput?: string | undefined;
+                        imageUrls?: string[] | undefined;
+                        strength?: number | undefined;
+                        excludeTagIds?: string[] | undefined;
                     }> | null;
                     params: {
                         clubId: string;
@@ -2967,6 +3137,9 @@ declare const app: Elysia<"", {
                 post: {
                     body: Partial<{
                         userInput?: string | undefined;
+                        imageUrls?: string[] | undefined;
+                        strength?: number | undefined;
+                        excludeTagIds?: string[] | undefined;
                     }> | null;
                     params: {
                         clubId: string;
@@ -3579,6 +3752,9 @@ declare const app: Elysia<"", {
                 post: {
                     body: Partial<{
                         userInput?: string | undefined;
+                        imageUrls?: string[] | undefined;
+                        strength?: number | undefined;
+                        excludeTagIds?: string[] | undefined;
                     }> | null;
                     params: {
                         venueId: string;
@@ -3614,6 +3790,9 @@ declare const app: Elysia<"", {
                 post: {
                     body: Partial<{
                         userInput?: string | undefined;
+                        imageUrls?: string[] | undefined;
+                        strength?: number | undefined;
+                        excludeTagIds?: string[] | undefined;
                     }> | null;
                     params: {
                         venueId: string;
@@ -6675,6 +6854,186 @@ declare const app: Elysia<"", {
                             found?: unknown;
                             property?: string;
                             expected?: string;
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    admin: {
+        "image-models": {
+            get: {
+                body: unknown;
+                params: {};
+                query: unknown;
+                headers: unknown;
+                response: {
+                    200: {
+                        models: import("./services/replicate.service").ImageModelInfo[];
+                        current: import("./services").ImageModelConfig;
+                        configured: boolean;
+                    };
+                };
+            };
+        };
+    };
+} & {
+    admin: {
+        "test-generate": {
+            post: {
+                body: {
+                    imageUrls?: string[] | undefined;
+                    strength?: number | undefined;
+                    aspectRatio?: string | undefined;
+                    model: string;
+                    prompt: string;
+                };
+                params: {};
+                query: unknown;
+                headers: unknown;
+                response: {
+                    200: {
+                        imageUrl: string;
+                    } | {
+                        error: string;
+                    };
+                    422: {
+                        type: "validation";
+                        on: string;
+                        summary?: string;
+                        message?: string;
+                        found?: unknown;
+                        property?: string;
+                        expected?: string;
+                    };
+                };
+            };
+        };
+    };
+} & {
+    admin: {
+        "upload-image": {
+            post: {
+                body: {
+                    file: File;
+                };
+                params: {};
+                query: unknown;
+                headers: unknown;
+                response: {
+                    200: {
+                        error: string;
+                        url?: undefined;
+                    } | {
+                        url: string;
+                        error?: undefined;
+                    };
+                    422: {
+                        type: "validation";
+                        on: string;
+                        summary?: string;
+                        message?: string;
+                        found?: unknown;
+                        property?: string;
+                        expected?: string;
+                    };
+                };
+            };
+        };
+    };
+} & {
+    admin: {
+        venues: {
+            ":venueId": {
+                "generate-avatar": {
+                    post: {
+                        body: {
+                            userInput?: string | undefined;
+                            imageUrls?: string[] | undefined;
+                            strength?: number | undefined;
+                        };
+                        params: {
+                            venueId: string;
+                        };
+                        query: unknown;
+                        headers: unknown;
+                        response: {
+                            200: {
+                                error: string;
+                            } | {
+                                venue: {
+                                    name: string;
+                                    avatar: string | null;
+                                    banner: string | null;
+                                    createdAt: Date;
+                                    updatedAt: Date;
+                                    venueId: string;
+                                    address: string | null;
+                                    city: string | null;
+                                    state: string | null;
+                                    zipCode: string | null;
+                                    verified: boolean;
+                                };
+                            };
+                            422: {
+                                type: "validation";
+                                on: string;
+                                summary?: string;
+                                message?: string;
+                                found?: unknown;
+                                property?: string;
+                                expected?: string;
+                            };
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    admin: {
+        venues: {
+            ":venueId": {
+                "generate-banner": {
+                    post: {
+                        body: {
+                            userInput?: string | undefined;
+                            imageUrls?: string[] | undefined;
+                            strength?: number | undefined;
+                        };
+                        params: {
+                            venueId: string;
+                        };
+                        query: unknown;
+                        headers: unknown;
+                        response: {
+                            200: {
+                                error: string;
+                            } | {
+                                venue: {
+                                    name: string;
+                                    avatar: string | null;
+                                    banner: string | null;
+                                    createdAt: Date;
+                                    updatedAt: Date;
+                                    venueId: string;
+                                    address: string | null;
+                                    city: string | null;
+                                    state: string | null;
+                                    zipCode: string | null;
+                                    verified: boolean;
+                                };
+                            };
+                            422: {
+                                type: "validation";
+                                on: string;
+                                summary?: string;
+                                message?: string;
+                                found?: unknown;
+                                property?: string;
+                                expected?: string;
+                            };
                         };
                     };
                 };
