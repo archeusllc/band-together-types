@@ -545,6 +545,7 @@ declare const app: Elysia<"", {
                         eventId: string;
                         title: string | null;
                         poster: string | null;
+                        posterOffsetY: number | null;
                         startTime: Date | null;
                         duration: number | null;
                         visibility: import("@archeusllc/schema/prisma-client/client").$Enums.CalendarEventVisibility;
@@ -658,6 +659,7 @@ declare const app: Elysia<"", {
                         eventId: string;
                         title: string | null;
                         poster: string | null;
+                        posterOffsetY: number | null;
                         startTime: Date | null;
                         duration: number | null;
                         visibility: import("@archeusllc/schema/prisma-client/client").$Enums.CalendarEventVisibility;
@@ -692,7 +694,7 @@ declare const app: Elysia<"", {
                 query: unknown;
                 headers: unknown;
                 response: {
-                    200: ({
+                    200: {
                         guild: {
                             name: string;
                             createdAt: Date;
@@ -789,7 +791,6 @@ declare const app: Elysia<"", {
                             actId: string;
                             bio: string | null;
                         })[];
-                    } & {
                         description: string | null;
                         userId: string | null;
                         banner: string | null;
@@ -801,11 +802,12 @@ declare const app: Elysia<"", {
                         eventId: string;
                         title: string | null;
                         poster: string | null;
+                        posterOffsetY: number | null;
                         startTime: Date | null;
                         duration: number | null;
                         visibility: import("@archeusllc/schema/prisma-client/client").$Enums.CalendarEventVisibility;
                         confirmed: boolean;
-                    }) | {
+                    } | {
                         error: string;
                     };
                     422: {
@@ -909,6 +911,7 @@ declare const app: Elysia<"", {
                     eventId: string;
                     title: string | null;
                     poster: string | null;
+                    posterOffsetY: number | null;
                     startTime: Date | null;
                     duration: number | null;
                     visibility: import("@archeusllc/schema/prisma-client/client").$Enums.CalendarEventVisibility;
@@ -934,9 +937,10 @@ declare const app: Elysia<"", {
             patch: {
                 body: {
                     description?: string | undefined;
-                    venueId?: string | undefined;
+                    venueId?: string | null | undefined;
                     title?: string | undefined;
                     poster?: string | undefined;
+                    posterOffsetY?: number | undefined;
                     startTime?: string | undefined;
                     duration?: number | undefined;
                     visibility?: "INTERNAL" | "EXTERNAL" | undefined;
@@ -1017,6 +1021,7 @@ declare const app: Elysia<"", {
                         eventId: string;
                         title: string | null;
                         poster: string | null;
+                        posterOffsetY: number | null;
                         startTime: Date | null;
                         duration: number | null;
                         visibility: import("@archeusllc/schema/prisma-client/client").$Enums.CalendarEventVisibility;
@@ -1128,6 +1133,7 @@ declare const app: Elysia<"", {
                                 eventId: string;
                                 title: string | null;
                                 poster: string | null;
+                                posterOffsetY: number | null;
                                 startTime: Date | null;
                                 duration: number | null;
                                 visibility: import("@archeusllc/schema/prisma-client/client").$Enums.CalendarEventVisibility;
@@ -1241,6 +1247,7 @@ declare const app: Elysia<"", {
                                 eventId: string;
                                 title: string | null;
                                 poster: string | null;
+                                posterOffsetY: number | null;
                                 startTime: Date | null;
                                 duration: number | null;
                                 visibility: import("@archeusllc/schema/prisma-client/client").$Enums.CalendarEventVisibility;
@@ -1328,6 +1335,116 @@ declare const app: Elysia<"", {
                 };
             };
         };
+    };
+} & {
+    events: {
+        ":eventId": {
+            acts: {
+                ":actId": {
+                    delete: {
+                        body: unknown;
+                        params: {
+                            actId: string;
+                            eventId: string;
+                        };
+                        query: unknown;
+                        headers: unknown;
+                        response: {
+                            200: ({
+                                guild: {
+                                    name: string;
+                                    createdAt: Date;
+                                    taggingEnabled: boolean;
+                                    guildId: string;
+                                    slug: string;
+                                    guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
+                                    isActive: boolean;
+                                    createdById: string | null;
+                                    currentOwnerId: string;
+                                    actId: string | null;
+                                    venueId: string | null;
+                                    clubId: string | null;
+                                    weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
+                                    showBookedDates: boolean;
+                                    holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
+                                    tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
+                                    useTagsForAI: boolean;
+                                } | null;
+                                venue: {
+                                    name: string;
+                                    avatar: string | null;
+                                    banner: string | null;
+                                    createdAt: Date;
+                                    updatedAt: Date;
+                                    venueId: string;
+                                    address: string | null;
+                                    city: string | null;
+                                    state: string | null;
+                                    zipCode: string | null;
+                                    verified: boolean;
+                                    createdByUserId: string | null;
+                                } | null;
+                                owner: {
+                                    email: string;
+                                    displayName: string | null;
+                                    firebaseUid: string | null;
+                                    userId: string;
+                                    tag: string | null;
+                                    avatar: string | null;
+                                    banner: string | null;
+                                    createdAt: Date;
+                                    updatedAt: Date;
+                                    hasPremiumAccess: boolean;
+                                    premiumGrantedAt: Date | null;
+                                    taggingEnabled: boolean;
+                                } | null;
+                                acts: {
+                                    name: string;
+                                    avatar: string | null;
+                                    banner: string | null;
+                                    createdAt: Date;
+                                    updatedAt: Date;
+                                    actId: string;
+                                    bio: string | null;
+                                }[];
+                            } & {
+                                description: string | null;
+                                userId: string | null;
+                                banner: string | null;
+                                createdAt: Date;
+                                updatedAt: Date;
+                                guildId: string | null;
+                                slug: string | null;
+                                venueId: string | null;
+                                eventId: string;
+                                title: string | null;
+                                poster: string | null;
+                                posterOffsetY: number | null;
+                                startTime: Date | null;
+                                duration: number | null;
+                                visibility: import("@archeusllc/schema/prisma-client/client").$Enums.CalendarEventVisibility;
+                                confirmed: boolean;
+                            }) | {
+                                error: string;
+                            };
+                            422: {
+                                type: "validation";
+                                on: string;
+                                summary?: string;
+                                message?: string;
+                                found?: unknown;
+                                property?: string;
+                                expected?: string;
+                            };
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    events: {
+        slug: {};
     };
 } & {
     events: {
@@ -1514,6 +1631,7 @@ declare const app: Elysia<"", {
                             eventId: string;
                             title: string | null;
                             poster: string | null;
+                            posterOffsetY: number | null;
                             startTime: Date | null;
                             duration: number | null;
                             visibility: import("@archeusllc/schema/prisma-client/client").$Enums.CalendarEventVisibility;
@@ -1710,6 +1828,7 @@ declare const app: Elysia<"", {
                                 eventId: string;
                                 title: string | null;
                                 poster: string | null;
+                                posterOffsetY: number | null;
                                 startTime: Date | null;
                                 duration: number | null;
                                 visibility: import("@archeusllc/schema/prisma-client/client").$Enums.CalendarEventVisibility;
@@ -1851,6 +1970,7 @@ declare const app: Elysia<"", {
                                         eventId: string;
                                         title: string | null;
                                         poster: string | null;
+                                        posterOffsetY: number | null;
                                         startTime: Date | null;
                                         duration: number | null;
                                         visibility: import("@archeusllc/schema/prisma-client/client").$Enums.CalendarEventVisibility;
@@ -1956,6 +2076,7 @@ declare const app: Elysia<"", {
                                         eventId: string;
                                         title: string | null;
                                         poster: string | null;
+                                        posterOffsetY: number | null;
                                         startTime: Date | null;
                                         duration: number | null;
                                         visibility: import("@archeusllc/schema/prisma-client/client").$Enums.CalendarEventVisibility;
@@ -2092,6 +2213,7 @@ declare const app: Elysia<"", {
                                 eventId: string;
                                 title: string | null;
                                 poster: string | null;
+                                posterOffsetY: number | null;
                                 startTime: Date | null;
                                 duration: number | null;
                                 visibility: import("@archeusllc/schema/prisma-client/client").$Enums.CalendarEventVisibility;
@@ -2274,6 +2396,7 @@ declare const app: Elysia<"", {
                             eventId: string;
                             title: string | null;
                             poster: string | null;
+                            posterOffsetY: number | null;
                             startTime: Date | null;
                             duration: number | null;
                             visibility: import("@archeusllc/schema/prisma-client/client").$Enums.CalendarEventVisibility;
@@ -2427,6 +2550,7 @@ declare const app: Elysia<"", {
                         eventId: string;
                         title: string | null;
                         poster: string | null;
+                        posterOffsetY: number | null;
                         startTime: Date | null;
                         duration: number | null;
                         visibility: import("@archeusllc/schema/prisma-client/client").$Enums.CalendarEventVisibility;
@@ -2874,6 +2998,7 @@ declare const app: Elysia<"", {
                                 eventId: string;
                                 title: string | null;
                                 poster: string | null;
+                                posterOffsetY: number | null;
                                 startTime: Date | null;
                                 duration: number | null;
                                 visibility: import("@archeusllc/schema/prisma-client/client").$Enums.CalendarEventVisibility;
@@ -3290,6 +3415,10 @@ declare const app: Elysia<"", {
                             name: string;
                             guildId: string;
                             slug: string;
+                            guildMembers: {
+                                userId: string;
+                                role: import("@archeusllc/schema/prisma-client/client").$Enums.GuildMemberRole;
+                            }[];
                         } | null;
                     } & {
                         name: string;
@@ -3852,6 +3981,7 @@ declare const app: Elysia<"", {
                                 eventId: string;
                                 title: string | null;
                                 poster: string | null;
+                                posterOffsetY: number | null;
                                 startTime: Date | null;
                                 duration: number | null;
                                 visibility: import("@archeusllc/schema/prisma-client/client").$Enums.CalendarEventVisibility;
