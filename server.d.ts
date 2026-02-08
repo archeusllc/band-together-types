@@ -695,6 +695,7 @@ declare const app: Elysia<"", {
                 headers: unknown;
                 response: {
                     200: {
+                        canManage: boolean;
                         guild: {
                             name: string;
                             createdAt: Date;
@@ -1458,7 +1459,8 @@ declare const app: Elysia<"", {
                     query: unknown;
                     headers: unknown;
                     response: {
-                        200: ({
+                        200: {
+                            canManage: boolean;
                             guild: {
                                 name: string;
                                 createdAt: Date;
@@ -1619,7 +1621,6 @@ declare const app: Elysia<"", {
                                 respondedAt: Date | null;
                                 associationType: import("@archeusllc/schema/prisma-client/client").$Enums.EventAssociationType;
                             })[];
-                        } & {
                             description: string | null;
                             userId: string | null;
                             banner: string | null;
@@ -1636,7 +1637,7 @@ declare const app: Elysia<"", {
                             duration: number | null;
                             visibility: import("@archeusllc/schema/prisma-client/client").$Enums.CalendarEventVisibility;
                             confirmed: boolean;
-                        }) | {
+                        } | {
                             error: string;
                         };
                         422: {
