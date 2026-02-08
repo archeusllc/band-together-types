@@ -6345,7 +6345,14 @@ declare const app: Elysia<"", {
                     };
                     headers: unknown;
                     response: {
-                        200: ({
+                        200: {
+                            _permissions: {
+                                isOwner: boolean;
+                                canEdit: boolean;
+                                canView: true;
+                                hasEditTokenButNotAuthenticated: boolean;
+                                hasViewTokenOnly: boolean;
+                            };
                             guild: {
                                 name: string;
                                 createdAt: Date;
@@ -6412,7 +6419,6 @@ declare const app: Elysia<"", {
                                 sectionId: string;
                                 breakDuration: number | null;
                             }[];
-                        } & {
                             name: string;
                             description: string | null;
                             createdAt: Date;
@@ -6424,7 +6430,7 @@ declare const app: Elysia<"", {
                             isPrivate: boolean;
                             viewToken: string;
                             editToken: string;
-                        }) | {
+                        } | {
                             error: string;
                         };
                         422: {
@@ -6454,7 +6460,14 @@ declare const app: Elysia<"", {
                 };
                 headers: unknown;
                 response: {
-                    200: ({
+                    200: {
+                        _permissions: {
+                            isOwner: boolean;
+                            canEdit: boolean;
+                            canView: true;
+                            hasEditTokenButNotAuthenticated: boolean;
+                            hasViewTokenOnly: boolean;
+                        };
                         guild: {
                             name: string;
                             createdAt: Date;
@@ -6521,7 +6534,6 @@ declare const app: Elysia<"", {
                             sectionId: string;
                             breakDuration: number | null;
                         }[];
-                    } & {
                         name: string;
                         description: string | null;
                         createdAt: Date;
@@ -6533,7 +6545,7 @@ declare const app: Elysia<"", {
                         isPrivate: boolean;
                         viewToken: string;
                         editToken: string;
-                    }) | {
+                    } | {
                         error: string;
                     };
                     422: {
