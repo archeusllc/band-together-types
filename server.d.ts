@@ -470,8 +470,14 @@ declare const app: Elysia<"", {
             body: unknown;
             params: {};
             query: {
+                city?: string | undefined;
+                state?: string | undefined;
                 page?: number | undefined;
                 limit?: number | undefined;
+                lat?: number | undefined;
+                lng?: number | undefined;
+                radiusMiles?: number | undefined;
+                sortBy?: "date" | "distance" | undefined;
             };
             headers: unknown;
             response: {
@@ -508,6 +514,8 @@ declare const app: Elysia<"", {
                             state: string | null;
                             zipCode: string | null;
                             verified: boolean;
+                            latitude: number | null;
+                            longitude: number | null;
                             createdByUserId: string | null;
                         } | null;
                         owner: {
@@ -531,6 +539,10 @@ declare const app: Elysia<"", {
                             createdAt: Date;
                             updatedAt: Date;
                             actId: string;
+                            city: string | null;
+                            state: string | null;
+                            latitude: number | null;
+                            longitude: number | null;
                             bio: string | null;
                         }[];
                     } & {
@@ -622,6 +634,8 @@ declare const app: Elysia<"", {
                             state: string | null;
                             zipCode: string | null;
                             verified: boolean;
+                            latitude: number | null;
+                            longitude: number | null;
                             createdByUserId: string | null;
                         } | null;
                         owner: {
@@ -645,6 +659,10 @@ declare const app: Elysia<"", {
                             createdAt: Date;
                             updatedAt: Date;
                             actId: string;
+                            city: string | null;
+                            state: string | null;
+                            latitude: number | null;
+                            longitude: number | null;
                             bio: string | null;
                         }[];
                     } & {
@@ -747,6 +765,8 @@ declare const app: Elysia<"", {
                             state: string | null;
                             zipCode: string | null;
                             verified: boolean;
+                            latitude: number | null;
+                            longitude: number | null;
                             createdByUserId: string | null;
                         }) | null;
                         owner: {
@@ -790,6 +810,10 @@ declare const app: Elysia<"", {
                             createdAt: Date;
                             updatedAt: Date;
                             actId: string;
+                            city: string | null;
+                            state: string | null;
+                            latitude: number | null;
+                            longitude: number | null;
                             bio: string | null;
                         })[];
                         description: string | null;
@@ -855,6 +879,8 @@ declare const app: Elysia<"", {
                         state: string | null;
                         zipCode: string | null;
                         verified: boolean;
+                        latitude: number | null;
+                        longitude: number | null;
                         createdByUserId: string | null;
                     } | null;
                     owner: {
@@ -898,6 +924,10 @@ declare const app: Elysia<"", {
                         createdAt: Date;
                         updatedAt: Date;
                         actId: string;
+                        city: string | null;
+                        state: string | null;
+                        latitude: number | null;
+                        longitude: number | null;
                         bio: string | null;
                     })[];
                 } & {
@@ -985,6 +1015,8 @@ declare const app: Elysia<"", {
                             state: string | null;
                             zipCode: string | null;
                             verified: boolean;
+                            latitude: number | null;
+                            longitude: number | null;
                             createdByUserId: string | null;
                         } | null;
                         owner: {
@@ -1008,6 +1040,10 @@ declare const app: Elysia<"", {
                             createdAt: Date;
                             updatedAt: Date;
                             actId: string;
+                            city: string | null;
+                            state: string | null;
+                            latitude: number | null;
+                            longitude: number | null;
                             bio: string | null;
                         }[];
                     } & {
@@ -1077,6 +1113,8 @@ declare const app: Elysia<"", {
                                     state: string | null;
                                     zipCode: string | null;
                                     verified: boolean;
+                                    latitude: number | null;
+                                    longitude: number | null;
                                     createdByUserId: string | null;
                                 } | null;
                                 owner: {
@@ -1120,6 +1158,10 @@ declare const app: Elysia<"", {
                                     createdAt: Date;
                                     updatedAt: Date;
                                     actId: string;
+                                    city: string | null;
+                                    state: string | null;
+                                    latitude: number | null;
+                                    longitude: number | null;
                                     bio: string | null;
                                 })[];
                             } & {
@@ -1191,6 +1233,8 @@ declare const app: Elysia<"", {
                                     state: string | null;
                                     zipCode: string | null;
                                     verified: boolean;
+                                    latitude: number | null;
+                                    longitude: number | null;
                                     createdByUserId: string | null;
                                 } | null;
                                 owner: {
@@ -1234,6 +1278,10 @@ declare const app: Elysia<"", {
                                     createdAt: Date;
                                     updatedAt: Date;
                                     actId: string;
+                                    city: string | null;
+                                    state: string | null;
+                                    latitude: number | null;
+                                    longitude: number | null;
                                     bio: string | null;
                                 })[];
                             } & {
@@ -1383,6 +1431,8 @@ declare const app: Elysia<"", {
                                     state: string | null;
                                     zipCode: string | null;
                                     verified: boolean;
+                                    latitude: number | null;
+                                    longitude: number | null;
                                     createdByUserId: string | null;
                                 } | null;
                                 owner: {
@@ -1406,6 +1456,10 @@ declare const app: Elysia<"", {
                                     createdAt: Date;
                                     updatedAt: Date;
                                     actId: string;
+                                    city: string | null;
+                                    state: string | null;
+                                    latitude: number | null;
+                                    longitude: number | null;
                                     bio: string | null;
                                 }[];
                             } & {
@@ -1512,6 +1566,8 @@ declare const app: Elysia<"", {
                                 state: string | null;
                                 zipCode: string | null;
                                 verified: boolean;
+                                latitude: number | null;
+                                longitude: number | null;
                                 createdByUserId: string | null;
                             }) | null;
                             owner: {
@@ -1555,6 +1611,10 @@ declare const app: Elysia<"", {
                                 createdAt: Date;
                                 updatedAt: Date;
                                 actId: string;
+                                city: string | null;
+                                state: string | null;
+                                latitude: number | null;
+                                longitude: number | null;
                                 bio: string | null;
                             })[];
                             associationInvitations: ({
@@ -1571,6 +1631,8 @@ declare const app: Elysia<"", {
                                         state: string | null;
                                         zipCode: string | null;
                                         verified: boolean;
+                                        latitude: number | null;
+                                        longitude: number | null;
                                         createdByUserId: string | null;
                                     } | null;
                                     act: {
@@ -1580,6 +1642,10 @@ declare const app: Elysia<"", {
                                         createdAt: Date;
                                         updatedAt: Date;
                                         actId: string;
+                                        city: string | null;
+                                        state: string | null;
+                                        latitude: number | null;
+                                        longitude: number | null;
                                         bio: string | null;
                                     } | null;
                                     club: {
@@ -1590,6 +1656,10 @@ declare const app: Elysia<"", {
                                         createdAt: Date;
                                         updatedAt: Date;
                                         clubId: string;
+                                        city: string | null;
+                                        state: string | null;
+                                        latitude: number | null;
+                                        longitude: number | null;
                                     } | null;
                                 } & {
                                     name: string;
@@ -1686,6 +1756,8 @@ declare const app: Elysia<"", {
                                     state: string | null;
                                     zipCode: string | null;
                                     verified: boolean;
+                                    latitude: number | null;
+                                    longitude: number | null;
                                     createdByUserId: string | null;
                                 } | null;
                                 act: {
@@ -1695,6 +1767,10 @@ declare const app: Elysia<"", {
                                     createdAt: Date;
                                     updatedAt: Date;
                                     actId: string;
+                                    city: string | null;
+                                    state: string | null;
+                                    latitude: number | null;
+                                    longitude: number | null;
                                     bio: string | null;
                                 } | null;
                             } & {
@@ -1787,6 +1863,8 @@ declare const app: Elysia<"", {
                                     state: string | null;
                                     zipCode: string | null;
                                     verified: boolean;
+                                    latitude: number | null;
+                                    longitude: number | null;
                                     createdByUserId: string | null;
                                 } | null;
                                 act: {
@@ -1796,6 +1874,10 @@ declare const app: Elysia<"", {
                                     createdAt: Date;
                                     updatedAt: Date;
                                     actId: string;
+                                    city: string | null;
+                                    state: string | null;
+                                    latitude: number | null;
+                                    longitude: number | null;
                                     bio: string | null;
                                 } | null;
                             } & {
@@ -1905,6 +1987,8 @@ declare const app: Elysia<"", {
                                             state: string | null;
                                             zipCode: string | null;
                                             verified: boolean;
+                                            latitude: number | null;
+                                            longitude: number | null;
                                             createdByUserId: string | null;
                                         } | null;
                                         act: {
@@ -1914,6 +1998,10 @@ declare const app: Elysia<"", {
                                             createdAt: Date;
                                             updatedAt: Date;
                                             actId: string;
+                                            city: string | null;
+                                            state: string | null;
+                                            latitude: number | null;
+                                            longitude: number | null;
                                             bio: string | null;
                                         } | null;
                                     } & {
@@ -1948,6 +2036,8 @@ declare const app: Elysia<"", {
                                             state: string | null;
                                             zipCode: string | null;
                                             verified: boolean;
+                                            latitude: number | null;
+                                            longitude: number | null;
                                             createdByUserId: string | null;
                                         } | null;
                                         acts: {
@@ -1957,6 +2047,10 @@ declare const app: Elysia<"", {
                                             createdAt: Date;
                                             updatedAt: Date;
                                             actId: string;
+                                            city: string | null;
+                                            state: string | null;
+                                            latitude: number | null;
+                                            longitude: number | null;
                                             bio: string | null;
                                         }[];
                                     } & {
@@ -2035,6 +2129,8 @@ declare const app: Elysia<"", {
                                             state: string | null;
                                             zipCode: string | null;
                                             verified: boolean;
+                                            latitude: number | null;
+                                            longitude: number | null;
                                             createdByUserId: string | null;
                                         } | null;
                                         act: {
@@ -2044,6 +2140,10 @@ declare const app: Elysia<"", {
                                             createdAt: Date;
                                             updatedAt: Date;
                                             actId: string;
+                                            city: string | null;
+                                            state: string | null;
+                                            latitude: number | null;
+                                            longitude: number | null;
                                             bio: string | null;
                                         } | null;
                                     } & {
@@ -2322,6 +2422,8 @@ declare const app: Elysia<"", {
                                 state: string | null;
                                 zipCode: string | null;
                                 verified: boolean;
+                                latitude: number | null;
+                                longitude: number | null;
                                 createdByUserId: string | null;
                             } | null;
                             act: {
@@ -2331,6 +2433,10 @@ declare const app: Elysia<"", {
                                 createdAt: Date;
                                 updatedAt: Date;
                                 actId: string;
+                                city: string | null;
+                                state: string | null;
+                                latitude: number | null;
+                                longitude: number | null;
                                 bio: string | null;
                             } | null;
                             club: {
@@ -2341,6 +2447,10 @@ declare const app: Elysia<"", {
                                 createdAt: Date;
                                 updatedAt: Date;
                                 clubId: string;
+                                city: string | null;
+                                state: string | null;
+                                latitude: number | null;
+                                longitude: number | null;
                             } | null;
                         } & {
                             name: string;
@@ -2374,6 +2484,8 @@ declare const app: Elysia<"", {
                                 state: string | null;
                                 zipCode: string | null;
                                 verified: boolean;
+                                latitude: number | null;
+                                longitude: number | null;
                                 createdByUserId: string | null;
                             } | null;
                             acts: {
@@ -2383,6 +2495,10 @@ declare const app: Elysia<"", {
                                 createdAt: Date;
                                 updatedAt: Date;
                                 actId: string;
+                                city: string | null;
+                                state: string | null;
+                                latitude: number | null;
+                                longitude: number | null;
                                 bio: string | null;
                             }[];
                         } & {
@@ -2476,6 +2592,8 @@ declare const app: Elysia<"", {
                             state: string | null;
                             zipCode: string | null;
                             verified: boolean;
+                            latitude: number | null;
+                            longitude: number | null;
                             createdByUserId: string | null;
                         } | null;
                         act: {
@@ -2485,6 +2603,10 @@ declare const app: Elysia<"", {
                             createdAt: Date;
                             updatedAt: Date;
                             actId: string;
+                            city: string | null;
+                            state: string | null;
+                            latitude: number | null;
+                            longitude: number | null;
                             bio: string | null;
                         } | null;
                         club: {
@@ -2495,6 +2617,10 @@ declare const app: Elysia<"", {
                             createdAt: Date;
                             updatedAt: Date;
                             clubId: string;
+                            city: string | null;
+                            state: string | null;
+                            latitude: number | null;
+                            longitude: number | null;
                         } | null;
                     } & {
                         name: string;
@@ -2528,6 +2654,8 @@ declare const app: Elysia<"", {
                             state: string | null;
                             zipCode: string | null;
                             verified: boolean;
+                            latitude: number | null;
+                            longitude: number | null;
                             createdByUserId: string | null;
                         } | null;
                         acts: {
@@ -2537,6 +2665,10 @@ declare const app: Elysia<"", {
                             createdAt: Date;
                             updatedAt: Date;
                             actId: string;
+                            city: string | null;
+                            state: string | null;
+                            latitude: number | null;
+                            longitude: number | null;
                             bio: string | null;
                         }[];
                     } & {
@@ -2634,9 +2766,9 @@ declare const app: Elysia<"", {
                     query?: string | undefined;
                     type?: string | undefined;
                     limit?: number | undefined;
+                    sortBy?: string | undefined;
                     tuning?: string | undefined;
                     offset?: number | undefined;
-                    sortBy?: string | undefined;
                     sortOrder?: string | undefined;
                 };
                 headers: unknown;
@@ -2755,10 +2887,17 @@ declare const app: Elysia<"", {
             body: unknown;
             params: {};
             query: {
+                city?: string | undefined;
+                state?: string | undefined;
                 search?: string | undefined;
                 page?: number | undefined;
                 limit?: number | undefined;
+                lat?: number | undefined;
+                lng?: number | undefined;
+                radiusMiles?: number | undefined;
+                sortBy?: "distance" | "recent" | "relevance" | undefined;
                 myGuilds?: boolean | undefined;
+                excludeMyGuilds?: boolean | undefined;
             };
             headers: unknown;
             response: {
@@ -2814,6 +2953,8 @@ declare const app: Elysia<"", {
         post: {
             body: {
                 avatar?: string | undefined;
+                city?: string | undefined;
+                state?: string | undefined;
                 bio?: string | undefined;
                 name: string;
             };
@@ -2843,6 +2984,8 @@ declare const app: Elysia<"", {
                 body: {
                     name?: string | undefined;
                     avatar?: string | undefined;
+                    city?: string | undefined;
+                    state?: string | undefined;
                     bio?: string | undefined;
                 };
                 params: {
@@ -2942,6 +3085,8 @@ declare const app: Elysia<"", {
                                     state: string | null;
                                     zipCode: string | null;
                                     verified: boolean;
+                                    latitude: number | null;
+                                    longitude: number | null;
                                     createdByUserId: string | null;
                                 }) | null;
                                 owner: {
@@ -2985,6 +3130,10 @@ declare const app: Elysia<"", {
                                     createdAt: Date;
                                     updatedAt: Date;
                                     actId: string;
+                                    city: string | null;
+                                    state: string | null;
+                                    latitude: number | null;
+                                    longitude: number | null;
                                     bio: string | null;
                                 })[];
                             } & {
@@ -3130,10 +3279,17 @@ declare const app: Elysia<"", {
             body: unknown;
             params: {};
             query: {
+                city?: string | undefined;
+                state?: string | undefined;
                 search?: string | undefined;
                 page?: number | undefined;
                 limit?: number | undefined;
+                lat?: number | undefined;
+                lng?: number | undefined;
+                radiusMiles?: number | undefined;
+                sortBy?: "distance" | "recent" | "relevance" | undefined;
                 myGuilds?: boolean | undefined;
+                excludeMyGuilds?: boolean | undefined;
             };
             headers: unknown;
             response: {
@@ -3190,6 +3346,8 @@ declare const app: Elysia<"", {
             body: {
                 description?: string | undefined;
                 avatar?: string | undefined;
+                city?: string | undefined;
+                state?: string | undefined;
                 name: string;
             };
             params: {};
@@ -3219,6 +3377,8 @@ declare const app: Elysia<"", {
                     name?: string | undefined;
                     description?: string | undefined;
                     avatar?: string | undefined;
+                    city?: string | undefined;
+                    state?: string | undefined;
                 };
                 params: {
                     clubId: string;
@@ -3433,6 +3593,8 @@ declare const app: Elysia<"", {
                         state: string | null;
                         zipCode: string | null;
                         verified: boolean;
+                        latitude: number | null;
+                        longitude: number | null;
                         createdByUserId: string | null;
                     })[] | {
                         error: string;
@@ -3475,6 +3637,8 @@ declare const app: Elysia<"", {
                         state: string | null;
                         zipCode: string | null;
                         verified: boolean;
+                        latitude: number | null;
+                        longitude: number | null;
                         createdByUserId: string | null;
                     }[] | {
                         error: string;
@@ -3500,10 +3664,17 @@ declare const app: Elysia<"", {
             body: unknown;
             params: {};
             query: {
+                city?: string | undefined;
+                state?: string | undefined;
                 search?: string | undefined;
                 page?: number | undefined;
                 limit?: number | undefined;
+                lat?: number | undefined;
+                lng?: number | undefined;
+                radiusMiles?: number | undefined;
+                sortBy?: "distance" | "recent" | "relevance" | undefined;
                 myGuilds?: boolean | undefined;
+                excludeMyGuilds?: boolean | undefined;
             };
             headers: unknown;
             response: {
@@ -3559,6 +3730,8 @@ declare const app: Elysia<"", {
                             state: string | null;
                             zipCode: string | null;
                             verified: boolean;
+                            latitude: number | null;
+                            longitude: number | null;
                             createdByUserId: string | null;
                         };
                         guildId: null;
@@ -3609,6 +3782,8 @@ declare const app: Elysia<"", {
                         state: string | null;
                         zipCode: string | null;
                         verified: boolean;
+                        latitude: number | null;
+                        longitude: number | null;
                         createdByUserId: string | null;
                     } | {
                         error: string;
@@ -3747,6 +3922,8 @@ declare const app: Elysia<"", {
                                 state: string | null;
                                 zipCode: string | null;
                                 verified: boolean;
+                                latitude: number | null;
+                                longitude: number | null;
                                 createdByUserId: string | null;
                             };
                             act: {
@@ -3762,6 +3939,10 @@ declare const app: Elysia<"", {
                                 createdAt: Date;
                                 updatedAt: Date;
                                 actId: string;
+                                city: string | null;
+                                state: string | null;
+                                latitude: number | null;
+                                longitude: number | null;
                                 bio: string | null;
                             };
                         } & {
@@ -3817,6 +3998,10 @@ declare const app: Elysia<"", {
                                     createdAt: Date;
                                     updatedAt: Date;
                                     actId: string;
+                                    city: string | null;
+                                    state: string | null;
+                                    latitude: number | null;
+                                    longitude: number | null;
                                     bio: string | null;
                                 };
                             } & {
@@ -3925,6 +4110,8 @@ declare const app: Elysia<"", {
                                     state: string | null;
                                     zipCode: string | null;
                                     verified: boolean;
+                                    latitude: number | null;
+                                    longitude: number | null;
                                     createdByUserId: string | null;
                                 }) | null;
                                 owner: {
@@ -3968,6 +4155,10 @@ declare const app: Elysia<"", {
                                     createdAt: Date;
                                     updatedAt: Date;
                                     actId: string;
+                                    city: string | null;
+                                    state: string | null;
+                                    latitude: number | null;
+                                    longitude: number | null;
                                     bio: string | null;
                                 })[];
                             } & {
@@ -4097,6 +4288,8 @@ declare const app: Elysia<"", {
                                 state: string | null;
                                 zipCode: string | null;
                                 verified: boolean;
+                                latitude: number | null;
+                                longitude: number | null;
                                 createdByUserId: string | null;
                             };
                         } | {
@@ -7319,6 +7512,8 @@ declare const app: Elysia<"", {
                                     state: string | null;
                                     zipCode: string | null;
                                     verified: boolean;
+                                    latitude: number | null;
+                                    longitude: number | null;
                                     createdByUserId: string | null;
                                 };
                             };
@@ -7369,6 +7564,8 @@ declare const app: Elysia<"", {
                                     state: string | null;
                                     zipCode: string | null;
                                     verified: boolean;
+                                    latitude: number | null;
+                                    longitude: number | null;
                                     createdByUserId: string | null;
                                 };
                             };
