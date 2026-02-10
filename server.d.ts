@@ -478,91 +478,14 @@ declare const app: Elysia<"", {
                 lng?: number | undefined;
                 radiusMiles?: number | undefined;
                 sortBy?: "date" | "distance" | undefined;
+                followedEventIds?: string | undefined;
+                followedGuildIds?: string | undefined;
+                followedUserIds?: string | undefined;
             };
             headers: unknown;
             response: {
                 200: {
-                    events: ({
-                        guild: {
-                            name: string;
-                            createdAt: Date;
-                            taggingEnabled: boolean;
-                            guildId: string;
-                            slug: string;
-                            guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
-                            isActive: boolean;
-                            createdById: string | null;
-                            currentOwnerId: string;
-                            actId: string | null;
-                            venueId: string | null;
-                            clubId: string | null;
-                            weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
-                            showBookedDates: boolean;
-                            holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
-                            tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
-                            useTagsForAI: boolean;
-                        } | null;
-                        venue: {
-                            name: string;
-                            avatar: string | null;
-                            banner: string | null;
-                            createdAt: Date;
-                            updatedAt: Date;
-                            venueId: string;
-                            address: string | null;
-                            city: string | null;
-                            state: string | null;
-                            zipCode: string | null;
-                            verified: boolean;
-                            latitude: number | null;
-                            longitude: number | null;
-                            createdByUserId: string | null;
-                        } | null;
-                        owner: {
-                            email: string;
-                            displayName: string | null;
-                            firebaseUid: string | null;
-                            userId: string;
-                            tag: string | null;
-                            avatar: string | null;
-                            banner: string | null;
-                            createdAt: Date;
-                            updatedAt: Date;
-                            hasPremiumAccess: boolean;
-                            premiumGrantedAt: Date | null;
-                            taggingEnabled: boolean;
-                        } | null;
-                        acts: {
-                            name: string;
-                            avatar: string | null;
-                            banner: string | null;
-                            createdAt: Date;
-                            updatedAt: Date;
-                            actId: string;
-                            city: string | null;
-                            state: string | null;
-                            latitude: number | null;
-                            longitude: number | null;
-                            bio: string | null;
-                        }[];
-                    } & {
-                        description: string | null;
-                        userId: string | null;
-                        banner: string | null;
-                        createdAt: Date;
-                        updatedAt: Date;
-                        guildId: string | null;
-                        slug: string | null;
-                        venueId: string | null;
-                        eventId: string;
-                        title: string | null;
-                        poster: string | null;
-                        posterOffsetY: number | null;
-                        startTime: Date | null;
-                        duration: number | null;
-                        visibility: import("@archeusllc/schema/prisma-client/client").$Enums.CalendarEventVisibility;
-                        confirmed: boolean;
-                    })[];
+                    events: any[];
                     total: number;
                     page: number;
                     limit: number;
@@ -714,6 +637,7 @@ declare const app: Elysia<"", {
                 response: {
                     200: {
                         canManage: boolean;
+                        _followerCount: number;
                         guild: {
                             name: string;
                             createdAt: Date;
@@ -1515,6 +1439,7 @@ declare const app: Elysia<"", {
                     response: {
                         200: {
                             canManage: boolean;
+                            _followerCount: number;
                             guild: {
                                 name: string;
                                 createdAt: Date;
@@ -2723,6 +2648,43 @@ declare const app: Elysia<"", {
                     found?: unknown;
                     property?: string;
                     expected?: string;
+                };
+            };
+        };
+    };
+} & {
+    follows: {
+        import: {
+            post: {
+                body: {
+                    follows: {
+                        guildId?: string | undefined;
+                        followedUserId?: string | undefined;
+                        tagId?: string | undefined;
+                        eventId?: string | undefined;
+                        entityType: "USER" | "TAG" | "GUILD" | "EVENT";
+                    }[];
+                };
+                params: {};
+                query: unknown;
+                headers: unknown;
+                response: {
+                    200: {
+                        imported: number;
+                        skipped: number;
+                        total: number;
+                    } | {
+                        error: string;
+                    };
+                    422: {
+                        type: "validation";
+                        on: string;
+                        summary?: string;
+                        message?: string;
+                        found?: unknown;
+                        property?: string;
+                        expected?: string;
+                    };
                 };
             };
         };
