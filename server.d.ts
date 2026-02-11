@@ -5542,7 +5542,7 @@ declare const app: Elysia<"", {
                         user: {
                             displayName: string | null;
                             userId: string;
-                            profileImageUrl: never;
+                            avatar: string | null;
                         };
                         userId: string;
                         joinedAt: Date;
@@ -5595,14 +5595,14 @@ declare const app: Elysia<"", {
                             sender: {
                                 displayName: string | null;
                                 userId: string;
-                                profileImageUrl: never;
+                                avatar: string | null;
                             };
                         }[];
                         participants: {
                             user: {
                                 displayName: string | null;
                                 userId: string;
-                                profileImageUrl: never;
+                                avatar: string | null;
                             };
                             userId: string;
                             joinedAt: Date;
@@ -5663,7 +5663,7 @@ declare const app: Elysia<"", {
                             user: {
                                 displayName: string | null;
                                 userId: string;
-                                profileImageUrl: never;
+                                avatar: string | null;
                             };
                             userId: string;
                             joinedAt: Date;
@@ -5709,7 +5709,7 @@ declare const app: Elysia<"", {
                             user: {
                                 displayName: string | null;
                                 userId: string;
-                                profileImageUrl: never;
+                                avatar: string | null;
                             };
                             userId: string;
                             joinedAt: Date;
@@ -5760,7 +5760,7 @@ declare const app: Elysia<"", {
                                 sender: {
                                     displayName: string | null;
                                     userId: string;
-                                    profileImageUrl: never;
+                                    avatar: string | null;
                                 };
                             }[];
                             hasMore: boolean;
@@ -5806,7 +5806,7 @@ declare const app: Elysia<"", {
                             sender: {
                                 displayName: string | null;
                                 userId: string;
-                                profileImageUrl: never;
+                                avatar: string | null;
                             };
                         };
                         422: {
@@ -5877,7 +5877,7 @@ declare const app: Elysia<"", {
                                 user: {
                                     displayName: string | null;
                                     userId: string;
-                                    profileImageUrl: never;
+                                    avatar: string | null;
                                 };
                                 userId: string;
                                 joinedAt: Date;
@@ -5925,7 +5925,7 @@ declare const app: Elysia<"", {
                                     user: {
                                         displayName: string | null;
                                         userId: string;
-                                        profileImageUrl: never;
+                                        avatar: string | null;
                                     };
                                     userId: string;
                                     joinedAt: Date;
@@ -5975,7 +5975,7 @@ declare const app: Elysia<"", {
                         sender: {
                             displayName: string | null;
                             userId: string;
-                            profileImageUrl: never;
+                            avatar: string | null;
                         };
                     };
                     422: {
