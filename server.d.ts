@@ -5495,6 +5495,530 @@ declare const app: Elysia<"", {
         };
     };
 } & {
+    conversations: {
+        ws: {
+            subscribe: {
+                body: {};
+                params: {};
+                query: {
+                    token: string;
+                };
+                headers: {};
+                response: {
+                    422: {
+                        type: "validation";
+                        on: string;
+                        summary?: string;
+                        message?: string;
+                        found?: unknown;
+                        property?: string;
+                        expected?: string;
+                    };
+                };
+            };
+        };
+    };
+} & {
+    conversations: {
+        post: {
+            body: {
+                guildId?: string | undefined;
+                title?: string | undefined;
+                type: "DIRECT" | "GROUP";
+                participantUserIds: string[];
+            };
+            params: {};
+            query: unknown;
+            headers: unknown;
+            response: {
+                200: {
+                    type: import("@archeusllc/schema/prisma-client/client").$Enums.ConversationType;
+                    createdAt: Date;
+                    updatedAt: Date;
+                    guildId: string | null;
+                    title: string | null;
+                    conversationId: string;
+                    participants: {
+                        user: {
+                            displayName: string | null;
+                            userId: string;
+                            profileImageUrl: never;
+                        };
+                        userId: string;
+                        joinedAt: Date;
+                        participantId: string;
+                        lastReadAt: Date | null;
+                        mutedUntil: Date | null;
+                    }[];
+                };
+                422: {
+                    type: "validation";
+                    on: string;
+                    summary?: string;
+                    message?: string;
+                    found?: unknown;
+                    property?: string;
+                    expected?: string;
+                };
+            };
+        };
+    };
+} & {
+    conversations: {
+        get: {
+            body: unknown;
+            params: {};
+            query: {
+                page?: number | undefined;
+                limit?: number | undefined;
+            };
+            headers: unknown;
+            response: {
+                200: {
+                    conversations: {
+                        type: import("@archeusllc/schema/prisma-client/client").$Enums.ConversationType;
+                        createdAt: Date;
+                        updatedAt: Date;
+                        guildId: string | null;
+                        title: string | null;
+                        conversationId: string;
+                        messages: {
+                            type: import("@archeusllc/schema/prisma-client/client").$Enums.MessageType;
+                            content: string;
+                            createdAt: Date;
+                            conversationId: string;
+                            messageId: string;
+                            senderId: string;
+                            metadata: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue;
+                            editedAt: Date | null;
+                            deletedAt: Date | null;
+                            sender: {
+                                displayName: string | null;
+                                userId: string;
+                                profileImageUrl: never;
+                            };
+                        }[];
+                        participants: {
+                            user: {
+                                displayName: string | null;
+                                userId: string;
+                                profileImageUrl: never;
+                            };
+                            userId: string;
+                            joinedAt: Date;
+                            participantId: string;
+                            lastReadAt: Date | null;
+                            mutedUntil: Date | null;
+                        }[];
+                    }[];
+                    total: number;
+                    page: number;
+                    limit: number;
+                };
+                422: {
+                    type: "validation";
+                    on: string;
+                    summary?: string;
+                    message?: string;
+                    found?: unknown;
+                    property?: string;
+                    expected?: string;
+                };
+            };
+        };
+    };
+} & {
+    conversations: {
+        unread: {
+            get: {
+                body: unknown;
+                params: {};
+                query: unknown;
+                headers: unknown;
+                response: {
+                    200: Record<string, number>;
+                };
+            };
+        };
+    };
+} & {
+    conversations: {
+        ":conversationId": {
+            get: {
+                body: unknown;
+                params: {
+                    conversationId: string;
+                };
+                query: unknown;
+                headers: unknown;
+                response: {
+                    200: {
+                        type: import("@archeusllc/schema/prisma-client/client").$Enums.ConversationType;
+                        createdAt: Date;
+                        updatedAt: Date;
+                        guildId: string | null;
+                        title: string | null;
+                        conversationId: string;
+                        participants: {
+                            user: {
+                                displayName: string | null;
+                                userId: string;
+                                profileImageUrl: never;
+                            };
+                            userId: string;
+                            joinedAt: Date;
+                            participantId: string;
+                            lastReadAt: Date | null;
+                            mutedUntil: Date | null;
+                        }[];
+                    } | null;
+                    422: {
+                        type: "validation";
+                        on: string;
+                        summary?: string;
+                        message?: string;
+                        found?: unknown;
+                        property?: string;
+                        expected?: string;
+                    };
+                };
+            };
+        };
+    };
+} & {
+    conversations: {
+        ":conversationId": {
+            patch: {
+                body: {
+                    title?: string | undefined;
+                };
+                params: {
+                    conversationId: string;
+                };
+                query: unknown;
+                headers: unknown;
+                response: {
+                    200: {
+                        type: import("@archeusllc/schema/prisma-client/client").$Enums.ConversationType;
+                        createdAt: Date;
+                        updatedAt: Date;
+                        guildId: string | null;
+                        title: string | null;
+                        conversationId: string;
+                        participants: {
+                            user: {
+                                displayName: string | null;
+                                userId: string;
+                                profileImageUrl: never;
+                            };
+                            userId: string;
+                            joinedAt: Date;
+                            participantId: string;
+                            lastReadAt: Date | null;
+                            mutedUntil: Date | null;
+                        }[];
+                    };
+                    422: {
+                        type: "validation";
+                        on: string;
+                        summary?: string;
+                        message?: string;
+                        found?: unknown;
+                        property?: string;
+                        expected?: string;
+                    };
+                };
+            };
+        };
+    };
+} & {
+    conversations: {
+        ":conversationId": {
+            messages: {
+                get: {
+                    body: unknown;
+                    params: {
+                        conversationId: string;
+                    };
+                    query: {
+                        limit?: number | undefined;
+                        before?: string | undefined;
+                    };
+                    headers: unknown;
+                    response: {
+                        200: {
+                            messages: {
+                                type: import("@archeusllc/schema/prisma-client/client").$Enums.MessageType;
+                                content: string;
+                                createdAt: Date;
+                                conversationId: string;
+                                messageId: string;
+                                senderId: string;
+                                metadata: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue;
+                                editedAt: Date | null;
+                                deletedAt: Date | null;
+                                sender: {
+                                    displayName: string | null;
+                                    userId: string;
+                                    profileImageUrl: never;
+                                };
+                            }[];
+                            hasMore: boolean;
+                        };
+                        422: {
+                            type: "validation";
+                            on: string;
+                            summary?: string;
+                            message?: string;
+                            found?: unknown;
+                            property?: string;
+                            expected?: string;
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    conversations: {
+        ":conversationId": {
+            messages: {
+                post: {
+                    body: {
+                        content: string;
+                    };
+                    params: {
+                        conversationId: string;
+                    };
+                    query: unknown;
+                    headers: unknown;
+                    response: {
+                        200: {
+                            type: import("@archeusllc/schema/prisma-client/client").$Enums.MessageType;
+                            content: string;
+                            createdAt: Date;
+                            conversationId: string;
+                            messageId: string;
+                            senderId: string;
+                            metadata: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue;
+                            editedAt: Date | null;
+                            deletedAt: Date | null;
+                            sender: {
+                                displayName: string | null;
+                                userId: string;
+                                profileImageUrl: never;
+                            };
+                        };
+                        422: {
+                            type: "validation";
+                            on: string;
+                            summary?: string;
+                            message?: string;
+                            found?: unknown;
+                            property?: string;
+                            expected?: string;
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    conversations: {
+        ":conversationId": {
+            read: {
+                post: {
+                    body: unknown;
+                    params: {
+                        conversationId: string;
+                    };
+                    query: unknown;
+                    headers: unknown;
+                    response: {
+                        200: {
+                            success: boolean;
+                        };
+                        422: {
+                            type: "validation";
+                            on: string;
+                            summary?: string;
+                            message?: string;
+                            found?: unknown;
+                            property?: string;
+                            expected?: string;
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    conversations: {
+        ":conversationId": {
+            participants: {
+                post: {
+                    body: {
+                        userId: string;
+                    };
+                    params: {
+                        conversationId: string;
+                    };
+                    query: unknown;
+                    headers: unknown;
+                    response: {
+                        200: {
+                            type: import("@archeusllc/schema/prisma-client/client").$Enums.ConversationType;
+                            createdAt: Date;
+                            updatedAt: Date;
+                            guildId: string | null;
+                            title: string | null;
+                            conversationId: string;
+                            participants: {
+                                user: {
+                                    displayName: string | null;
+                                    userId: string;
+                                    profileImageUrl: never;
+                                };
+                                userId: string;
+                                joinedAt: Date;
+                                participantId: string;
+                                lastReadAt: Date | null;
+                                mutedUntil: Date | null;
+                            }[];
+                        } | null;
+                        422: {
+                            type: "validation";
+                            on: string;
+                            summary?: string;
+                            message?: string;
+                            found?: unknown;
+                            property?: string;
+                            expected?: string;
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    conversations: {
+        ":conversationId": {
+            participants: {
+                ":userId": {
+                    delete: {
+                        body: unknown;
+                        params: {
+                            userId: string;
+                            conversationId: string;
+                        };
+                        query: unknown;
+                        headers: unknown;
+                        response: {
+                            200: {
+                                type: import("@archeusllc/schema/prisma-client/client").$Enums.ConversationType;
+                                createdAt: Date;
+                                updatedAt: Date;
+                                guildId: string | null;
+                                title: string | null;
+                                conversationId: string;
+                                participants: {
+                                    user: {
+                                        displayName: string | null;
+                                        userId: string;
+                                        profileImageUrl: never;
+                                    };
+                                    userId: string;
+                                    joinedAt: Date;
+                                    participantId: string;
+                                    lastReadAt: Date | null;
+                                    mutedUntil: Date | null;
+                                }[];
+                            } | null;
+                            422: {
+                                type: "validation";
+                                on: string;
+                                summary?: string;
+                                message?: string;
+                                found?: unknown;
+                                property?: string;
+                                expected?: string;
+                            };
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    messages: {
+        ":messageId": {
+            patch: {
+                body: {
+                    content: string;
+                };
+                params: {
+                    messageId: string;
+                };
+                query: unknown;
+                headers: unknown;
+                response: {
+                    200: {
+                        type: import("@archeusllc/schema/prisma-client/client").$Enums.MessageType;
+                        content: string;
+                        createdAt: Date;
+                        conversationId: string;
+                        messageId: string;
+                        senderId: string;
+                        metadata: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue;
+                        editedAt: Date | null;
+                        deletedAt: Date | null;
+                        sender: {
+                            displayName: string | null;
+                            userId: string;
+                            profileImageUrl: never;
+                        };
+                    };
+                    422: {
+                        type: "validation";
+                        on: string;
+                        summary?: string;
+                        message?: string;
+                        found?: unknown;
+                        property?: string;
+                        expected?: string;
+                    };
+                };
+            };
+        };
+    };
+} & {
+    messages: {
+        ":messageId": {
+            delete: {
+                body: unknown;
+                params: {
+                    messageId: string;
+                };
+                query: unknown;
+                headers: unknown;
+                response: {
+                    200: {
+                        success: boolean;
+                    };
+                    422: {
+                        type: "validation";
+                        on: string;
+                        summary?: string;
+                        message?: string;
+                        found?: unknown;
+                        property?: string;
+                        expected?: string;
+                    };
+                };
+            };
+        };
+    };
+} & {
     setlist: {};
 } & {
     setlist: {
