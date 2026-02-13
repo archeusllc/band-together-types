@@ -6317,7 +6317,9 @@ declare const app: Elysia<"", {
                     params: {
                         setlistId: string;
                     };
-                    query: unknown;
+                    query: {
+                        token?: string | undefined;
+                    };
                     headers: unknown;
                     response: {
                         200: ({
@@ -7254,6 +7256,8 @@ declare const app: Elysia<"", {
                         userId?: string | undefined;
                         token?: string | undefined;
                         userName?: string | undefined;
+                        avatarUrl?: string | undefined;
+                        editing?: string | undefined;
                     };
                     headers: {};
                     response: {
