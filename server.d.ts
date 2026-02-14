@@ -5554,7 +5554,7 @@ declare const app: Elysia<"", {
                         lastReadAt: Date | null;
                         mutedUntil: Date | null;
                     }[];
-                };
+                } | null;
                 422: {
                     type: "validation";
                     on: string;
