@@ -2719,6 +2719,8 @@ declare const app: Elysia<"", {
         };
     };
 } & {
+    tracks: {};
+} & {
     tracks: {
         search: {
             get: {
@@ -2727,9 +2729,11 @@ declare const app: Elysia<"", {
                 query: {
                     query?: string | undefined;
                     type?: string | undefined;
+                    tags?: string | undefined;
                     limit?: number | undefined;
                     sortBy?: string | undefined;
                     tuning?: string | undefined;
+                    myTags?: string | undefined;
                     offset?: number | undefined;
                     sortOrder?: string | undefined;
                 };
@@ -7882,6 +7886,203 @@ declare const app: Elysia<"", {
                             found?: unknown;
                             property?: string;
                             expected?: string;
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    tracks: {
+        ":trackId": {
+            tags: {};
+        };
+    };
+} & {
+    tracks: {
+        ":trackId": {
+            tags: {
+                get: {
+                    body: unknown;
+                    params: {
+                        trackId: string;
+                    };
+                    query: {
+                        limit?: string | undefined;
+                    };
+                    headers: unknown;
+                    response: {
+                        200: {
+                            tags: import("./types").PublicTag[];
+                            total: number;
+                        };
+                        422: {
+                            type: "validation";
+                            on: string;
+                            summary?: string;
+                            message?: string;
+                            found?: unknown;
+                            property?: string;
+                            expected?: string;
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    tracks: {
+        ":trackId": {
+            tags: {
+                mine: {
+                    get: {
+                        body: unknown;
+                        params: {
+                            trackId: string;
+                        };
+                        query: unknown;
+                        headers: unknown;
+                        response: {
+                            200: {
+                                tags: import("./types").PrivateTag[];
+                            } | {
+                                error: string;
+                            };
+                            422: {
+                                type: "validation";
+                                on: string;
+                                summary?: string;
+                                message?: string;
+                                found?: unknown;
+                                property?: string;
+                                expected?: string;
+                            };
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    tracks: {
+        ":trackId": {
+            tags: {
+                post: {
+                    body: {
+                        tagId: string;
+                    };
+                    params: {
+                        trackId: string;
+                    };
+                    query: unknown;
+                    headers: unknown;
+                    response: {
+                        200: ({
+                            tag: {
+                                value: string;
+                                tagId: string;
+                                category: string;
+                                color: string | null;
+                                isBanned: boolean;
+                            };
+                        } & {
+                            userId: string;
+                            createdAt: Date;
+                            entityType: import("@archeusllc/schema/prisma-client/client").$Enums.TaggableEntityType;
+                            tagId: string;
+                            id: string;
+                            entityId: string;
+                            vote: number;
+                        }) | {
+                            error: string;
+                        };
+                        422: {
+                            type: "validation";
+                            on: string;
+                            summary?: string;
+                            message?: string;
+                            found?: unknown;
+                            property?: string;
+                            expected?: string;
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    tracks: {
+        ":trackId": {
+            tags: {
+                ":tagId": {
+                    delete: {
+                        body: unknown;
+                        params: {
+                            tagId: string;
+                            trackId: string;
+                        };
+                        query: unknown;
+                        headers: unknown;
+                        response: {
+                            200: {
+                                success: boolean;
+                            } | {
+                                error: string;
+                            };
+                            422: {
+                                type: "validation";
+                                on: string;
+                                summary?: string;
+                                message?: string;
+                                found?: unknown;
+                                property?: string;
+                                expected?: string;
+                            };
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    tracks: {
+        ":trackId": {
+            tags: {
+                ":tagId": {
+                    downvote: {
+                        post: {
+                            body: unknown;
+                            params: {
+                                tagId: string;
+                                trackId: string;
+                            };
+                            query: unknown;
+                            headers: unknown;
+                            response: {
+                                200: {
+                                    userId: string;
+                                    createdAt: Date;
+                                    entityType: import("@archeusllc/schema/prisma-client/client").$Enums.TaggableEntityType;
+                                    tagId: string;
+                                    id: string;
+                                    entityId: string;
+                                    vote: number;
+                                } | {
+                                    removed: boolean;
+                                    tagId: string;
+                                } | {
+                                    error: string;
+                                };
+                                422: {
+                                    type: "validation";
+                                    on: string;
+                                    summary?: string;
+                                    message?: string;
+                                    found?: unknown;
+                                    property?: string;
+                                    expected?: string;
+                                };
+                            };
                         };
                     };
                 };
