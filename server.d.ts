@@ -8427,6 +8427,93 @@ declare const app: Elysia<"", {
         };
     };
 } & {
+    availability: {};
+} & {
+    availability: {
+        defaults: {
+            get: {
+                body: unknown;
+                params: {};
+                query: unknown;
+                headers: unknown;
+                response: {
+                    200: {
+                        weeklyDefaults: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue;
+                    } | {
+                        error: string;
+                    };
+                    422: {
+                        type: "validation";
+                        on: string;
+                        summary?: string;
+                        message?: string;
+                        found?: unknown;
+                        property?: string;
+                        expected?: string;
+                    };
+                };
+            };
+        };
+    };
+} & {
+    availability: {
+        defaults: {
+            put: {
+                body: {
+                    weeklyDefaults: {
+                        MONDAY: {
+                            day: boolean;
+                            night: boolean;
+                        };
+                        TUESDAY: {
+                            day: boolean;
+                            night: boolean;
+                        };
+                        WEDNESDAY: {
+                            day: boolean;
+                            night: boolean;
+                        };
+                        THURSDAY: {
+                            day: boolean;
+                            night: boolean;
+                        };
+                        FRIDAY: {
+                            day: boolean;
+                            night: boolean;
+                        };
+                        SATURDAY: {
+                            day: boolean;
+                            night: boolean;
+                        };
+                        SUNDAY: {
+                            day: boolean;
+                            night: boolean;
+                        };
+                    };
+                };
+                params: {};
+                query: unknown;
+                headers: unknown;
+                response: {
+                    200: {
+                        weeklyDefaults: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue;
+                    } | {
+                        error: string;
+                    };
+                    422: {
+                        type: "validation";
+                        on: string;
+                        summary?: string;
+                        message?: string;
+                        found?: unknown;
+                        property?: string;
+                        expected?: string;
+                    };
+                };
+            };
+        };
+    };
+} & {
     [x: string]: {
         get: {
             body: unknown;
