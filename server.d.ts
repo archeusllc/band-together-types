@@ -633,7 +633,63 @@ declare const app: Elysia<"", {
                 headers: unknown;
                 response: {
                     200: {
+                        eventSetlists?: ({
+                            setList: {
+                                name: string;
+                                description: string | null;
+                                _count: {
+                                    setItems: number;
+                                    setSections: number;
+                                };
+                                slug: string | null;
+                                setListId: string;
+                            };
+                            act: ({
+                                guild: {
+                                    name: string;
+                                    createdAt: Date;
+                                    taggingEnabled: boolean;
+                                    guildId: string;
+                                    slug: string;
+                                    guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
+                                    isActive: boolean;
+                                    createdById: string | null;
+                                    currentOwnerId: string;
+                                    actId: string | null;
+                                    venueId: string | null;
+                                    clubId: string | null;
+                                    tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
+                                    useTagsForAI: boolean;
+                                } | null;
+                            } & {
+                                name: string;
+                                avatar: string | null;
+                                banner: string | null;
+                                createdAt: Date;
+                                updatedAt: Date;
+                                actId: string;
+                                city: string | null;
+                                state: string | null;
+                                latitude: number | null;
+                                longitude: number | null;
+                                bio: string | null;
+                            }) | null;
+                            attachedBy: {
+                                displayName: string | null;
+                                userId: string;
+                            };
+                        } & {
+                            createdAt: Date;
+                            actId: string | null;
+                            eventId: string;
+                            id: string;
+                            setListId: string;
+                            position: number;
+                            isDuplicate: boolean;
+                            attachedById: string;
+                        })[] | undefined;
                         canManage: boolean;
+                        isAssociatedMember: boolean;
                         _followerCount: number;
                         guild: {
                             name: string;
@@ -1411,7 +1467,63 @@ declare const app: Elysia<"", {
                     headers: unknown;
                     response: {
                         200: {
+                            eventSetlists?: ({
+                                setList: {
+                                    name: string;
+                                    description: string | null;
+                                    _count: {
+                                        setItems: number;
+                                        setSections: number;
+                                    };
+                                    slug: string | null;
+                                    setListId: string;
+                                };
+                                act: ({
+                                    guild: {
+                                        name: string;
+                                        createdAt: Date;
+                                        taggingEnabled: boolean;
+                                        guildId: string;
+                                        slug: string;
+                                        guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
+                                        isActive: boolean;
+                                        createdById: string | null;
+                                        currentOwnerId: string;
+                                        actId: string | null;
+                                        venueId: string | null;
+                                        clubId: string | null;
+                                        tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
+                                        useTagsForAI: boolean;
+                                    } | null;
+                                } & {
+                                    name: string;
+                                    avatar: string | null;
+                                    banner: string | null;
+                                    createdAt: Date;
+                                    updatedAt: Date;
+                                    actId: string;
+                                    city: string | null;
+                                    state: string | null;
+                                    latitude: number | null;
+                                    longitude: number | null;
+                                    bio: string | null;
+                                }) | null;
+                                attachedBy: {
+                                    displayName: string | null;
+                                    userId: string;
+                                };
+                            } & {
+                                createdAt: Date;
+                                actId: string | null;
+                                eventId: string;
+                                id: string;
+                                setListId: string;
+                                position: number;
+                                isDuplicate: boolean;
+                                attachedById: string;
+                            })[] | undefined;
                             canManage: boolean;
+                            isAssociatedMember: boolean;
                             _followerCount: number;
                             guild: {
                                 name: string;
@@ -2079,6 +2191,420 @@ declare const app: Elysia<"", {
                                     property?: string;
                                     expected?: string;
                                 };
+                            };
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    events: {
+        ":eventId": {
+            setlists: {};
+        };
+    };
+} & {
+    events: {
+        ":eventId": {
+            setlists: {
+                get: {
+                    body: unknown;
+                    params: {
+                        eventId: string;
+                    };
+                    query: unknown;
+                    headers: unknown;
+                    response: {
+                        200: ({
+                            setList: {
+                                setItems: ({
+                                    track: {
+                                        type: import("@archeusllc/schema/prisma-client/client").$Enums.TrackType;
+                                        createdAt: Date;
+                                        updatedAt: Date;
+                                        isActive: boolean;
+                                        title: string;
+                                        createdBy: string;
+                                        trackId: string;
+                                        artist: string;
+                                        defaultDuration: number | null;
+                                        defaultTuning: string | null;
+                                    };
+                                } & {
+                                    createdAt: Date;
+                                    updatedAt: Date;
+                                    setListId: string;
+                                    position: number;
+                                    trackId: string;
+                                    setItemId: string;
+                                    customTuning: string | null;
+                                    customNotes: string | null;
+                                    customDuration: number | null;
+                                    sectionId: string | null;
+                                })[];
+                                setSections: {
+                                    name: string;
+                                    createdAt: Date;
+                                    updatedAt: Date;
+                                    setListId: string;
+                                    position: number;
+                                    sectionId: string;
+                                    breakDuration: number | null;
+                                }[];
+                            } & {
+                                name: string;
+                                description: string | null;
+                                createdAt: Date;
+                                updatedAt: Date;
+                                guildId: string | null;
+                                slug: string | null;
+                                setListId: string;
+                                ownerId: string;
+                                isPrivate: boolean;
+                                viewToken: string;
+                                editToken: string;
+                            };
+                            act: ({
+                                guild: {
+                                    name: string;
+                                    createdAt: Date;
+                                    taggingEnabled: boolean;
+                                    guildId: string;
+                                    slug: string;
+                                    guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
+                                    isActive: boolean;
+                                    createdById: string | null;
+                                    currentOwnerId: string;
+                                    actId: string | null;
+                                    venueId: string | null;
+                                    clubId: string | null;
+                                    tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
+                                    useTagsForAI: boolean;
+                                } | null;
+                            } & {
+                                name: string;
+                                avatar: string | null;
+                                banner: string | null;
+                                createdAt: Date;
+                                updatedAt: Date;
+                                actId: string;
+                                city: string | null;
+                                state: string | null;
+                                latitude: number | null;
+                                longitude: number | null;
+                                bio: string | null;
+                            }) | null;
+                            attachedBy: {
+                                displayName: string | null;
+                                userId: string;
+                            };
+                        } & {
+                            createdAt: Date;
+                            actId: string | null;
+                            eventId: string;
+                            id: string;
+                            setListId: string;
+                            position: number;
+                            isDuplicate: boolean;
+                            attachedById: string;
+                        })[] | {
+                            error: string;
+                        };
+                        422: {
+                            type: "validation";
+                            on: string;
+                            summary?: string;
+                            message?: string;
+                            found?: unknown;
+                            property?: string;
+                            expected?: string;
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    events: {
+        ":eventId": {
+            setlists: {
+                post: {
+                    body: {
+                        actId?: string | undefined;
+                        duplicate?: boolean | undefined;
+                        setListId: string;
+                    };
+                    params: {
+                        eventId: string;
+                    };
+                    query: unknown;
+                    headers: unknown;
+                    response: {
+                        200: ({
+                            setList: {
+                                setItems: ({
+                                    track: {
+                                        type: import("@archeusllc/schema/prisma-client/client").$Enums.TrackType;
+                                        createdAt: Date;
+                                        updatedAt: Date;
+                                        isActive: boolean;
+                                        title: string;
+                                        createdBy: string;
+                                        trackId: string;
+                                        artist: string;
+                                        defaultDuration: number | null;
+                                        defaultTuning: string | null;
+                                    };
+                                } & {
+                                    createdAt: Date;
+                                    updatedAt: Date;
+                                    setListId: string;
+                                    position: number;
+                                    trackId: string;
+                                    setItemId: string;
+                                    customTuning: string | null;
+                                    customNotes: string | null;
+                                    customDuration: number | null;
+                                    sectionId: string | null;
+                                })[];
+                                setSections: {
+                                    name: string;
+                                    createdAt: Date;
+                                    updatedAt: Date;
+                                    setListId: string;
+                                    position: number;
+                                    sectionId: string;
+                                    breakDuration: number | null;
+                                }[];
+                            } & {
+                                name: string;
+                                description: string | null;
+                                createdAt: Date;
+                                updatedAt: Date;
+                                guildId: string | null;
+                                slug: string | null;
+                                setListId: string;
+                                ownerId: string;
+                                isPrivate: boolean;
+                                viewToken: string;
+                                editToken: string;
+                            };
+                            act: ({
+                                guild: {
+                                    name: string;
+                                    createdAt: Date;
+                                    taggingEnabled: boolean;
+                                    guildId: string;
+                                    slug: string;
+                                    guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
+                                    isActive: boolean;
+                                    createdById: string | null;
+                                    currentOwnerId: string;
+                                    actId: string | null;
+                                    venueId: string | null;
+                                    clubId: string | null;
+                                    tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
+                                    useTagsForAI: boolean;
+                                } | null;
+                            } & {
+                                name: string;
+                                avatar: string | null;
+                                banner: string | null;
+                                createdAt: Date;
+                                updatedAt: Date;
+                                actId: string;
+                                city: string | null;
+                                state: string | null;
+                                latitude: number | null;
+                                longitude: number | null;
+                                bio: string | null;
+                            }) | null;
+                            attachedBy: {
+                                displayName: string | null;
+                                userId: string;
+                            };
+                        } & {
+                            createdAt: Date;
+                            actId: string | null;
+                            eventId: string;
+                            id: string;
+                            setListId: string;
+                            position: number;
+                            isDuplicate: boolean;
+                            attachedById: string;
+                        }) | {
+                            error: string;
+                        };
+                        422: {
+                            type: "validation";
+                            on: string;
+                            summary?: string;
+                            message?: string;
+                            found?: unknown;
+                            property?: string;
+                            expected?: string;
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    events: {
+        ":eventId": {
+            setlists: {
+                reorder: {
+                    patch: {
+                        body: {
+                            positions: {
+                                id: string;
+                                position: number;
+                            }[];
+                        };
+                        params: {
+                            eventId: string;
+                        };
+                        query: unknown;
+                        headers: unknown;
+                        response: {
+                            200: ({
+                                setList: {
+                                    setItems: ({
+                                        track: {
+                                            type: import("@archeusllc/schema/prisma-client/client").$Enums.TrackType;
+                                            createdAt: Date;
+                                            updatedAt: Date;
+                                            isActive: boolean;
+                                            title: string;
+                                            createdBy: string;
+                                            trackId: string;
+                                            artist: string;
+                                            defaultDuration: number | null;
+                                            defaultTuning: string | null;
+                                        };
+                                    } & {
+                                        createdAt: Date;
+                                        updatedAt: Date;
+                                        setListId: string;
+                                        position: number;
+                                        trackId: string;
+                                        setItemId: string;
+                                        customTuning: string | null;
+                                        customNotes: string | null;
+                                        customDuration: number | null;
+                                        sectionId: string | null;
+                                    })[];
+                                    setSections: {
+                                        name: string;
+                                        createdAt: Date;
+                                        updatedAt: Date;
+                                        setListId: string;
+                                        position: number;
+                                        sectionId: string;
+                                        breakDuration: number | null;
+                                    }[];
+                                } & {
+                                    name: string;
+                                    description: string | null;
+                                    createdAt: Date;
+                                    updatedAt: Date;
+                                    guildId: string | null;
+                                    slug: string | null;
+                                    setListId: string;
+                                    ownerId: string;
+                                    isPrivate: boolean;
+                                    viewToken: string;
+                                    editToken: string;
+                                };
+                                act: ({
+                                    guild: {
+                                        name: string;
+                                        createdAt: Date;
+                                        taggingEnabled: boolean;
+                                        guildId: string;
+                                        slug: string;
+                                        guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
+                                        isActive: boolean;
+                                        createdById: string | null;
+                                        currentOwnerId: string;
+                                        actId: string | null;
+                                        venueId: string | null;
+                                        clubId: string | null;
+                                        tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
+                                        useTagsForAI: boolean;
+                                    } | null;
+                                } & {
+                                    name: string;
+                                    avatar: string | null;
+                                    banner: string | null;
+                                    createdAt: Date;
+                                    updatedAt: Date;
+                                    actId: string;
+                                    city: string | null;
+                                    state: string | null;
+                                    latitude: number | null;
+                                    longitude: number | null;
+                                    bio: string | null;
+                                }) | null;
+                                attachedBy: {
+                                    displayName: string | null;
+                                    userId: string;
+                                };
+                            } & {
+                                createdAt: Date;
+                                actId: string | null;
+                                eventId: string;
+                                id: string;
+                                setListId: string;
+                                position: number;
+                                isDuplicate: boolean;
+                                attachedById: string;
+                            })[] | {
+                                error: string;
+                            };
+                            422: {
+                                type: "validation";
+                                on: string;
+                                summary?: string;
+                                message?: string;
+                                found?: unknown;
+                                property?: string;
+                                expected?: string;
+                            };
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    events: {
+        ":eventId": {
+            setlists: {
+                ":eventSetlistId": {
+                    delete: {
+                        body: unknown;
+                        params: {
+                            eventId: string;
+                            eventSetlistId: string;
+                        };
+                        query: unknown;
+                        headers: unknown;
+                        response: {
+                            200: {
+                                success: boolean;
+                            } | {
+                                error: string;
+                            };
+                            422: {
+                                type: "validation";
+                                on: string;
+                                summary?: string;
+                                message?: string;
+                                found?: unknown;
+                                property?: string;
+                                expected?: string;
                             };
                         };
                     };
@@ -5697,9 +6223,9 @@ declare const app: Elysia<"", {
                         createdAt: Date;
                         updatedAt: Date;
                         setListId: string;
+                        position: number;
                         trackId: string;
                         setItemId: string;
-                        position: number;
                         customTuning: string | null;
                         customNotes: string | null;
                         customDuration: number | null;
@@ -5783,9 +6309,9 @@ declare const app: Elysia<"", {
                         createdAt: Date;
                         updatedAt: Date;
                         setListId: string;
+                        position: number;
                         trackId: string;
                         setItemId: string;
-                        position: number;
                         customTuning: string | null;
                         customNotes: string | null;
                         customDuration: number | null;
@@ -5869,9 +6395,9 @@ declare const app: Elysia<"", {
                             createdAt: Date;
                             updatedAt: Date;
                             setListId: string;
+                            position: number;
                             trackId: string;
                             setItemId: string;
-                            position: number;
                             customTuning: string | null;
                             customNotes: string | null;
                             customDuration: number | null;
@@ -5984,9 +6510,9 @@ declare const app: Elysia<"", {
                                 createdAt: Date;
                                 updatedAt: Date;
                                 setListId: string;
+                                position: number;
                                 trackId: string;
                                 setItemId: string;
-                                position: number;
                                 customTuning: string | null;
                                 customNotes: string | null;
                                 customDuration: number | null;
@@ -6110,9 +6636,9 @@ declare const app: Elysia<"", {
                             createdAt: Date;
                             updatedAt: Date;
                             setListId: string;
+                            position: number;
                             trackId: string;
                             setItemId: string;
-                            position: number;
                             customTuning: string | null;
                             customNotes: string | null;
                             customDuration: number | null;
@@ -6181,9 +6707,9 @@ declare const app: Elysia<"", {
                                 createdAt: Date;
                                 updatedAt: Date;
                                 setListId: string;
+                                position: number;
                                 trackId: string;
                                 setItemId: string;
-                                position: number;
                                 customTuning: string | null;
                                 customNotes: string | null;
                                 customDuration: number | null;
@@ -6289,9 +6815,9 @@ declare const app: Elysia<"", {
                                 createdAt: Date;
                                 updatedAt: Date;
                                 setListId: string;
+                                position: number;
                                 trackId: string;
                                 setItemId: string;
-                                position: number;
                                 customTuning: string | null;
                                 customNotes: string | null;
                                 customDuration: number | null;
@@ -6342,8 +6868,8 @@ declare const app: Elysia<"", {
                 post: {
                     body: {
                         itemPositions?: {
-                            setItemId: string;
                             position: number;
+                            setItemId: string;
                         }[] | undefined;
                         sectionPositions?: {
                             position: number;
@@ -6385,9 +6911,9 @@ declare const app: Elysia<"", {
                                 createdAt: Date;
                                 updatedAt: Date;
                                 setListId: string;
+                                position: number;
                                 trackId: string;
                                 setItemId: string;
-                                position: number;
                                 customTuning: string | null;
                                 customNotes: string | null;
                                 customDuration: number | null;
@@ -6478,9 +7004,9 @@ declare const app: Elysia<"", {
                                     createdAt: Date;
                                     updatedAt: Date;
                                     setListId: string;
+                                    position: number;
                                     trackId: string;
                                     setItemId: string;
-                                    position: number;
                                     customTuning: string | null;
                                     customNotes: string | null;
                                     customDuration: number | null;
@@ -6716,9 +7242,9 @@ declare const app: Elysia<"", {
                                 createdAt: Date;
                                 updatedAt: Date;
                                 setListId: string;
+                                position: number;
                                 trackId: string;
                                 setItemId: string;
-                                position: number;
                                 customTuning: string | null;
                                 customNotes: string | null;
                                 customDuration: number | null;
@@ -6828,9 +7354,9 @@ declare const app: Elysia<"", {
                             createdAt: Date;
                             updatedAt: Date;
                             setListId: string;
+                            position: number;
                             trackId: string;
                             setItemId: string;
-                            position: number;
                             customTuning: string | null;
                             customNotes: string | null;
                             customDuration: number | null;
