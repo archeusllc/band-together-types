@@ -539,9 +539,6 @@ declare const app: Elysia<"", {
                             actId: string | null;
                             venueId: string | null;
                             clubId: string | null;
-                            weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
-                            showBookedDates: boolean;
-                            holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
                             tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                             useTagsForAI: boolean;
                         } | null;
@@ -651,9 +648,6 @@ declare const app: Elysia<"", {
                             actId: string | null;
                             venueId: string | null;
                             clubId: string | null;
-                            weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
-                            showBookedDates: boolean;
-                            holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
                             tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                             useTagsForAI: boolean;
                         } | null;
@@ -671,9 +665,6 @@ declare const app: Elysia<"", {
                                 actId: string | null;
                                 venueId: string | null;
                                 clubId: string | null;
-                                weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
-                                showBookedDates: boolean;
-                                holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
                                 tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                 useTagsForAI: boolean;
                             } | null;
@@ -721,9 +712,6 @@ declare const app: Elysia<"", {
                                 actId: string | null;
                                 venueId: string | null;
                                 clubId: string | null;
-                                weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
-                                showBookedDates: boolean;
-                                holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
                                 tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                 useTagsForAI: boolean;
                             } | null;
@@ -835,9 +823,6 @@ declare const app: Elysia<"", {
                             actId: string | null;
                             venueId: string | null;
                             clubId: string | null;
-                            weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
-                            showBookedDates: boolean;
-                            holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
                             tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                             useTagsForAI: boolean;
                         } | null;
@@ -921,9 +906,6 @@ declare const app: Elysia<"", {
                             actId: string | null;
                             venueId: string | null;
                             clubId: string | null;
-                            weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
-                            showBookedDates: boolean;
-                            holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
                             tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                             useTagsForAI: boolean;
                         } | null;
@@ -1069,9 +1051,6 @@ declare const app: Elysia<"", {
                                         actId: string | null;
                                         venueId: string | null;
                                         clubId: string | null;
-                                        weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
-                                        showBookedDates: boolean;
-                                        holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
                                         tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                         useTagsForAI: boolean;
                                     } | null;
@@ -1189,9 +1168,6 @@ declare const app: Elysia<"", {
                                         actId: string | null;
                                         venueId: string | null;
                                         clubId: string | null;
-                                        weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
-                                        showBookedDates: boolean;
-                                        holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
                                         tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                         useTagsForAI: boolean;
                                     } | null;
@@ -1337,9 +1313,6 @@ declare const app: Elysia<"", {
                                     actId: string | null;
                                     venueId: string | null;
                                     clubId: string | null;
-                                    weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
-                                    showBookedDates: boolean;
-                                    holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
                                     tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                     useTagsForAI: boolean;
                                 } | null;
@@ -1453,9 +1426,6 @@ declare const app: Elysia<"", {
                                 actId: string | null;
                                 venueId: string | null;
                                 clubId: string | null;
-                                weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
-                                showBookedDates: boolean;
-                                holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
                                 tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                 useTagsForAI: boolean;
                             } | null;
@@ -1473,9 +1443,6 @@ declare const app: Elysia<"", {
                                     actId: string | null;
                                     venueId: string | null;
                                     clubId: string | null;
-                                    weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
-                                    showBookedDates: boolean;
-                                    holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
                                     tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                     useTagsForAI: boolean;
                                 } | null;
@@ -1523,9 +1490,6 @@ declare const app: Elysia<"", {
                                     actId: string | null;
                                     venueId: string | null;
                                     clubId: string | null;
-                                    weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
-                                    showBookedDates: boolean;
-                                    holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
                                     tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                     useTagsForAI: boolean;
                                 } | null;
@@ -1599,9 +1563,6 @@ declare const app: Elysia<"", {
                                     actId: string | null;
                                     venueId: string | null;
                                     clubId: string | null;
-                                    weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
-                                    showBookedDates: boolean;
-                                    holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
                                     tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                     useTagsForAI: boolean;
                                 };
@@ -1711,9 +1672,6 @@ declare const app: Elysia<"", {
                                 actId: string | null;
                                 venueId: string | null;
                                 clubId: string | null;
-                                weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
-                                showBookedDates: boolean;
-                                holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
                                 tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                 useTagsForAI: boolean;
                             };
@@ -1818,9 +1776,6 @@ declare const app: Elysia<"", {
                                 actId: string | null;
                                 venueId: string | null;
                                 clubId: string | null;
-                                weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
-                                showBookedDates: boolean;
-                                holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
                                 tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                 useTagsForAI: boolean;
                             };
@@ -1942,9 +1897,6 @@ declare const app: Elysia<"", {
                                         actId: string | null;
                                         venueId: string | null;
                                         clubId: string | null;
-                                        weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
-                                        showBookedDates: boolean;
-                                        holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
                                         tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                         useTagsForAI: boolean;
                                     };
@@ -2084,9 +2036,6 @@ declare const app: Elysia<"", {
                                         actId: string | null;
                                         venueId: string | null;
                                         clubId: string | null;
-                                        weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
-                                        showBookedDates: boolean;
-                                        holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
                                         tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                         useTagsForAI: boolean;
                                     };
@@ -2212,9 +2161,6 @@ declare const app: Elysia<"", {
                             actId: string | null;
                             venueId: string | null;
                             clubId: string | null;
-                            weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
-                            showBookedDates: boolean;
-                            holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
                             tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                             useTagsForAI: boolean;
                         }) | null;
@@ -2382,9 +2328,6 @@ declare const app: Elysia<"", {
                         actId: string | null;
                         venueId: string | null;
                         clubId: string | null;
-                        weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
-                        showBookedDates: boolean;
-                        holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
                         tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                         useTagsForAI: boolean;
                     }) | null;
@@ -2855,9 +2798,6 @@ declare const app: Elysia<"", {
                                         actId: string | null;
                                         venueId: string | null;
                                         clubId: string | null;
-                                        weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
-                                        showBookedDates: boolean;
-                                        holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
                                         tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                         useTagsForAI: boolean;
                                     } | null;
@@ -2905,9 +2845,6 @@ declare const app: Elysia<"", {
                                         actId: string | null;
                                         venueId: string | null;
                                         clubId: string | null;
-                                        weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
-                                        showBookedDates: boolean;
-                                        holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
                                         tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                         useTagsForAI: boolean;
                                     } | null;
@@ -3880,9 +3817,6 @@ declare const app: Elysia<"", {
                                         actId: string | null;
                                         venueId: string | null;
                                         clubId: string | null;
-                                        weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
-                                        showBookedDates: boolean;
-                                        holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
                                         tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                         useTagsForAI: boolean;
                                     } | null;
@@ -3930,9 +3864,6 @@ declare const app: Elysia<"", {
                                         actId: string | null;
                                         venueId: string | null;
                                         clubId: string | null;
-                                        weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
-                                        showBookedDates: boolean;
-                                        holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
                                         tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                         useTagsForAI: boolean;
                                     } | null;
@@ -5832,9 +5763,6 @@ declare const app: Elysia<"", {
                         actId: string | null;
                         venueId: string | null;
                         clubId: string | null;
-                        weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
-                        showBookedDates: boolean;
-                        holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
                         tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                         useTagsForAI: boolean;
                     } | null;
@@ -6755,9 +6683,6 @@ declare const app: Elysia<"", {
                                 actId: string | null;
                                 venueId: string | null;
                                 clubId: string | null;
-                                weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
-                                showBookedDates: boolean;
-                                holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
                                 tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                                 useTagsForAI: boolean;
                             } | null;
@@ -6870,9 +6795,6 @@ declare const app: Elysia<"", {
                             actId: string | null;
                             venueId: string | null;
                             clubId: string | null;
-                            weeklyAvailability: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
-                            showBookedDates: boolean;
-                            holidayMode: import("@archeusllc/schema/prisma-client/client").$Enums.HolidayMode;
                             tagsExcludedFromAI: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue | null;
                             useTagsForAI: boolean;
                         } | null;
