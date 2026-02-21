@@ -8514,6 +8514,109 @@ declare const app: Elysia<"", {
         };
     };
 } & {
+    availability: {
+        overrides: {
+            get: {
+                body: unknown;
+                params: {};
+                query: {
+                    from: string;
+                    to: string;
+                };
+                headers: unknown;
+                response: {
+                    200: {
+                        overrides: {
+                            date: string;
+                            day: boolean;
+                            night: boolean;
+                        }[];
+                    } | {
+                        error: string;
+                    };
+                    422: {
+                        type: "validation";
+                        on: string;
+                        summary?: string;
+                        message?: string;
+                        found?: unknown;
+                        property?: string;
+                        expected?: string;
+                    };
+                };
+            };
+        };
+    };
+} & {
+    availability: {
+        overrides: {
+            ":date": {
+                put: {
+                    body: {
+                        day: boolean;
+                        night: boolean;
+                    };
+                    params: {
+                        date: string;
+                    };
+                    query: unknown;
+                    headers: unknown;
+                    response: {
+                        200: {
+                            override: {
+                                date: string;
+                                day: boolean;
+                                night: boolean;
+                            };
+                        } | {
+                            error: string;
+                        };
+                        422: {
+                            type: "validation";
+                            on: string;
+                            summary?: string;
+                            message?: string;
+                            found?: unknown;
+                            property?: string;
+                            expected?: string;
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
+    availability: {
+        overrides: {
+            ":date": {
+                delete: {
+                    body: unknown;
+                    params: {
+                        date: string;
+                    };
+                    query: unknown;
+                    headers: unknown;
+                    response: {
+                        200: {
+                            cleared: boolean;
+                        } | {
+                            error: string;
+                        };
+                        422: {
+                            type: "validation";
+                            on: string;
+                            summary?: string;
+                            message?: string;
+                            found?: unknown;
+                            property?: string;
+                            expected?: string;
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
     [x: string]: {
         get: {
             body: unknown;
