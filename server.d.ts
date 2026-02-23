@@ -3,9 +3,9 @@ declare const app: Elysia<"", {
     decorator: {};
     store: {};
     derive: Partial<{
-        readonly firebase: {
-            readonly uid: string;
-            readonly email: string | undefined;
+        firebase: {
+            uid: string;
+            email: string | undefined;
         };
     }>;
     resolve: {};
@@ -42,9 +42,9 @@ declare const app: Elysia<"", {
     macroFn: {};
     parser: {};
     response: import("elysia").ExtractErrorFromHandle<{
-        readonly firebase: {
-            readonly uid: string;
-            readonly email: string | undefined;
+        firebase: {
+            uid: string;
+            email: string | undefined;
         };
     } | undefined>;
 } & {
@@ -67,8 +67,6 @@ declare const app: Elysia<"", {
         headers: unknown;
         response: {
             200: {
-                error: any;
-            } | {
                 message: string;
                 status: string;
             };
@@ -165,41 +163,26 @@ declare const app: Elysia<"", {
                 headers: unknown;
                 response: {
                     200: {
-                        error: string;
-                        message: string;
-                        documentation: string;
-                        user?: undefined;
-                    } | {
                         user: {
-                            user: {
-                                email: string;
-                                displayName: string | null;
-                                firebaseUid: string | null;
-                                userId: string;
-                                tag: string | null;
-                                avatar: string | null;
-                                banner: string | null;
-                                createdAt: Date;
-                                updatedAt: Date;
-                                hasPremiumAccess: boolean;
-                                premiumGrantedAt: Date | null;
-                                taggingEnabled: boolean;
-                            };
-                            joinedGuild: {
-                                guildId: string;
-                                name: string;
-                                slug: string;
-                                guildType: string;
-                            } | null;
+                            email: string;
+                            displayName: string | null;
+                            firebaseUid: string | null;
+                            userId: string;
+                            tag: string | null;
+                            avatar: string | null;
+                            banner: string | null;
+                            createdAt: Date;
+                            updatedAt: Date;
+                            hasPremiumAccess: boolean;
+                            premiumGrantedAt: Date | null;
+                            taggingEnabled: boolean;
                         };
-                        error?: undefined;
-                        message?: undefined;
-                        documentation?: undefined;
-                    } | {
-                        error: string;
-                        message?: undefined;
-                        documentation?: undefined;
-                        user?: undefined;
+                        joinedGuild: {
+                            guildId: string;
+                            name: string;
+                            slug: string;
+                            guildType: string;
+                        } | null;
                     };
                     422: {
                         type: "validation";
@@ -227,33 +210,18 @@ declare const app: Elysia<"", {
                 headers: unknown;
                 response: {
                     200: {
-                        error: string;
-                        message: string;
-                        documentation: string;
-                        user?: undefined;
-                    } | {
-                        user: {
-                            email: string;
-                            displayName: string | null;
-                            firebaseUid: string | null;
-                            userId: string;
-                            tag: string | null;
-                            avatar: string | null;
-                            banner: string | null;
-                            createdAt: Date;
-                            updatedAt: Date;
-                            hasPremiumAccess: boolean;
-                            premiumGrantedAt: Date | null;
-                            taggingEnabled: boolean;
-                        };
-                        error?: undefined;
-                        message?: undefined;
-                        documentation?: undefined;
-                    } | {
-                        error: string;
-                        message?: undefined;
-                        documentation?: undefined;
-                        user?: undefined;
+                        email: string;
+                        displayName: string | null;
+                        firebaseUid: string | null;
+                        userId: string;
+                        tag: string | null;
+                        avatar: string | null;
+                        banner: string | null;
+                        createdAt: Date;
+                        updatedAt: Date;
+                        hasPremiumAccess: boolean;
+                        premiumGrantedAt: Date | null;
+                        taggingEnabled: boolean;
                     };
                     422: {
                         type: "validation";
@@ -380,8 +348,6 @@ declare const app: Elysia<"", {
                             tagChanged: boolean;
                             oldTag?: string;
                             newTag?: string;
-                        } | {
-                            error: string;
                         };
                         422: {
                             type: "validation";
@@ -413,8 +379,6 @@ declare const app: Elysia<"", {
                     response: {
                         200: {
                             avatar: string;
-                        } | {
-                            error: string;
                         };
                         422: {
                             type: "validation";
@@ -463,6 +427,56 @@ declare const app: Elysia<"", {
         };
     };
 } & {
+    config: {
+        "latest-build": {
+            get: {
+                body: unknown;
+                params: {};
+                query: unknown;
+                headers: unknown;
+                response: {
+                    200: {
+                        version: string | null;
+                        downloadUrl: string | null;
+                    };
+                };
+            };
+        };
+    };
+} & {
+    config: {
+        "latest-build": {
+            post: {
+                body: {
+                    passphrase: string;
+                    version: string;
+                    downloadUrl: string;
+                };
+                params: {};
+                query: unknown;
+                headers: unknown;
+                response: {
+                    200: {
+                        error: string;
+                        success?: undefined;
+                    } | {
+                        success: boolean;
+                        error?: undefined;
+                    };
+                    422: {
+                        type: "validation";
+                        on: string;
+                        summary?: string;
+                        message?: string;
+                        found?: unknown;
+                        property?: string;
+                        expected?: string;
+                    };
+                };
+            };
+        };
+    };
+} & {
     feed: {};
 } & {
     feed: {
@@ -489,8 +503,6 @@ declare const app: Elysia<"", {
                     total: number;
                     page: number;
                     limit: number;
-                } | {
-                    error: string;
                 };
                 422: {
                     type: "validation";
@@ -606,8 +618,6 @@ declare const app: Elysia<"", {
                     total: number;
                     page: number;
                     limit: number;
-                } | {
-                    error: string;
                 };
                 422: {
                     type: "validation";
@@ -800,8 +810,6 @@ declare const app: Elysia<"", {
                         duration: number | null;
                         visibility: import("@archeusllc/schema/prisma-client/client").$Enums.CalendarEventVisibility;
                         confirmed: boolean;
-                    } | {
-                        error: string;
                     };
                     422: {
                         type: "validation";
@@ -1705,8 +1713,6 @@ declare const app: Elysia<"", {
                             duration: number | null;
                             visibility: import("@archeusllc/schema/prisma-client/client").$Enums.CalendarEventVisibility;
                             confirmed: boolean;
-                        } | {
-                            error: string;
                         };
                         422: {
                             type: "validation";
@@ -1811,9 +1817,7 @@ declare const app: Elysia<"", {
                             invitedById: string;
                             respondedAt: Date | null;
                             associationType: import("@archeusllc/schema/prisma-client/client").$Enums.EventAssociationType;
-                        })[] | {
-                            error: string;
-                        };
+                        })[];
                         422: {
                             type: "validation";
                             on: string;
@@ -1844,7 +1848,7 @@ declare const app: Elysia<"", {
                     query: unknown;
                     headers: unknown;
                     response: {
-                        200: ({
+                        200: {
                             guild: {
                                 venue: {
                                     name: string;
@@ -1933,8 +1937,6 @@ declare const app: Elysia<"", {
                             invitedById: string;
                             respondedAt: Date | null;
                             associationType: import("@archeusllc/schema/prisma-client/client").$Enums.EventAssociationType;
-                        }) | {
-                            error: string;
                         };
                         422: {
                             type: "validation";
@@ -1965,7 +1967,7 @@ declare const app: Elysia<"", {
                             query: unknown;
                             headers: unknown;
                             response: {
-                                200: ({
+                                200: {
                                     guild: {
                                         venue: {
                                             name: string;
@@ -2070,8 +2072,6 @@ declare const app: Elysia<"", {
                                     invitedById: string;
                                     respondedAt: Date | null;
                                     associationType: import("@archeusllc/schema/prisma-client/client").$Enums.EventAssociationType;
-                                }) | {
-                                    error: string;
                                 };
                                 422: {
                                     type: "validation";
@@ -2104,7 +2104,7 @@ declare const app: Elysia<"", {
                             query: unknown;
                             headers: unknown;
                             response: {
-                                200: ({
+                                200: {
                                     guild: {
                                         venue: {
                                             name: string;
@@ -2179,8 +2179,6 @@ declare const app: Elysia<"", {
                                     invitedById: string;
                                     respondedAt: Date | null;
                                     associationType: import("@archeusllc/schema/prisma-client/client").$Enums.EventAssociationType;
-                                }) | {
-                                    error: string;
                                 };
                                 422: {
                                     type: "validation";
@@ -2237,11 +2235,11 @@ declare const app: Elysia<"", {
                                     setListId: string;
                                     position: number;
                                     trackId: string;
-                                    setItemId: string;
                                     customTuning: string | null;
                                     customNotes: string | null;
                                     customDuration: number | null;
                                     sectionId: string | null;
+                                    setItemId: string;
                                 })[];
                                 setSections: {
                                     name: string;
@@ -2308,9 +2306,7 @@ declare const app: Elysia<"", {
                             position: number;
                             isDuplicate: boolean;
                             attachedById: string;
-                        })[] | {
-                            error: string;
-                        };
+                        })[];
                         422: {
                             type: "validation";
                             on: string;
@@ -2362,11 +2358,11 @@ declare const app: Elysia<"", {
                                     setListId: string;
                                     position: number;
                                     trackId: string;
-                                    setItemId: string;
                                     customTuning: string | null;
                                     customNotes: string | null;
                                     customDuration: number | null;
                                     sectionId: string | null;
+                                    setItemId: string;
                                 })[];
                                 setSections: {
                                     name: string;
@@ -2489,11 +2485,11 @@ declare const app: Elysia<"", {
                                         setListId: string;
                                         position: number;
                                         trackId: string;
-                                        setItemId: string;
                                         customTuning: string | null;
                                         customNotes: string | null;
                                         customDuration: number | null;
                                         sectionId: string | null;
+                                        setItemId: string;
                                     })[];
                                     setSections: {
                                         name: string;
@@ -2790,7 +2786,7 @@ declare const app: Elysia<"", {
             query: unknown;
             headers: unknown;
             response: {
-                200: ({
+                200: {
                     tag: {
                         value: string;
                         tagId: string;
@@ -2928,8 +2924,6 @@ declare const app: Elysia<"", {
                     followedUserId: string | null;
                     tagId: string | null;
                     eventId: string | null;
-                }) | {
-                    error: string;
                 };
                 422: {
                     type: "validation";
@@ -2964,8 +2958,6 @@ declare const app: Elysia<"", {
                         imported: number;
                         skipped: number;
                         total: number;
-                    } | {
-                        error: string;
                     };
                     422: {
                         type: "validation";
@@ -2993,8 +2985,6 @@ declare const app: Elysia<"", {
                 response: {
                     200: {
                         success: boolean;
-                    } | {
-                        error: string;
                     };
                     422: {
                         type: "validation";
@@ -3035,8 +3025,6 @@ declare const app: Elysia<"", {
                         total: number;
                         limit: number;
                         offset: number;
-                    } | {
-                        error: string;
                     };
                     422: {
                         type: "validation";
@@ -3086,10 +3074,6 @@ declare const app: Elysia<"", {
                                 value: string;
                                 color: string | null;
                             }[];
-                            error?: undefined;
-                        } | {
-                            error: string;
-                            tags?: undefined;
                         };
                         422: {
                             type: "validation";
@@ -3163,8 +3147,6 @@ declare const app: Elysia<"", {
                     total: number;
                     page: number;
                     limit: number;
-                } | {
-                    error: string;
                 };
                 422: {
                     type: "validation";
@@ -3189,9 +3171,7 @@ declare const app: Elysia<"", {
                 query: unknown;
                 headers: unknown;
                 response: {
-                    200: import("./types").GuildResponse | {
-                        error: string;
-                    };
+                    200: import("./types").GuildResponse;
                     422: {
                         type: "validation";
                         on: string;
@@ -3219,9 +3199,7 @@ declare const app: Elysia<"", {
             query: unknown;
             headers: unknown;
             response: {
-                200: import("./types").GuildResponse | {
-                    error: string;
-                };
+                200: import("./types").GuildResponse;
                 422: {
                     type: "validation";
                     on: string;
@@ -3251,9 +3229,7 @@ declare const app: Elysia<"", {
                 query: unknown;
                 headers: unknown;
                 response: {
-                    200: import("./types").GuildResponse | {
-                        error: string;
-                    };
+                    200: import("./types").GuildResponse;
                     422: {
                         type: "validation";
                         on: string;
@@ -3280,8 +3256,6 @@ declare const app: Elysia<"", {
                 response: {
                     200: {
                         success: boolean;
-                    } | {
-                        error: string;
                     };
                     422: {
                         type: "validation";
@@ -3429,9 +3403,7 @@ declare const app: Elysia<"", {
                             invitedById: string;
                             respondedAt: Date | null;
                             associationType: import("@archeusllc/schema/prisma-client/client").$Enums.EventAssociationType;
-                        })[] | {
-                            error: string;
-                        };
+                        })[];
                         422: {
                             type: "validation";
                             on: string;
@@ -3467,8 +3439,6 @@ declare const app: Elysia<"", {
                             message: string;
                             avatar: string;
                             guild: import("./types").GuildResponse;
-                        } | {
-                            error: string;
                         };
                         422: {
                             type: "validation";
@@ -3505,8 +3475,6 @@ declare const app: Elysia<"", {
                             message: string;
                             banner: string;
                             guild: import("./types").GuildResponse;
-                        } | {
-                            error: string;
                         };
                         422: {
                             type: "validation";
@@ -3549,8 +3517,6 @@ declare const app: Elysia<"", {
                     total: number;
                     page: number;
                     limit: number;
-                } | {
-                    error: string;
                 };
                 422: {
                     type: "validation";
@@ -3575,9 +3541,7 @@ declare const app: Elysia<"", {
                 query: unknown;
                 headers: unknown;
                 response: {
-                    200: import("./types").GuildResponse | {
-                        error: string;
-                    };
+                    200: import("./types").GuildResponse;
                     422: {
                         type: "validation";
                         on: string;
@@ -3605,9 +3569,7 @@ declare const app: Elysia<"", {
             query: unknown;
             headers: unknown;
             response: {
-                200: import("./types").GuildResponse | {
-                    error: string;
-                };
+                200: import("./types").GuildResponse;
                 422: {
                     type: "validation";
                     on: string;
@@ -3637,9 +3599,7 @@ declare const app: Elysia<"", {
                 query: unknown;
                 headers: unknown;
                 response: {
-                    200: import("./types").GuildResponse | {
-                        error: string;
-                    };
+                    200: import("./types").GuildResponse;
                     422: {
                         type: "validation";
                         on: string;
@@ -3666,8 +3626,6 @@ declare const app: Elysia<"", {
                 response: {
                     200: {
                         success: boolean;
-                    } | {
-                        error: string;
                     };
                     422: {
                         type: "validation";
@@ -3703,8 +3661,6 @@ declare const app: Elysia<"", {
                             message: string;
                             avatar: string;
                             guild: import("./types").GuildResponse;
-                        } | {
-                            error: string;
                         };
                         422: {
                             type: "validation";
@@ -3741,8 +3697,6 @@ declare const app: Elysia<"", {
                             message: string;
                             banner: string;
                             guild: import("./types").GuildResponse;
-                        } | {
-                            error: string;
                         };
                         422: {
                             type: "validation";
@@ -3847,9 +3801,7 @@ declare const app: Elysia<"", {
                         latitude: number | null;
                         longitude: number | null;
                         createdByUserId: string | null;
-                    })[] | {
-                        error: string;
-                    };
+                    })[];
                     422: {
                         type: "validation";
                         on: string;
@@ -3891,9 +3843,7 @@ declare const app: Elysia<"", {
                         latitude: number | null;
                         longitude: number | null;
                         createdByUserId: string | null;
-                    }[] | {
-                        error: string;
-                    };
+                    }[];
                     422: {
                         type: "validation";
                         on: string;
@@ -3934,8 +3884,6 @@ declare const app: Elysia<"", {
                     total: number;
                     page: number;
                     limit: number;
-                } | {
-                    error: string;
                 };
                 422: {
                     type: "validation";
@@ -3961,14 +3909,6 @@ declare const app: Elysia<"", {
                 headers: unknown;
                 response: {
                     200: import("./types").GuildResponse | {
-                        error: string;
-                        venue?: undefined;
-                        guildId?: undefined;
-                        name?: undefined;
-                        guildType?: undefined;
-                        currentOwner?: undefined;
-                        guildMembers?: undefined;
-                    } | {
                         venue: {
                             name: string;
                             avatar: string | null;
@@ -3990,7 +3930,6 @@ declare const app: Elysia<"", {
                         guildType: string;
                         currentOwner: null;
                         guildMembers: never[];
-                        error?: undefined;
                     };
                     422: {
                         type: "validation";
@@ -4036,8 +3975,6 @@ declare const app: Elysia<"", {
                         latitude: number | null;
                         longitude: number | null;
                         createdByUserId: string | null;
-                    } | {
-                        error: string;
                     };
                     422: {
                         type: "validation";
@@ -4067,9 +4004,7 @@ declare const app: Elysia<"", {
             query: unknown;
             headers: unknown;
             response: {
-                200: import("./types").GuildResponse | {
-                    error: string;
-                };
+                200: import("./types").GuildResponse;
                 422: {
                     type: "validation";
                     on: string;
@@ -4100,9 +4035,7 @@ declare const app: Elysia<"", {
                 query: unknown;
                 headers: unknown;
                 response: {
-                    200: import("./types").GuildResponse | {
-                        error: string;
-                    };
+                    200: import("./types").GuildResponse;
                     422: {
                         type: "validation";
                         on: string;
@@ -4129,8 +4062,6 @@ declare const app: Elysia<"", {
                 response: {
                     200: {
                         success: boolean;
-                    } | {
-                        error: string;
                     };
                     422: {
                         type: "validation";
@@ -4160,7 +4091,7 @@ declare const app: Elysia<"", {
                     query: unknown;
                     headers: unknown;
                     response: {
-                        200: ({
+                        200: {
                             venue: {
                                 name: string;
                                 avatar: string | null;
@@ -4202,8 +4133,6 @@ declare const app: Elysia<"", {
                             actId: string;
                             venueId: string;
                             interestId: string;
-                        }) | {
-                            error: string;
                         };
                         422: {
                             type: "validation";
@@ -4265,8 +4194,6 @@ declare const app: Elysia<"", {
                             total: number;
                             page: number;
                             limit: number;
-                        } | {
-                            error: string;
                         };
                         422: {
                             type: "validation";
@@ -4298,8 +4225,6 @@ declare const app: Elysia<"", {
                     response: {
                         200: {
                             success: boolean;
-                        } | {
-                            error: string;
                         };
                         422: {
                             type: "validation";
@@ -4448,9 +4373,7 @@ declare const app: Elysia<"", {
                             invitedById: string;
                             respondedAt: Date | null;
                             associationType: import("@archeusllc/schema/prisma-client/client").$Enums.EventAssociationType;
-                        })[] | {
-                            error: string;
-                        };
+                        })[];
                         422: {
                             type: "validation";
                             on: string;
@@ -4486,8 +4409,6 @@ declare const app: Elysia<"", {
                             message: string;
                             avatar: string;
                             guild: import("./types").GuildResponse;
-                        } | {
-                            error: string;
                         };
                         422: {
                             type: "validation";
@@ -4537,8 +4458,6 @@ declare const app: Elysia<"", {
                                 longitude: number | null;
                                 createdByUserId: string | null;
                             };
-                        } | {
-                            error: string;
                         };
                         422: {
                             type: "validation";
@@ -4575,8 +4494,6 @@ declare const app: Elysia<"", {
                             message: string;
                             banner: string;
                             guild: import("./types").GuildResponse;
-                        } | {
-                            error: string;
                         };
                         422: {
                             type: "validation";
@@ -4604,9 +4521,7 @@ declare const app: Elysia<"", {
                     query: unknown;
                     headers: unknown;
                     response: {
-                        200: import("./types").GuildResponse | {
-                            error: string;
-                        };
+                        200: import("./types").GuildResponse;
                         422: {
                             type: "validation";
                             on: string;
@@ -4651,10 +4566,6 @@ declare const app: Elysia<"", {
                                 avatar: string | null;
                             } | null;
                         }[];
-                        error?: undefined;
-                    } | {
-                        error: string;
-                        invitations?: undefined;
                     };
                 };
             };
@@ -4693,8 +4604,6 @@ declare const app: Elysia<"", {
                             total: number;
                             page: number;
                             limit: number;
-                        } | {
-                            error: string;
                         };
                         422: {
                             type: "validation";
@@ -4738,8 +4647,6 @@ declare const app: Elysia<"", {
                             id: string;
                             role: import("@archeusllc/schema/prisma-client/client").$Enums.GuildMemberRole;
                             joinedAt: Date;
-                        } | {
-                            error: string;
                         };
                         422: {
                             type: "validation";
@@ -4813,8 +4720,6 @@ declare const app: Elysia<"", {
                                 id: string;
                                 role: import("@archeusllc/schema/prisma-client/client").$Enums.GuildMemberRole;
                                 joinedAt: Date;
-                            } | {
-                                error: string;
                             };
                             422: {
                                 type: "validation";
@@ -4865,8 +4770,6 @@ declare const app: Elysia<"", {
                                 tag: string | null;
                                 avatar: string | null;
                             };
-                        } | {
-                            error: string;
                         };
                         422: {
                             type: "validation";
@@ -4916,9 +4819,7 @@ declare const app: Elysia<"", {
                                 tag: string | null;
                                 avatar: string | null;
                             };
-                        }[] | {
-                            error: string;
-                        };
+                        }[];
                         422: {
                             type: "validation";
                             on: string;
@@ -4998,8 +4899,6 @@ declare const app: Elysia<"", {
                                     tag: string | null;
                                     avatar: string | null;
                                 };
-                            } | {
-                                error: string;
                             };
                             422: {
                                 type: "validation";
@@ -5060,10 +4959,6 @@ declare const app: Elysia<"", {
                             tag: string | null;
                             avatar: string | null;
                         }[];
-                        error?: undefined;
-                    } | {
-                        error: string;
-                        users?: undefined;
                     };
                     422: {
                         type: "validation";
@@ -5100,8 +4995,6 @@ declare const app: Elysia<"", {
                             avatar: string | null;
                         };
                         isMember: boolean;
-                    } | {
-                        error: string;
                     };
                     422: {
                         type: "validation";
@@ -5133,12 +5026,6 @@ declare const app: Elysia<"", {
                             name: string;
                             slug: string;
                             guildType: import("@archeusllc/schema/prisma-client/client").$Enums.GuildType;
-                        } | {
-                            error: string;
-                            guild: any;
-                        } | {
-                            error: string;
-                            guild?: undefined;
                         };
                         422: {
                             type: "validation";
@@ -5182,8 +5069,6 @@ declare const app: Elysia<"", {
                                 tag: string | null;
                                 avatar: string | null;
                             };
-                        } | {
-                            error: string;
                         };
                         422: {
                             type: "validation";
@@ -5230,10 +5115,6 @@ declare const app: Elysia<"", {
                                     avatar: string | null;
                                 };
                             }[];
-                            error?: undefined;
-                        } | {
-                            error: string;
-                            links?: undefined;
                         };
                         422: {
                             type: "validation";
@@ -5280,8 +5161,6 @@ declare const app: Elysia<"", {
                                     tag: string | null;
                                     avatar: string | null;
                                 };
-                            } | {
-                                error: string;
                             };
                             422: {
                                 type: "validation";
@@ -5327,8 +5206,6 @@ declare const app: Elysia<"", {
                                         tag: string | null;
                                         avatar: string | null;
                                     };
-                                } | {
-                                    error: string;
                                 };
                                 422: {
                                     type: "validation";
@@ -5431,8 +5308,6 @@ declare const app: Elysia<"", {
                         total: number;
                         page: number;
                         limit: number;
-                    } | {
-                        error: string;
                     };
                     422: {
                         type: "validation";
@@ -5459,8 +5334,6 @@ declare const app: Elysia<"", {
                     response: {
                         200: {
                             count: number;
-                        } | {
-                            error: string;
                         };
                     };
                 };
@@ -5491,8 +5364,6 @@ declare const app: Elysia<"", {
                             readAt: Date | null;
                             relatedType: string | null;
                             relatedId: string | null;
-                        } | {
-                            error: string;
                         };
                         422: {
                             type: "validation";
@@ -5536,8 +5407,6 @@ declare const app: Elysia<"", {
                                 readAt: Date | null;
                                 relatedType: string | null;
                                 relatedId: string | null;
-                            } | {
-                                error: string;
                             };
                             422: {
                                 type: "validation";
@@ -5594,11 +5463,7 @@ declare const app: Elysia<"", {
                     headers: unknown;
                     response: {
                         200: {
-                            error: string;
-                            success?: undefined;
-                        } | {
                             success: boolean;
-                            error?: undefined;
                         };
                         422: {
                             type: "validation";
@@ -6196,7 +6061,7 @@ declare const app: Elysia<"", {
             query: unknown;
             headers: unknown;
             response: {
-                200: ({
+                200: {
                     setItems: ({
                         track: {
                             type: import("@archeusllc/schema/prisma-client/client").$Enums.TrackType;
@@ -6225,11 +6090,11 @@ declare const app: Elysia<"", {
                         setListId: string;
                         position: number;
                         trackId: string;
-                        setItemId: string;
                         customTuning: string | null;
                         customNotes: string | null;
                         customDuration: number | null;
                         sectionId: string | null;
+                        setItemId: string;
                     })[];
                     setSections: {
                         name: string;
@@ -6252,8 +6117,6 @@ declare const app: Elysia<"", {
                     isPrivate: boolean;
                     viewToken: string;
                     editToken: string;
-                }) | {
-                    error: string;
                 };
                 422: {
                     type: "validation";
@@ -6311,11 +6174,11 @@ declare const app: Elysia<"", {
                         setListId: string;
                         position: number;
                         trackId: string;
-                        setItemId: string;
                         customTuning: string | null;
                         customNotes: string | null;
                         customDuration: number | null;
                         sectionId: string | null;
+                        setItemId: string;
                     })[];
                     setSections: {
                         name: string;
@@ -6338,9 +6201,7 @@ declare const app: Elysia<"", {
                     isPrivate: boolean;
                     viewToken: string;
                     editToken: string;
-                })[] | {
-                    error: string;
-                };
+                })[];
                 422: {
                     type: "validation";
                     on: string;
@@ -6368,7 +6229,7 @@ declare const app: Elysia<"", {
                 query: unknown;
                 headers: unknown;
                 response: {
-                    200: ({
+                    200: {
                         setItems: ({
                             track: {
                                 type: import("@archeusllc/schema/prisma-client/client").$Enums.TrackType;
@@ -6397,11 +6258,11 @@ declare const app: Elysia<"", {
                             setListId: string;
                             position: number;
                             trackId: string;
-                            setItemId: string;
                             customTuning: string | null;
                             customNotes: string | null;
                             customDuration: number | null;
                             sectionId: string | null;
+                            setItemId: string;
                         })[];
                         setSections: {
                             name: string;
@@ -6424,8 +6285,6 @@ declare const app: Elysia<"", {
                         isPrivate: boolean;
                         viewToken: string;
                         editToken: string;
-                    }) | {
-                        error: string;
                     };
                     422: {
                         type: "validation";
@@ -6453,8 +6312,6 @@ declare const app: Elysia<"", {
                 response: {
                     200: {
                         success: boolean;
-                    } | {
-                        error: string;
                     };
                     422: {
                         type: "validation";
@@ -6512,11 +6369,11 @@ declare const app: Elysia<"", {
                                 setListId: string;
                                 position: number;
                                 trackId: string;
-                                setItemId: string;
                                 customTuning: string | null;
                                 customNotes: string | null;
                                 customDuration: number | null;
                                 sectionId: string | null;
+                                setItemId: string;
                             })[];
                             setSections: {
                                 name: string;
@@ -6539,9 +6396,7 @@ declare const app: Elysia<"", {
                             isPrivate: boolean;
                             viewToken: string;
                             editToken: string;
-                        }) | {
-                            error: string;
-                        } | null;
+                        }) | null;
                         422: {
                             type: "validation";
                             on: string;
@@ -6572,8 +6427,6 @@ declare const app: Elysia<"", {
                             setListId: string;
                             viewToken: string;
                             editToken: string;
-                        } | {
-                            error: string;
                         };
                         422: {
                             type: "validation";
@@ -6610,7 +6463,7 @@ declare const app: Elysia<"", {
                     };
                     headers: unknown;
                     response: {
-                        200: ({
+                        200: {
                             track: {
                                 type: import("@archeusllc/schema/prisma-client/client").$Enums.TrackType;
                                 createdAt: Date;
@@ -6638,13 +6491,11 @@ declare const app: Elysia<"", {
                             setListId: string;
                             position: number;
                             trackId: string;
-                            setItemId: string;
                             customTuning: string | null;
                             customNotes: string | null;
                             customDuration: number | null;
                             sectionId: string | null;
-                        }) | {
-                            error: string;
+                            setItemId: string;
                         };
                         422: {
                             type: "validation";
@@ -6673,15 +6524,15 @@ declare const app: Elysia<"", {
                             sectionId?: string | null | undefined;
                         };
                         params: {
-                            setItemId: string;
                             setlistId: string;
+                            setItemId: string;
                         };
                         query: {
                             token?: string | undefined;
                         };
                         headers: unknown;
                         response: {
-                            200: ({
+                            200: {
                                 track: {
                                     type: import("@archeusllc/schema/prisma-client/client").$Enums.TrackType;
                                     createdAt: Date;
@@ -6709,13 +6560,11 @@ declare const app: Elysia<"", {
                                 setListId: string;
                                 position: number;
                                 trackId: string;
-                                setItemId: string;
                                 customTuning: string | null;
                                 customNotes: string | null;
                                 customDuration: number | null;
                                 sectionId: string | null;
-                            }) | {
-                                error: string;
+                                setItemId: string;
                             };
                             422: {
                                 type: "validation";
@@ -6740,8 +6589,8 @@ declare const app: Elysia<"", {
                     delete: {
                         body: unknown;
                         params: {
-                            setItemId: string;
                             setlistId: string;
+                            setItemId: string;
                         };
                         query: {
                             token?: string | undefined;
@@ -6750,8 +6599,6 @@ declare const app: Elysia<"", {
                         response: {
                             200: {
                                 success: boolean;
-                            } | {
-                                error: string;
                             };
                             422: {
                                 type: "validation";
@@ -6817,11 +6664,11 @@ declare const app: Elysia<"", {
                                 setListId: string;
                                 position: number;
                                 trackId: string;
-                                setItemId: string;
                                 customTuning: string | null;
                                 customNotes: string | null;
                                 customDuration: number | null;
                                 sectionId: string | null;
+                                setItemId: string;
                             })[];
                             setSections: {
                                 name: string;
@@ -6844,9 +6691,7 @@ declare const app: Elysia<"", {
                             isPrivate: boolean;
                             viewToken: string;
                             editToken: string;
-                        }) | {
-                            error: string;
-                        } | null;
+                        }) | null;
                         422: {
                             type: "validation";
                             on: string;
@@ -6913,11 +6758,11 @@ declare const app: Elysia<"", {
                                 setListId: string;
                                 position: number;
                                 trackId: string;
-                                setItemId: string;
                                 customTuning: string | null;
                                 customNotes: string | null;
                                 customDuration: number | null;
                                 sectionId: string | null;
+                                setItemId: string;
                             })[];
                             setSections: {
                                 name: string;
@@ -6940,9 +6785,7 @@ declare const app: Elysia<"", {
                             isPrivate: boolean;
                             viewToken: string;
                             editToken: string;
-                        }) | {
-                            error: string;
-                        } | null;
+                        }) | null;
                         422: {
                             type: "validation";
                             on: string;
@@ -7006,11 +6849,11 @@ declare const app: Elysia<"", {
                                     setListId: string;
                                     position: number;
                                     trackId: string;
-                                    setItemId: string;
                                     customTuning: string | null;
                                     customNotes: string | null;
                                     customDuration: number | null;
                                     sectionId: string | null;
+                                    setItemId: string;
                                 })[];
                                 setSections: {
                                     name: string;
@@ -7033,9 +6876,7 @@ declare const app: Elysia<"", {
                                 isPrivate: boolean;
                                 viewToken: string;
                                 editToken: string;
-                            }) | {
-                                error: string;
-                            } | null;
+                            }) | null;
                             422: {
                                 type: "validation";
                                 on: string;
@@ -7076,8 +6917,6 @@ declare const app: Elysia<"", {
                             position: number;
                             sectionId: string;
                             breakDuration: number | null;
-                        } | {
-                            error: string;
                         };
                         422: {
                             type: "validation";
@@ -7104,8 +6943,8 @@ declare const app: Elysia<"", {
                             breakDuration?: number | null | undefined;
                         };
                         params: {
-                            sectionId: string;
                             setlistId: string;
+                            sectionId: string;
                         };
                         query: {
                             token?: string | undefined;
@@ -7120,8 +6959,6 @@ declare const app: Elysia<"", {
                                 position: number;
                                 sectionId: string;
                                 breakDuration: number | null;
-                            } | {
-                                error: string;
                             };
                             422: {
                                 type: "validation";
@@ -7146,8 +6983,8 @@ declare const app: Elysia<"", {
                     delete: {
                         body: unknown;
                         params: {
-                            sectionId: string;
                             setlistId: string;
+                            sectionId: string;
                         };
                         query: {
                             token?: string | undefined;
@@ -7156,8 +6993,6 @@ declare const app: Elysia<"", {
                         response: {
                             200: {
                                 success: boolean;
-                            } | {
-                                error: string;
                             };
                             422: {
                                 type: "validation";
@@ -7244,11 +7079,11 @@ declare const app: Elysia<"", {
                                 setListId: string;
                                 position: number;
                                 trackId: string;
-                                setItemId: string;
                                 customTuning: string | null;
                                 customNotes: string | null;
                                 customDuration: number | null;
                                 sectionId: string | null;
+                                setItemId: string;
                             })[];
                             setSections: {
                                 name: string;
@@ -7270,8 +7105,6 @@ declare const app: Elysia<"", {
                             isPrivate: boolean;
                             viewToken: string;
                             editToken: string;
-                        } | {
-                            error: string;
                         };
                         422: {
                             type: "validation";
@@ -7356,11 +7189,11 @@ declare const app: Elysia<"", {
                             setListId: string;
                             position: number;
                             trackId: string;
-                            setItemId: string;
                             customTuning: string | null;
                             customNotes: string | null;
                             customDuration: number | null;
                             sectionId: string | null;
+                            setItemId: string;
                         })[];
                         setSections: {
                             name: string;
@@ -7382,8 +7215,6 @@ declare const app: Elysia<"", {
                         isPrivate: boolean;
                         viewToken: string;
                         editToken: string;
-                    } | {
-                        error: string;
                     };
                     422: {
                         type: "validation";
@@ -7447,8 +7278,6 @@ declare const app: Elysia<"", {
                         tag: string | null;
                         avatar: string | null;
                         createdAt: Date;
-                    } | {
-                        error: string;
                     };
                     422: {
                         type: "validation";
@@ -8026,8 +7855,6 @@ declare const app: Elysia<"", {
                             taggingEnabled: boolean;
                             useTagsForAI: boolean;
                             tagsExcludedFromAI: string[];
-                        } | {
-                            error: string;
                         };
                         422: {
                             type: "validation";
@@ -8439,8 +8266,6 @@ declare const app: Elysia<"", {
                 response: {
                     200: {
                         weeklyDefaults: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue;
-                    } | {
-                        error: string;
                     };
                     422: {
                         type: "validation";
@@ -8497,8 +8322,6 @@ declare const app: Elysia<"", {
                 response: {
                     200: {
                         weeklyDefaults: import("@archeusllc/schema/prisma-client/runtime/client").JsonValue;
-                    } | {
-                        error: string;
                     };
                     422: {
                         type: "validation";
@@ -8531,8 +8354,6 @@ declare const app: Elysia<"", {
                             day: boolean;
                             night: boolean;
                         }[];
-                    } | {
-                        error: string;
                     };
                     422: {
                         type: "validation";
@@ -8568,8 +8389,6 @@ declare const app: Elysia<"", {
                                 day: boolean;
                                 night: boolean;
                             };
-                        } | {
-                            error: string;
                         };
                         422: {
                             type: "validation";
@@ -8599,8 +8418,6 @@ declare const app: Elysia<"", {
                     response: {
                         200: {
                             cleared: boolean;
-                        } | {
-                            error: string;
                         };
                         422: {
                             type: "validation";
@@ -8717,8 +8534,8 @@ declare const app: Elysia<"", {
     schema: {};
     standaloneSchema: {};
     response: {
-        200: {
-            error: any;
+        [x: string]: {
+            [x: string]: any;
         };
     };
 } & {
