@@ -8617,6 +8617,83 @@ declare const app: Elysia<"", {
         };
     };
 } & {
+    availability: {
+        computed: {
+            get: {
+                body: unknown;
+                params: {};
+                query: {
+                    tz?: string | undefined;
+                    from: string;
+                    to: string;
+                };
+                headers: unknown;
+                response: {
+                    200: {
+                        availability: Record<string, {
+                            day: boolean;
+                            night: boolean;
+                            dayReason?: "weekly_default" | "override" | "guild_event" | "other_event";
+                            nightReason?: "weekly_default" | "override" | "guild_event" | "other_event";
+                        }>;
+                    };
+                    422: {
+                        type: "validation";
+                        on: string;
+                        summary?: string;
+                        message?: string;
+                        found?: unknown;
+                        property?: string;
+                        expected?: string;
+                    };
+                };
+            };
+        };
+    };
+} & {
+    availability: {
+        guild: {
+            ":guildId": {
+                get: {
+                    body: unknown;
+                    params: {
+                        guildId: string;
+                    };
+                    query: {
+                        tz?: string | undefined;
+                        from: string;
+                        to: string;
+                    };
+                    headers: unknown;
+                    response: {
+                        200: {
+                            members: {
+                                userId: string;
+                                displayName: string | null;
+                                avatar: string | null;
+                                availability: Record<string, {
+                                    day: boolean;
+                                    night: boolean;
+                                    dayReason?: "weekly_default" | "override" | "guild_event" | "other_event";
+                                    nightReason?: "weekly_default" | "override" | "guild_event" | "other_event";
+                                }>;
+                            }[];
+                        };
+                        422: {
+                            type: "validation";
+                            on: string;
+                            summary?: string;
+                            message?: string;
+                            found?: unknown;
+                            property?: string;
+                            expected?: string;
+                        };
+                    };
+                };
+            };
+        };
+    };
+} & {
     [x: string]: {
         get: {
             body: unknown;
