@@ -653,6 +653,7 @@ declare const app: Elysia<"", {
                                 };
                                 slug: string | null;
                                 setListId: string;
+                                viewToken: string;
                             };
                             act: ({
                                 guild: {
@@ -1485,6 +1486,7 @@ declare const app: Elysia<"", {
                                     };
                                     slug: string | null;
                                     setListId: string;
+                                    viewToken: string;
                                 };
                                 act: ({
                                     guild: {
